@@ -10,6 +10,10 @@ app.get("/", (req: Request, res: Response) => {
   res.send("Hello From base address");
 });
 
+app.get("/test", (req: Request, res: Response) => {
+  res.send("Hello test");
+});
+
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`);
 });
