@@ -1,9 +1,7 @@
 {
     "version": 2,
     "functions": {
-      "api/index.ts": {
-        "runtime": "vercel-nodejs@20"
-      }
+      "api/index.ts": {}
     },
     "routes": [
       {
