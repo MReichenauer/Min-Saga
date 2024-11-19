@@ -2,7 +2,7 @@
     "version": 2,
     "functions": {
       "api/index.ts": {
-        "runtime": "nodejs@20.x"
+        "runtime": "vercel-nodejs@20"
       }
     },
     "routes": [
@@ -11,4 +11,4 @@
         "dest": "/api/index.ts"
       }
     ]
-  }
+}
