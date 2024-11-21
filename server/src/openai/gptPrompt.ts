@@ -17,25 +17,48 @@ const gptPrompt = async (mainCharacter: string, environment: string, targetedAge
     messages: [
       {
         role: "system",
-        content: "You are a Swedish child story writer who specializes in creating engaging, age-appropriate stories.",
+        content:
+          "Du är en svensk barnboksförfattare som specialiserar sig på att skapa engagerande och åldersanpassade berättelser.",
       },
       {
         role: "user",
         content: `
-          Skriv en barnvänlig saga på svenska om ${mainCharacter} som utspelar sig ${environment}. Sagan ska vara för barn i ${targetedAge} års ålder.
-          Den ska ha en tydlig och beskrivande huvudtitel som sammanfattar hela berättelsen.
-          Sagan ska vara indelad i 7 korta kapitel som tar mellan 7 och 10 minuter att läsa högt.
-          ${languageStyle}
-          Skriv med en tydlig början, mitt och slut, och gör så att varje kapitel slutar med en cliffhanger som gör barnet nyfiket på nästa kapitel.
-          Varje kapitel ska ha en egen beskrivande titel som börjar med ordet "Kapitel" följt av en relevant och spännande titel för kapitlet.
-          Varje kapitel ska beskriva en scen med färgglada och livliga miljöer (exempelvis en tropisk ö) och ge en känsla av äventyr.
-          ${characterDescription}
-          Se till att det finns en tydlig progression i berättelsen och att varje kapitel leder till nästa på ett naturligt sätt.
-        `,
+        Skriv en barnvänlig saga på svenska om ${mainCharacter} som utspelar sig ${environment}. Sagan ska vara för barn i ${targetedAge} års ålder.
+        Den ska ha en tydlig och beskrivande huvudtitel som sammanfattar hela berättelsen.
+        Sagan ska vara indelad i 7 korta kapitel som tar mellan 7 och 10 minuter att läsa högt.
+        Varje kapitel ska ha en egen beskrivande titel som börjar med ordet "Kapitel" följt av en relevant och spännande titel för kapitlet.
+        Varje kapitel ska beskriva en scen med färgglada och livliga miljöer och ge en känsla av äventyr.
+        Det ska vara en tydlig progression i berättelsen, där varje kapitel leder till nästa på ett naturligt sätt.
+        Se till att varje kapitel slutar med en cliffhanger som gör barnet nyfiket på nästa kapitel.
+        
+       **Returnera sagan i följande format:**
+      - En tydlig titel för berättelsen.
+      - En lista över kapitel, varje med en titel och innehåll.
+
+        
+        **Exempel på svarformat:**
+        {
+          "title": "Den Magiska Regnbågen",
+          "chapters": [
+            {
+              "title": "Kapitel 1: Den Första Färgen",
+              "content": "Det var en gång en liten flicka vid namn..."
+            },
+            {
+              "title": "Kapitel 2: Resan Börjar",
+              "content": "Flickan och hennes vänner ger sig av på en äventyrlig resa..."
+            },
+            ...
+          ]
+        }
+
+        ${languageStyle}
+        ${characterDescription}
+      `,
       },
     ],
   });
-  return completions.choices[0].message;
+  return completions.choices[0].message.content;
 };
 
 export { gptPrompt };

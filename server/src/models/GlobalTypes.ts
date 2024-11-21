@@ -4,4 +4,10 @@ type ChapterType = {
   image: string | null;
 };
 
-export { ChapterType };
+type StoryType = {
+  title: string;
+  coverImage: string | null;
+  chapters: ChapterType[];
+};
+
+export { ChapterType, StoryType };
