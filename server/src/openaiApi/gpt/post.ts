@@ -1,6 +1,6 @@
 import { Request, Response } from "express";
 import { gptPrompt } from "../../openai/gptPrompt";
-import generateChapters from "../../helpers/generateChapters";
+import { StoryType } from "../../models/GlobalTypes";
 
 const promptGpt = async (request: Request, response: Response) => {
   const mainCharacter = request.body.mainCharacter;
@@ -13,26 +13,18 @@ const promptGpt = async (request: Request, response: Response) => {
   }
 
   try {
-    const storyResponse = await gptPrompt(mainCharacter, targetedAge, environment);
-    const storyText = storyResponse.content;
-
-    if (!storyText) {
-      response.status(500).send({ error: "Failed to generate story" });
+    const storyResponse = await gptPrompt(mainCharacter, environment, targetedAge);
+    if (!storyResponse) {
+      response.status(500).send({ error: "Failed to generate a story" });
       return;
     }
 
-    const storyTitle = storyText
-      .split("\n")[0]
-      .trim()
-      .replace(/^#\s*/, "")
-      .replace(/^\*\*|\*\*$/g, "");
+    const story: StoryType = JSON.parse(storyResponse);
 
-    const chapters = generateChapters(storyText);
-
-    const story = {
-      title: storyTitle,
-      chapters: chapters,
-    };
+    if (!story.title || !story.chapters || !Array.isArray(story.chapters)) {
+      response.status(500).send({ error: "Failed to generate a story in valid format" });
+      return;
+    }
 
     response.status(200).send({ story });
   } catch (error) {
