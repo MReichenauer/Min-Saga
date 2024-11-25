@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import { gptPrompt } from "../../openai/gptPrompt";
+import { gptPrompt } from "../../openai/prompts/gptPrompt";
 import { StoryType } from "../../models/GlobalTypes";
 
 const promptGpt = async (request: Request, response: Response) => {
@@ -20,7 +20,6 @@ const promptGpt = async (request: Request, response: Response) => {
     }
 
     const story: StoryType = JSON.parse(storyResponse);
-
     if (!story.title || !story.chapters || !Array.isArray(story.chapters)) {
       response.status(500).send({ error: "Failed to generate a story in valid format" });
       return;
@@ -28,7 +27,7 @@ const promptGpt = async (request: Request, response: Response) => {
 
     response.status(200).send({ story });
   } catch (error) {
-    console.error(error);
+    console.error("Error generating story:", error);
     response.status(500).send({ error: "An error occurred while generating the story" });
   }
 };
