@@ -2,6 +2,7 @@ import express, { Request, Response } from "express";
 import cors from "cors";
 import dotenv from "dotenv";
 import gptRouter from "../src/openaiApi/routes";
+import dalleRouter from "../src/openaiApi/dalle/routes";
 
 dotenv.config();
 const app = express();
@@ -19,6 +20,8 @@ app.get("/test", (req: Request, res: Response) => {
 });
 
 app.use("/gpt", gptRouter);
+
+app.use("/dalle", dalleRouter);
 
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`);

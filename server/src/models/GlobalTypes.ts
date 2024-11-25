@@ -1,13 +1,25 @@
 type ChapterType = {
   title: string;
   content: string;
-  image: string | null;
+  characters: CharacterType[];
+  image: string | null | undefined;
+  imagePrompt: string;
 };
 
 type StoryType = {
+  targetedAge: number;
   title: string;
-  coverImage: string | null;
+  imagePrompt: string;
   chapters: ChapterType[];
+  characters: CharacterType[];
 };
 
-export { ChapterType, StoryType };
+type CharacterType = {
+  id: number;
+  name: string;
+  type: string;
+  description: string;
+  personality: string;
+};
+
+export { ChapterType, StoryType, CharacterType };
