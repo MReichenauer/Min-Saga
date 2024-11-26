@@ -7,6 +7,7 @@ type ChapterType = {
 };
 
 type StoryType = {
+  id: string | null;
   targetedAge: number;
   title: string;
   imagePrompt: string;

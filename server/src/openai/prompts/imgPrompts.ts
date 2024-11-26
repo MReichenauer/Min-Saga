@@ -5,9 +5,10 @@ const imgPrompt = async (prompt: string) => {
     model: "dall-e-3",
     size: "1024x1024",
     quality: "standard",
+    response_format: "url",
     style: "natural",
     prompt: `${prompt}  Bilden ska vara en digital illustration, ljus och färgstark, skapad för att passa små barn. Använd mjuka linjer och en enkel lekful stil man kan förvänta sig att se i en barnbok.
-    **Följande krav måste uppfullas.** 
+    **Följande krav måste uppfyllas.** 
     1. Illustarationen ska var anpassad efter 1024x1024 pixlar.
     2. Illustarationen ska vara enbart en bild.
     3. Där får INTE finnas någon text eller några bokstäver med i illustrationen.
