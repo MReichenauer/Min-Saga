@@ -6,6 +6,7 @@ import { saveStoryToFirestore } from "./helpers/saveStoryToFirestore";
 
 const uploadStory = async (request: Request, response: Response) => {
   const story: StoryType = request.body.storyWithImages;
+  const userUid = request.body.userUid;
   if (!story) {
     response.status(400).send({ error: "story is required" });
     return;
@@ -14,7 +15,7 @@ const uploadStory = async (request: Request, response: Response) => {
   try {
     const folderName = `stories/images/${story.title.replace(/\s+/g, "-")}-${Date.now()}`;
     await processStoryImages(story, folderName);
-    await saveStoryToFirestore(story, firestore);
+    await saveStoryToFirestore(story, userUid, firestore);
     response.status(200).json({ message: "Story uploaded successfully", storyId: story.id });
   } catch (error) {
     console.error("Error uploading story:", error);
