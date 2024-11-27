@@ -1,14 +1,14 @@
 import { Request, Response } from "express";
 import { StoryType } from "../models/GlobalTypes";
 import { firestore } from "../firebase/firebase";
-import { processStoryImages } from "./helpers/processStoryImages";
-import { saveStoryToFirestore } from "./helpers/saveStoryToFirestore";
+import { processStoryImages } from "../helpers/firebase/processStoryImages";
+import { saveStoryToFirestore } from "../helpers/firebase/saveStoryToFirestore";
 
 const uploadStory = async (request: Request, response: Response) => {
   const story: StoryType = request.body.storyWithImages;
-  const userUid = request.body.userUid;
-  if (!story) {
-    response.status(400).send({ error: "story is required" });
+  const userUid: string = request.body.userUid;
+  if (!story || !userUid) {
+    response.status(400).send({ error: "story and userUid is required" });
     return;
   }
 
