@@ -13,6 +13,7 @@
       "@contexts/*": ["contexts/*"],
       "@hooks/*": ["hooks/*"],
       "@pages/*": ["pages/*"],
+      "@services/*": ["services/*"],
     },
 
     /* Bundler mode */

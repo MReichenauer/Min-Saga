@@ -10,6 +10,8 @@ type StoryType = {
   id: string | null;
   targetedAge: number;
   title: string;
+  createdAt: string;
+  createdBy: string;
   imagePrompt: string;
   chapters: ChapterType[];
   characters: CharacterType[];
