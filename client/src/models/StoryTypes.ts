@@ -2,6 +2,7 @@ export type StoryType = {
   id: string | null;
   targetedAge: number;
   title: string;
+  description: string;
   createdAt: string;
   createdBy: string;
   imagePrompt: string;

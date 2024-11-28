@@ -5,6 +5,8 @@ import NotFoundPage from "@pages/notFoundPage/NotFoundPage";
 import HelpAndSupportPage from "@pages/helpAndSupport/HelpAndSupportPage";
 import StoryPage from "@pages/storyPage/StoryPage";
 import { Route, Routes } from "react-router-dom";
+import StoriesPage from "@pages/storiesPage/StoriesPage";
+import "./App.css";
 
 function App() {
   return (
@@ -12,7 +14,8 @@ function App() {
       <Routes>
         <Route path="/login" element={<LoginPage />} />
         <Route path="/" element={<HomePage />} />
-        <Route path="/story" element={<StoryPage />} />
+        <Route path="/stories" element={<StoriesPage />} />
+        <Route path="/stories/:id" element={<StoryPage />} />
         <Route path="/my-stories" element={<MyStoriesPage />} />
         <Route path="/help-and-support" element={<HelpAndSupportPage />} />
         <Route path="*" element={<NotFoundPage />} />

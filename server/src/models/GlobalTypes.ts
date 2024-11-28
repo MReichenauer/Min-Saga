@@ -9,6 +9,7 @@ type ChapterType = {
 type StoryType = {
   id: string | null;
   targetedAge: number;
+  description: string;
   title: string;
   createdAt: string;
   createdBy: string;
