@@ -23,16 +23,8 @@ const Book: React.FC<BookProps> = ({ story }) => {
     }
   };
   return (
-    <div>
-      <FlipPage
-        ref={flipPageRef}
-        showSwipeHint={true}
-        startAt={0}
-        orientation="horizontal"
-        height={500}
-        width={1000}
-        className={styles.book}
-      >
+    <div className={styles.bookContainer}>
+      <FlipPage ref={flipPageRef} showSwipeHint={true} startAt={0} orientation="horizontal" height={500} width={1000}>
         {chapters.map((chapter, index) => (
           <div key={index} className={styles.page}>
             <BookPage chapter={chapter} />
