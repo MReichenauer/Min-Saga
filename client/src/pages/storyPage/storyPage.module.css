@@ -1,0 +1,17 @@
+.pageContainer {
+    margin: 0 auto;
+    min-height: 100vh;
+    min-width: 100vw;
+    max-height: 1200px;
+}
+
+.bookContainer {
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 800px;
+    max-width: fit-content;
+  }
+
+  

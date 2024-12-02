@@ -1,3 +1,63 @@
 :root{
-   --red: #ff0000;
+
+   /* Colors */
+
+   /*** Main Color ***/
+   --main-color: #EAC696;
+   --main-color-light: #F3D8B3; 
+   --main-color-dark: #D4A97D; 
+
+   /*** Secondary Color ***/
+   --secondary-color: #C8AE7D;
+   --secondary-color-light: #DDC298; 
+   --secondary-color-dark: #A88C64; 
+
+   /*** Tertiary Color ***/
+   --tertiary-color: #765827;
+   --tertiary-color-light: #8F6D3E; 
+   --tertiary-color-dark: #5E471F; 
+
+   /*** Quaternary Color ***/
+   --quaternary-color: #65451F;
+   --quaternary-color-light: #7C5734; 
+   --quaternary-color-dark: #503417; 
+
+   /*** Fonts ***/
+   --main-font-family: "Montserrat", serif;
+   --secondary-font-family: "Lato", sans-serif;
+   
+   /*** Sizes ***/
+   --font-size: 1rem;
+   --font-size-sm: 0.75rem;
+   --font-size-md: 1.25rem;
+   --font-size-lg: 1.5rem;
+   --font-size-xl: 2rem;
+
+   /*** Weights ***/
+   --font-weight-xs: 300;
+   --font-weight-sm: 400;
+   --font-weight-md: 500;
+   --font-weight-lg: 600;
+   --font-weight-xl: 700;
+
+   /*** Line Height ***/
+   --line-height-xs: 1.2;
+   --line-height-sm: 1.4;
+   --line-height-md: 1.6;
+   --line-height-lg: 1.8;
+   --line-height-xl: 2;
+
+   /** Usage **/
+
+   /*** Font Family ***/
+   --font-heading: var(--secondary-font-family);
+   --font-text: var(--main-font-family);
+
+   /*** Font Size ***/
+   --font-size-h1: var(--font-size-xl);
+   --font-size-h2: var(--font-size-lg);
+   --font-size-h3: var(--font-size-md);
+   --font-size-regular: var(--font-size);
+   --font-size-small: var(--font-size-sm);
+ 
 }
