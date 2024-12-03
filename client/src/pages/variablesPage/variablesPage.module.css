@@ -2,16 +2,23 @@
     min-height: 100vh;
     min-width: 100vw;
     display: flex;
-    gap: 2rem;
+    flex-direction: row;
+    gap: 1.5rem;
+    flex-wrap: wrap;
 }
 
 .colorContainer {
     width: fit-content;
+    height: fit-content;
     display: flex;
     flex-direction: column;
     gap: 1rem;
-    justify-content: space-around;
+    justify-content: space-between;
     margin: 0 auto;
+  }
+
+  .heightFitContent {
+    height: fit-content;
   }
   .mainColorLight {
     height: 50px;
@@ -132,6 +139,18 @@
     font-size: var(--font-size-small);
     font-weight: var(--font-weight-md);
     line-height: var(--line-height-xs);
+  }
+
+  .buttonContainer {
+    display: flex;
+    flex-direction: row;
+    height: 6rem;
+    align-items: center;
+    justify-content: space-around;
+  }
+
+  .buttonContainer button {
+    margin: 1rem;
   }
 
   

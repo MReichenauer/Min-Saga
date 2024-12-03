@@ -4,7 +4,7 @@
 
    /*** Main Color ***/
    --main-color: #EAC696;
-   --main-color-light: #F3D8B3; 
+   --main-color-light: #F3D8B3;
    --main-color-dark: #D4A97D; 
 
    /*** Secondary Color ***/
@@ -12,15 +12,15 @@
    --secondary-color-light: #DDC298; 
    --secondary-color-dark: #A88C64; 
 
-   /*** Tertiary Color ***/
-   --tertiary-color: #765827;
-   --tertiary-color-light: #8F6D3E; 
-   --tertiary-color-dark: #5E471F; 
+    /*** Tertiary Color ***/
+   --tertiary-color: #8B6C3A; 
+   --tertiary-color-light: #A07A4E; 
+   --tertiary-color-dark: #6A4B2B;
 
    /*** Quaternary Color ***/
-   --quaternary-color: #65451F;
-   --quaternary-color-light: #7C5734; 
-   --quaternary-color-dark: #503417; 
+   --quaternary-color: #7A5630; 
+   --quaternary-color-light: #8C6A4D; 
+   --quaternary-color-dark: #5D3F23;
 
    /*** Fonts ***/
    --main-font-family: "Montserrat", serif;
@@ -49,6 +49,29 @@
 
    /** Usage **/
 
+   /*** Colors ***/
+   --main-background-color: var(--main-color-light);
+   --main-accent-color: var(--tertiary-color-dark);
+   --secondary-accent-color: var(--tertiary-color);
+
+   /*** Text Color ***/
+   --text-color: #2E2E2E;
+   --text-color-light: #5A5A5A;
+   --text-color-dark: #000000;
+   --text-color-almost-white: #F8F8F8;
+
+   /*** Link Color ***/
+   --link-color: #3A6DBF;
+   --link-color-hover: #2C5187;
+  
+   /**** Button Color ****/
+   --main-button-color: var(--tertiary-color-dark);
+   --main-button-color-hover: var(--tertiary-color);
+   --main-button-color-disabled: var(--tertiary-color-light);
+   --secondary-button-color: var(--secondary-color-dark);
+   --secondary-button-color-hover: var(--secondary-color);
+   --secondary-button-color-disabled: var(--secondary-color-light);
+
    /*** Font Family ***/
    --font-heading: var(--secondary-font-family);
    --font-text: var(--main-font-family);
@@ -61,3 +84,82 @@
    --font-size-small: var(--font-size-sm);
  
 }
+
+/* Global Styles */
+
+body {
+   box-sizing: border-box;
+   margin: 0;
+   padding: 0;
+   font-family: var(--font-text);
+   line-height: var(--line-height-md);
+   background-color: var(--main-background-color);
+}
+
+h1, h2, h3 {
+   font-family: var(--font-heading);
+   color: var(--text-color-dark);
+   font-weight: var(--font-weight-lg);
+}
+
+h1 {
+   font-size: var(--font-size-h1);
+}
+
+h2 {
+   font-size: var(--font-size-h2);
+}
+
+h3 {
+   font-size: var(--font-size-h3);
+}
+
+button {
+   border-radius: 0.5rem;
+   cursor: pointer;
+   font-family: var(--font-text);
+   padding: 0.65rem 1.25rem;
+   border: none;
+   transition: background-color 0.3s ease, box-shadow 0.2s ease;
+}
+
+button.primaryButton {
+   background-color: var(--main-button-color);
+   color: var(--text-color-almost-white);
+}
+
+button.primaryButton:hover {
+   background-color: var(--main-button-color-hover);
+   box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.1);
+}
+
+button.primaryButton:disabled {
+   background-color: var(--main-button-color-disabled);
+   cursor: not-allowed;
+}
+
+button.secondaryButton {
+   background-color: var(--secondary-button-color);
+   color: var(--text-color-almost-white);
+}
+
+button.secondaryButton:hover {
+   background-color: var(--secondary-button-color-hover);
+   box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.1);
+}
+
+button.secondaryButton:disabled {
+   background-color: var(--secondary-button-color-disabled);
+   cursor: not-allowed;
+}
+
+a {
+   color:  var(--link-color);
+   text-decoration: none;
+   transition: color 0.2s ease;
+ }
+ 
+ a:hover {
+   color: var(--link-color-hover)
+ }
+ 
