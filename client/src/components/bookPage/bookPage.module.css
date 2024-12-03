@@ -1,28 +1,75 @@
 .pageContainer {
     display: flex;
     flex-direction: row;
+    background-color:color-mix(in srgb, var(--secondary-color-light) 30%, var(--almost-white) 70%);
 }
 
 .leftPage, .rightPage {
     width: 50%;
-    background-color:#fff6ec;
 }
 
 .leftPage img {
-    max-width: 100%;
-    aspect-ratio: 16/9;
-    border-top-left-radius: 0.25rem;
-    border-bottom-left-radius: 0.25rem;
+    width: 100%;
+    height: 100%;
+    border-top-left-radius: 0.3rem;
+    border-bottom-left-radius: 0.3rem;
 }
-
+.textContainer {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    margin: 0 1.5rem;
+}
 
 .rightPage {
-    box-shadow: -10px 0px 10px rgba(0, 0, 0, 0.55);
-    border-top-right-radius: 0.25rem;
-    border-bottom-right-radius: 0.25rem;
+    box-shadow: -10px 10px 60px rgba(0, 0, 0, 0.35);
+    border-top-right-radius: 0.3rem;
+    border-bottom-right-radius: 0.3rem;
+    border-left: 2px solid color-mix(in srgb, var(--secondary-color-light) 25%, var(--almost-white) 75%);
 }
 
+.rightPage p {
+    font-size: calc(var(--font-size-regular) * 1.2);
+    font-weight: var(--font-weight-sm);
+    line-height: var(--line-height-md);
+}
 
 .leftPage {
-    box-shadow: 10px 0px 10px rgba(0, 0, 0,65);
-}
+    box-shadow: 10px 10px 60px rgba(0, 0, 0, 0.35); 
+    border-right: 2px solid color-mix(in srgb, var(--secondary-color-light) 25%, var(--almost-white) 75%);
+ }
+
+ .isMobile {
+    display: none;
+ }
+
+ .isTabletOrDesktop {
+    display: none;
+ }
+
+ @media screen and (max-width: var(--mobile) ) {
+    .isMobile {
+        display: block;
+    }
+    .isTabletOrDesktop {
+        display: none;
+     }
+ }
+
+ @media screen and (max-width: var(--tablet) ) {
+    .isMobile  {
+        display: none;
+    }
+    .isTabletOrDesktop {
+        display: block;
+     }
+ }
+
+ @media screen and (min-width: var(--desktop) ) {
+    .isMobile  {
+        display: none;
+    }
+    .isTabletOrDesktop {
+        display: block;
+     }
+ }

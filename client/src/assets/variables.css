@@ -22,6 +22,9 @@
    --quaternary-color-light: #8C6A4D; 
    --quaternary-color-dark: #5D3F23;
 
+   /*** Extra Colors ***/
+   --almost-white: #F5F5F5;
+
    /*** Fonts ***/
    --main-font-family: "Montserrat", serif;
    --secondary-font-family: "Lato", sans-serif;
@@ -58,7 +61,7 @@
    --text-color: #2E2E2E;
    --text-color-light: #5A5A5A;
    --text-color-dark: #000000;
-   --text-color-almost-white: #F8F8F8;
+   --text-color-almost-white: var(--almost-white);
 
    /*** Link Color ***/
    --link-color: #3A6DBF;
@@ -82,7 +85,20 @@
    --font-size-h3: var(--font-size-md);
    --font-size-regular: var(--font-size);
    --font-size-small: var(--font-size-sm);
- 
+
+   /*** Spacing ***/
+   --spacing-xxs: 0.5rem;
+   --spacing-xs: 1rem;
+   --spacing-sm: 1.5rem;
+   --spacing-md: 2rem;
+   --spacing-lg: 3rem;
+   --spacing-xl: 4rem;
+   --spacing-xxl: 5rem;
+
+   /*** Media Queries ***/
+   --mobile: 480px; /* Use as max screen width */
+   --tablet: 768px; /* Use as max screen width */
+   --desktop: 1024px; /* Use as min screen width */
 }
 
 /* Global Styles */
@@ -94,16 +110,24 @@ body {
    font-family: var(--font-text);
    line-height: var(--line-height-md);
    background-color: var(--main-background-color);
+   color: var(--text-color)
 }
+
+div, section, article {
+   box-sizing: border-box;
+}
+
+
 
 h1, h2, h3 {
    font-family: var(--font-heading);
    color: var(--text-color-dark);
-   font-weight: var(--font-weight-lg);
+   font-weight: var(--font-weight-md);
 }
 
 h1 {
    font-size: var(--font-size-h1);
+   font-weight: var(--font-weight-lg);
 }
 
 h2 {
@@ -112,6 +136,12 @@ h2 {
 
 h3 {
    font-size: var(--font-size-h3);
+}
+
+p {
+   font-size: var(--font-size-regular);
+   font-weight: var(--font-weight-sm);
+   line-height: var(--line-height-sm);
 }
 
 button {
@@ -161,5 +191,32 @@ a {
  
  a:hover {
    color: var(--link-color-hover)
+ }
+
+ .pageContainer {
+   max-width: 1200px;
+   min-height: 100vh;
+   margin: 0 auto;
+   padding: 0 var(--spacing-sm);
+ }
+
+ .mt-1 {
+   margin-top: var(--spacing-xs)
+ }
+
+ .mt-2 {
+   margin-top: var(--spacing-md)
+ }
+
+ .mt-3 {
+   margin-top: var(--spacing-lg)
+ }
+
+ .mt-4 {
+   margin-top: var(--spacing-xl)
+ }
+
+ .mt-5 {
+   margin-top: var(--spacing-xxl)
  }
  

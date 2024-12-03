@@ -14,8 +14,10 @@ const BookPage: React.FC<BookPageProps> = ({ chapter }) => {
         {chapter.image ? <img src={chapter.image} alt="chapter" /> : <h3>Detta kapitel saknar en bild.</h3>}
       </div>
       <section className={styles.rightPage}>
-        <h2>{chapter.title}</h2>
-        <p>{chapter.content}</p>
+        <div className={styles.textContainer}>
+          <h2>{chapter.title}</h2>
+          <p>{chapter.content}</p>
+        </div>
       </section>
     </div>
   );
