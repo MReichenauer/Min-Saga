@@ -18,6 +18,10 @@ export type ChapterType = {
   imagePrompt: string;
 };
 
+type TitleAndImageType = Pick<ChapterType, "title" | "image">;
+type TitleAndContentType = Pick<ChapterType, "title" | "content">;
+export type MobileChapterType = TitleAndImageType | TitleAndContentType;
+
 export type CharacterType = {
   id: number;
   name: string;

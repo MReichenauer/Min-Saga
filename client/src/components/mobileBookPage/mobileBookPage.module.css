@@ -1,0 +1,18 @@
+.pageContainer {
+    display: flex;
+    min-height: fit-content;
+    flex-direction: column;
+    background-color:color-mix(in srgb, var(--secondary-color-light) 30%, var(--almost-white) 70%);
+}
+
+.pageContainer img {
+    height: 40%;
+    object-fit: fill;
+}
+
+.pageContainer p {
+    margin: 0.5rem;
+}
+
+
+

@@ -95,10 +95,6 @@
    --spacing-xl: 4rem;
    --spacing-xxl: 5rem;
 
-   /*** Media Queries ***/
-   --mobile: 480px; /* Use as max screen width */
-   --tablet: 768px; /* Use as max screen width */
-   --desktop: 1024px; /* Use as min screen width */
 }
 
 /* Global Styles */

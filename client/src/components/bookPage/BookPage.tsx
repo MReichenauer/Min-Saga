@@ -1,7 +1,7 @@
 import { ChapterType } from "@models/StoryTypes";
 import React from "react";
 
-import styles from "./BookPage.module.css";
+import styles from "./bookPage.module.css";
 
 type BookPageProps = {
   chapter: ChapterType;
