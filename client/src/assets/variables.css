@@ -95,6 +95,12 @@
    --spacing-xl: 4rem;
    --spacing-xxl: 5rem;
 
+   /*** Breakpoints ***/
+   --mobile-max-width: 576px;
+   --tablet-max-width: 768px;
+   --desktop-max-width: 992px;
+   --large-desktop-min-width: 1200px;
+
 }
 
 /* Global Styles */
@@ -214,5 +220,9 @@ a {
 
  .mt-5 {
    margin-top: var(--spacing-xxl)
+ }
+
+ .noScroll {
+   overflow: hidden;
  }
  

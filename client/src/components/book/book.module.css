@@ -41,9 +41,23 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    width: 50%;
-    margin-top: 0.5rem;
+    width: 100%;
+    max-width: 400px;
+    padding: 0.5rem 2rem;
   }
+
+  .actionButtonsContainer p {
+    margin: 0;
+  }
+  
+
+  .changePageButton {
+    margin: 0;
+    padding: 0.15rem 0rem;
+    width: 3rem;
+    max-height: 1.8rem;
+  }
+
 
   .isMobile {
     display: none;
