@@ -6,8 +6,11 @@ const useCheckScreenOrientation = () => {
   const { width, height } = useCheckScreenWidth();
 
   useEffect(() => {
-    const shouldRecommendLandscape = width < height && width > 400;
-    setRecommendLandscape(shouldRecommendLandscape);
+    const isPortrait = width < height;
+    const isValidWidth = width > 374;
+    const isValidHeight = height > 629;
+
+    setRecommendLandscape(isPortrait && isValidWidth && isValidHeight);
   }, [width, height]);
 
   const orientation = width > height ? "landscape" : "portrait";

@@ -44,6 +44,7 @@
    --font-weight-xl: 700;
 
    /*** Line Height ***/
+   --line-height-xxs: 1.15;
    --line-height-xs: 1.2;
    --line-height-sm: 1.4;
    --line-height-md: 1.6;
@@ -225,4 +226,5 @@ a {
  .noScroll {
    overflow: hidden;
  }
+
  

@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 
 const useCheckScreenWidth = () => {
-  const maxMobileWidth = 630;
+  const maxMobileWidth = 629;
   const [width, setWidth] = useState(window.innerWidth);
   const [height, setHeight] = useState(window.innerHeight);
   const isMobile = width <= maxMobileWidth;

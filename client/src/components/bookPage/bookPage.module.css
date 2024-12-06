@@ -21,77 +21,140 @@
     display: flex;
     flex-direction: column;
     height: 100%;
-    margin: 0 0.5rem;
+    margin: var(--spacing-xxs);
     overflow-y: scroll;
 }
 
-.textContainer p {
-    margin: 0.5rem 0;
+.textContainer {
+    margin: var(--spacing-xxs);
 }
 
 .textContainer h2 {
+    font-size: var(--font-size);
+    line-height: var(--line-height-xs);
     margin: 0;
-    font-size: var(--font-size-md);
-    line-height: var(--line-height-sm);
+}
+
+.textContainer p {
+    line-height: var(--line-height-xs);
+    margin-top: calc(var(--spacing-xxs) / 2);
 }
 
 .rightPage {
     box-shadow: -10px 10px 60px rgba(0, 0, 0, 0.35);
     border-top-right-radius: 0.3rem;
     border-bottom-right-radius: 0.3rem;
+    border-left: 2px solid var(--secondary-color-light);
     border-left: 2px solid color-mix(in srgb, var(--secondary-color-light) 25%, var(--almost-white) 75%);
-}
-
-.rightPage p {
-    font-weight: var(--font-weight-sm);
-    line-height: var(--line-height-md);
 }
 
 .leftPage {
     box-shadow: 10px 10px 60px rgba(0, 0, 0, 0.35); 
+    border-right: 2px solid var(--secondary-color-light);
     border-right: 2px solid color-mix(in srgb, var(--secondary-color-light) 25%, var(--almost-white) 75%);
  }
 
- .isMobile {
-    display: none;
- }
+ 
 
- .isTabletOrDesktop {
-    display: none;
- }
-
- @media screen and (max-width: 576px)  {
-    .isMobile {
-        display: block;
+ /* Small Screens */
+@media screen and (max-height: 425px) {
+    
+    .textContainer p {
+        line-height: var(--line-height-xxs);
     }
-    .isTabletOrDesktop {
-        display: none;
-     }
- }
+}
 
- @media screen and (max-width: 768px) {
-    .isMobile  {
-        display: none;
+@media screen and (min-height: 426px) and (max-height: 500px) {
+    .textContainer h2 {
+        font-size: var(--font-size-md);
+        margin-bottom: var(--spacing-xxs);
     }
-    .isTabletOrDesktop {
-        display: block;
-     }
- }
-
- @media screen and (max-width: 992px) {
-    .isMobile  {
-        display: none;
+    .textContainer p {
+        line-height: var(--line-height-xs);
     }
-    .isTabletOrDesktop {
-        display: block;
-     }
- }
+}
 
- @media screen and (min-width: 1200px) {
-  .isMobile  {
-      display: none;
-  }
-  .isTabletOrDesktop {
-      display: block;
-   }
+/* @media screen and (min-height: 451px) and (max-height: 500px) {
+    .textContainer h2 {
+        margin-bottom: var(--spacing-xxs);
+    }
+    .textContainer p {
+        line-height: calc(var(--line-height-xxs) * 1.087);
+    }
+} */
+
+@media screen and (min-height: 501px)  {
+    .textContainer h2 {
+        font-size: var(--font-size-md);
+        margin-bottom: var(--spacing-xs);
+    }
+    .textContainer p {
+        line-height: var(--line-height-sm);
+    }
+}
+
+@media screen and (min-height: 600px) {
+ 
+    .textContainer {
+        margin: var(--spacing-xs);
+    }
+}
+
+/* Landscape Screens */
+@media screen and (min-width: 640px) {
+    .textContainer {
+        margin: var(--spacing-xxs);
+    }
+    .textContainer h2 {
+        margin-bottom: var(--spacing-xxs);
+        font-size: var(--font-size-md);
+    }
+    
+}
+
+@media screen and (min-width: 695px) {
+    .textContainer p {
+        line-height: var(--line-height-sm);
+    }
+}
+
+@media screen and (min-width: 800px) {
+    .textContainer h2 {
+        margin-bottom: var(--spacing-sm);
+    }
+}
+
+@media screen and (min-width: 900px) {
+    .textContainer p {
+        line-height: var(--line-height-md);
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    .textContainer h2 {
+        font-size: var(--font-size-lg);
+    }
+    .textContainer p {
+        font-size: var(--font-size-md);
+        line-height: var(--line-height-xs);
+    }
+}
+
+
+@media screen and (min-height: 550px) and (min-width: 1024px) {
+    .textContainer h2 {
+        line-height: var(--line-height-sm);
+    }
+    .textContainer p {
+        line-height: var(--line-height-md);
+    }
+}
+
+@media screen and (min-width: 1100px) {
+    .textContainer {
+        margin: var(--spacing-sm);
+    }
+    .textContainer h2 {
+        margin-bottom: var(--spacing-xs);
+    }
 }

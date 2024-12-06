@@ -29,7 +29,7 @@ const RecommendLandscapeBanner: React.FC = () => {
   return (
     <div className={styles.container}>
       <div className={styles.content}>
-        <p>Vi rekommenderar att du vänder enheten till liggande läge för en bättre upplevelse.</p>
+        <p>Vi rekommenderar att du vänder enheten till en liggande possition för en bättre upplevelse.</p>
         <button onClick={handleTipAction}>Tack för tipset!</button>
       </div>
     </div>
