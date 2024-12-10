@@ -24,6 +24,7 @@
 
    /*** Extra Colors ***/
    --almost-white: #F5F5F5;
+   
 
    /*** Fonts ***/
    --main-font-family: "Montserrat", serif;
@@ -55,6 +56,7 @@
 
    /*** Colors ***/
    --main-background-color: var(--main-color-light);
+   --background-color-almost-green: #eac696b2;
    --main-accent-color: var(--tertiary-color-dark);
    --secondary-accent-color: var(--tertiary-color);
 
