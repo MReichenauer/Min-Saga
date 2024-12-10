@@ -1,0 +1,159 @@
+.mainContainer {
+    min-height: 100vh;
+    min-width: 100vw;
+    display: flex;
+    flex-direction: row;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+}
+
+.colorContainer {
+    width: fit-content;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    justify-content: space-between;
+    margin: 0 auto;
+  }
+
+  .heightFitContent {
+    height: fit-content;
+  }
+  .mainColorLight {
+    height: 50px;
+    aspect-ratio: 1/1;
+    border-radius: 50%;
+    margin-right: 0.5rem;
+    background-color: var(--main-color-light);
+  }
+  .mainColor {
+    height: 50px;
+    aspect-ratio: 1/1;
+    border-radius: 50%;
+    margin-right: 0.5rem;
+    background-color: var(--main-color);
+  }
+  .mainColorDark {
+    height: 50px;
+    aspect-ratio: 1/1;
+    border-radius: 50%;
+    margin-right: 0.5rem;
+    background-color: var(--main-color-dark);
+  }
+  .secondaryColorLight {
+    height: 50px;
+    aspect-ratio: 1/1;
+    border-radius: 50%;
+    margin-right: 0.5rem;
+    background-color: var(--secondary-color-light);
+  }
+
+  .secondaryColor {
+    height: 50px;
+    aspect-ratio: 1/1;
+    border-radius: 50%;
+    margin-right: 0.5rem;
+    background-color: var(--secondary-color);
+  }
+
+  .secondaryColorDark {
+    height: 50px;
+    aspect-ratio: 1/1;
+    border-radius: 50%;
+    margin-right: 0.5rem;
+    background-color: var(--secondary-color-dark);
+  }
+
+  .tertiaryColorLight {
+    height: 50px;
+    aspect-ratio: 1/1;
+    border-radius: 50%;
+    margin-right: 0.5rem;
+    background-color: var(--tertiary-color-light);
+  }
+
+  .tertiaryColor {
+    height: 50px;
+    aspect-ratio: 1/1;
+    border-radius: 50%;
+    margin-right: 0.5rem;
+    background-color: var(--tertiary-color);
+  }
+
+  .tertiaryColorDark {
+    height: 50px;
+    aspect-ratio: 1/1;
+    border-radius: 50%;
+    margin-right: 0.5rem;
+    background-color: var(--tertiary-color-dark);
+  }
+  .quaternaryColorLight {
+    height: 50px;
+    aspect-ratio: 1/1;
+    border-radius: 50%;
+    margin-right: 0.5rem;
+    background-color: var(--quaternary-color-light);
+  }
+  .quaternaryColor {
+    height: 50px;
+    aspect-ratio: 1/1;
+    border-radius: 50%;
+    margin-right: 0.5rem;
+    background-color: var(--quaternary-color);
+  }
+  .quaternaryColorDark {
+    height: 50px;
+    aspect-ratio: 1/1;
+    border-radius: 50%;
+    margin-right: 0.5rem;
+    background-color: var(--quaternary-color-dark);
+  }
+
+  .heading1 {
+    font-family: var(--font-heading);
+    font-weight: var(--font-weight-lg);
+    font-size: var(--font-size-h1);
+    line-height: var(--line-height-md);
+  }
+  .heading2 {
+    font-family: var(--font-heading);
+    font-weight: var(--font-weight-lg);
+    font-size: var(--font-size-h2);
+    line-height: var(--line-height-md);
+  }
+  .heading3 {
+    font-family: var(--font-heading);
+    font-weight: var(--font-weight-lg);
+    font-size: var(--font-size-h3);
+    line-height: var(--line-height-md);
+  }
+  .text1 {
+    font-family: var(--font-text);
+    font-size: var(--font-size-regular);
+    font-weight: var(--font-weight-md);
+    line-height: var(--line-height-xs);
+  }
+  .text2 {
+    font-family: var(--font-text);
+    font-size: var(--font-size-small);
+    font-weight: var(--font-weight-md);
+    line-height: var(--line-height-xs);
+  }
+
+  .buttonContainer {
+    display: flex;
+    flex-direction: row;
+    height: 6rem;
+    align-items: center;
+    justify-content: space-around;
+  }
+
+  .buttonContainer button {
+    margin: 1rem;
+  }
+
+  
+
+
+  

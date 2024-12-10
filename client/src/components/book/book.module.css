@@ -1,0 +1,123 @@
+.bookContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    max-width: fit-content;
+    min-height: fit-content;
+  }
+
+  .page{
+    height: 100%;
+  }
+
+  .bookComponent {
+    width: 95vw; 
+    max-width: 1200px;
+    min-height: fit-content;
+    aspect-ratio: 2/0.965;
+    padding: 0 var(--spacing-sm);
+    background-image: repeating-linear-gradient(to right,var(--secondary-color-light), var(--almost-white)  5px, transparent 1px, transparent);
+    background-size: 6px 6px;
+    border-radius: 0.3rem;
+    -webkit-box-shadow: 0px -1px 8px 0px rgba(0,0,0,0.25);
+    -moz-box-shadow: 0px -1px 8px 0px rgba(0,0,0,0.25);
+    box-shadow: 1px 5px 5px 3px rgba(0,0,0,0.25);
+    border: 4px solid rgba(234, 198, 150, 1);
+  }
+
+  .book {
+    padding: 0 var(--spacing-sm);
+    background-image: repeating-linear-gradient(to right,var(--secondary-color-light), var(--almost-white)  5px, transparent 1px, transparent);
+    background-size: 6px 6px;
+    border-radius: 0.3rem;
+    -webkit-box-shadow: 0px -1px 8px 0px rgba(0,0,0,0.25);
+    -moz-box-shadow: 0px -1px 8px 0px rgba(0,0,0,0.25);
+    box-shadow: 1px 5px 5px 3px rgba(0,0,0,0.25);
+    border: 4px solid rgba(234, 198, 150, 1);
+  }
+
+  .actionButtonsContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 400px;
+    padding: 0.45rem 2rem;
+  }
+
+  .actionButtonsContainer p {
+    margin: 0;
+  }
+  
+
+  .changePageButton {
+    margin: 0;
+    padding: 0;
+    width: 3rem;
+    max-height: 1.5rem;
+  }
+
+
+  .isMobile {
+    display: none;
+ }
+
+ .isTabletOrDesktop {
+    display: none;
+ }
+
+ @media screen and (max-height: 450px) {
+  .bookComponent {
+    padding: 0 calc(var(--spacing-sm) / 2);
+  }
+ }
+
+ @media screen and (max-width: 632px)  {
+    .isMobile {
+        display: block;
+    }
+    .isTabletOrDesktop {
+        display: none;
+     }
+
+    .bookComponent {
+      aspect-ratio: 2/3;
+    }
+
+    .bookComponent div {
+      height: inherit;
+    }
+ }
+
+ @media screen and (max-width: 768px) {
+    .isMobile  {
+        display: none;
+    }
+    .isTabletOrDesktop {
+        display: block;
+     }
+
+     .bookComponent {
+      height: 75vh;
+      min-height: fit-content;
+    }
+ }
+
+ @media screen and (max-width: 992px) {
+    .isMobile  {
+        display: none;
+    }
+    .isTabletOrDesktop {
+        display: block;
+     }
+ }
+
+ @media screen and (min-width: 1200px) {
+  .isMobile  {
+      display: none;
+  }
+  .isTabletOrDesktop {
+      display: block;
+   }
+}

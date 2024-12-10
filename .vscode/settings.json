@@ -1,3 +1,11 @@
 {
-  "cSpell.ignoreWords": ["Dalle", "VITE", "dall", "firebasestorage", "firestore"]
+  "cSpell.ignoreWords": [
+    "ARROWLEFT",
+    "ARROWRIGHT",
+    "Dalle",
+    "VITE",
+    "dall",
+    "firebasestorage",
+    "firestore"
+  ]
 }

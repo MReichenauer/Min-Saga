@@ -41,6 +41,7 @@ const gptPrompt = async (mainCharacter: string, environment: string, targetedAge
           "id": null,
           "createdAt": null,
           "createdBy": null,
+          "description": Kort beskrivning av berättelsen på 1-2 meningar
           "chapters": [
             {
               "title": "Kapitel 1: Titel för kapitlet",
