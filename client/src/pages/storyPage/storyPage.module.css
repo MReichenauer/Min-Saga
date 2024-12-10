@@ -1,0 +1,13 @@
+.contentContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  
+}
+
+.contentContainer h1 {
+  color: var( --main-accent-color)
+}
+
+
+  
