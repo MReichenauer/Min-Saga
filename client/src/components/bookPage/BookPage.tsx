@@ -11,7 +11,11 @@ const BookPage: React.FC<BookPageProps> = ({ chapter }) => {
   return (
     <div className={styles.pageContainer}>
       <div className={styles.leftPage}>
-        {chapter.image ? <img src={chapter.image} alt="chapter" /> : <h3>Detta kapitel saknar en bild.</h3>}
+        {chapter.image ? (
+          <img src={chapter.image} alt={`${chapter.title} image`} />
+        ) : (
+          <h3>Detta kapitel saknar en bild.</h3>
+        )}
       </div>
       <section className={styles.rightPage}>
         <div className={styles.textContainer}>
