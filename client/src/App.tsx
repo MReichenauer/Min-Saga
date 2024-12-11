@@ -8,19 +8,23 @@ import { Route, Routes } from "react-router-dom";
 import StoriesPage from "@pages/storiesPage/StoriesPage";
 import "./App.css";
 import VariablesPage from "@pages/variablesPage/VariablesPage";
+import ProtectedRoutes from "@components/protectedRoutes/ProtectedRoutes";
 
 function App() {
   return (
     <div id="appContainer">
       <Routes>
-        <Route path="/variables" element={<VariablesPage />} />
         <Route path="/login" element={<LoginPage />} />
-        <Route path="/" element={<HomePage />} />
-        <Route path="/stories" element={<StoriesPage />} />
-        <Route path="/stories/:id" element={<StoryPage />} />
-        <Route path="/my-stories" element={<MyStoriesPage />} />
-        <Route path="/help-and-support" element={<HelpAndSupportPage />} />
-        <Route path="*" element={<NotFoundPage />} />
+        <Route path="/*" element={<NotFoundPage />} />
+        <Route path="/variables" element={<VariablesPage />} />
+        {/* Bellow is routes that require a authenticated user to visit */}
+        <Route element={<ProtectedRoutes />}>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/stories" element={<StoriesPage />} />
+          <Route path="/stories/:id" element={<StoryPage />} />
+          <Route path="/my-stories" element={<MyStoriesPage />} />
+          <Route path="/help-and-support" element={<HelpAndSupportPage />} />
+        </Route>
       </Routes>
     </div>
   );
