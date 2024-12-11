@@ -104,17 +104,41 @@
    --desktop-max-width: 992px;
    --large-desktop-min-width: 1200px;
 
+   /** Test **/
+   --autumn-100: #f3b875;
+   --autumn-200: #e88b63;
+   --autumn-300: #d06a3c;
+   --autumn-400: #9c4414;
+   --autumn-500: #6a2a05;
+
+   --autumn-background-color: var(--autumn-100);
+
+   --autumn-heading-color: var(--autumn-500);
+   --autumn-text-color: var(--autumn-400);
+
+   --autumn-primary-button-color: #b97d37;
+   --autumn-primary-button-color-hover: #9d6930;
+   --autumn-primary-button-color-disabled: #d6b194;
+
+   --autumn-secondary-button-color: #cf9450;
+   --autumn-secondary-button-color-hover: #b37844;
+   --autumn-secondary-button-color-disabled: #e0c6a5;
+
+   
+
 }
 
 /* Global Styles */
 
 body {
    box-sizing: border-box;
+   min-height: 100vh;
+   min-width: 100vw;
    margin: 0;
    padding: 0;
    font-family: var(--font-text);
    line-height: var(--line-height-md);
-   background-color: var(--main-background-color);
+   background: linear-gradient(45deg, var(--autumn-100), var(--autumn-200), var(--autumn-300), var(--autumn-400), var(--autumn-500));
    color: var(--text-color)
 }
 
@@ -185,6 +209,36 @@ button.secondaryButton:hover {
 
 button.secondaryButton:disabled {
    background-color: var(--secondary-button-color-disabled);
+   cursor: not-allowed;
+}
+
+button.autumnPrimaryButton {
+   background-color: var(--autumn-primary-button-color);
+   color: var(--text-color-almost-white);
+}
+
+button.autumnPrimaryButton:hover {
+   background-color: var(--autumn-primary-button-color-hover);
+   box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.1);
+}
+
+button.autumnPrimaryButton:disabled {
+   background-color: var(--autumn-primary-button-color-disabled);
+   cursor: not-allowed;
+}
+
+button.autumnSecondaryButton {
+   background-color: var(--autumn-secondary-button-color);
+   color: var(--text-color-almost-white);
+}
+
+button.autumnSecondaryButton:hover {
+   background-color: var(--autumn-secondary-button-color-hover);
+   box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.1);
+}
+
+button.autumnSecondaryButton:disabled {
+   background-color: var(--autumn-secondary-button-color-disabled);
    cursor: not-allowed;
 }
 
