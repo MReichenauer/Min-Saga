@@ -12,12 +12,14 @@ const StoryPage = () => {
   console.log(data);
   if (data) {
     return (
-      <div className="pageContainer">
-        <section className={styles.contentContainer}>
-          <h1>{data.title}</h1>
-          <RecommendLandscapeBanner />
-          <Book story={data} />
-        </section>
+      <div className={styles.mainContainer}>
+        <div className="pageContainer">
+          <section className={styles.contentContainer}>
+            <h1>{data.title}</h1>
+            <RecommendLandscapeBanner />
+            <Book story={data} />
+          </section>
+        </div>
       </div>
     );
   }

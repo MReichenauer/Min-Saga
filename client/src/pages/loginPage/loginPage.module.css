@@ -1,63 +1,86 @@
 .container {
-    position: absolute;
     min-height: 100vh;
     min-width: 100vw;
-    background-image: url("./img/loginBg.jpg");
-    background-size: cover;
-    background-position: center;
     display: flex;
     flex-direction: column;
     align-items: center;
+    overflow: hidden;
 }
 
 .container h1 {
-    backdrop-filter: blur(1px);
-    color: var(--quaternary-color-dark);
+    color: var(--autumn-500);
     width: 100%;
     margin-top: 0;
     text-align: center;
-    padding: 0.5rem;
+    padding: var(--spacing-xxs);
     box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.3);
-    background-color: var(--background-color-almost-green);
+    background-color: var(--autumn-100);
 }
 
 .contentContainer {
     width: 100%;
-    border-radius: 100px;
     display: flex;
     flex-direction: column;
-    margin: auto 0 0 0;
+    align-items: center;
+    justify-content: center;
+    margin-top: 16vh;
 }
 
 .buttonContainer {
     display: flex;
     flex-direction: column;
-    gap: 1.5rem;
+    align-items: center;
+    gap: var(--spacing-sm);
+    max-width: 300px;
+    margin-top: var(--spacing-xs);
 }
 
 
 .authenticationContainer {
     backdrop-filter: blur(1px);
     display: flex;
+    width: 21.25rem;
     flex-direction: column;
     text-align: center;
-    gap: 1.5rem;
-    padding: 0 1rem 2rem 1rem;
+    padding: var(--spacing-xs) var(--spacing-md);
+    border-radius: 0.5rem;
     box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.3);
-    background-color: var(--background-color-almost-green);
+    gap: var(--spacing-xs);
+    background-color: var(--autumn-100);
 }
 
 .authenticationContainer p {
     font-weight: var(--font-weight-md);
-    color: var(--quaternary-color-dark);
+    color: var(--autumn-text-color);
     
 }
 
 .authenticationContainer h2 {
-    color: var(--quaternary-color-dark);
-    margin-bottom: 0;
+    color: var(--autumn-heading-color);
+    margin:0; 
 }
+
+.registerContainer {
+    margin: var(--spacing-xs);
+}
+
+.registerContainer p {
+    margin: 0;
+}
+
 
 .registerLink {
     color: var(--link-color)
+}
+
+@media screen and (max-width: 400px) {
+    .authenticationContainer {
+        max-width: 18.75rem;
+    }
+}
+
+@media screen and (min-width: 695px) {
+    .contentContainer {
+        margin-top: 20vh;
+    }
 }
