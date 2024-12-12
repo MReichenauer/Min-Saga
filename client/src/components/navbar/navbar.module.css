@@ -1,3 +1,11 @@
+.container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    
+}
+
 .fullNavbar {
     display: flex;
     background-color: var(--autumn-500);
@@ -5,6 +13,7 @@
     padding: var(--spacing-xxs) 0;
     height: 3.5rem;
     box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.2);
+    
 }
 
 .fullNavbar ul {
@@ -13,6 +22,7 @@
     padding: 0;
     margin: 0;
     gap: var(--spacing-xs);  
+    
 }
 
 .navContainer {
@@ -28,19 +38,25 @@
     color: var(--autumn-100);
 }
 
- a {
-    font-size: var(--font-size);
-    padding: 1.635rem var(--spacing-xs);
-    color: var(--autumn-100);
+.title:hover{
+    color: #fccc95;
 }
 
-a:hover {
+
+
+.navLinks a {
     position: relative;
-    color: #fccc95;
+    font-size: var(--font-size);
+    padding: 1.635rem var(--spacing-xs);
+   
+}
+
+
+.navLinks a:hover {
     transition: ease-in 0.2s;
 }
 
-.fullNavbar ul a::after {
+.navLinks a::after  {
     content: "";
     position: absolute;
     left: 0;
@@ -53,8 +69,103 @@ a:hover {
     transition: transform 0.4s ease-in;
  }
 
-.fullNavbar a:hover::after {
+.navLinks a:hover::after {
     transform: scaleX(1);
     transform-origin: bottom left;
  }
 
+ .user {
+    display: flex;
+    align-items: center;
+    color: var(--autumn-100);
+ }
+
+ .userImg {
+    height: 2.5rem;
+    object-fit: contain;
+    aspect-ratio: 1;
+    border-radius: 50%;
+ }
+
+ .userButton {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 2.75rem;
+    aspect-ratio: 1;
+    padding: 0;
+    margin: 0;
+    border-radius: 50%;
+    background-color: var(--autumn-100);
+ }
+
+ .userButton:hover {
+    background-color: #fccc95;
+    transition: ease-in 0.2s;
+ }
+ 
+ .profileActionContainer {
+    display: flex;
+    position: absolute;
+    right: 0;
+    flex-direction: column;
+    align-items: flex-end;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    gap: var(--spacing-xs); 
+    text-align: left;
+    z-index: 999;
+    opacity: 0;
+    transform: scaleY(0);
+    transform-origin: top; 
+    transition: opacity 0.3s ease, transform 0.3s ease-in;
+ }
+
+ .profileActionContainer.open {
+    opacity: 1;
+    transform: scaleY(1);
+    transform-origin: top; 
+}
+
+ .profileActionContainer ul {
+    list-style: none;
+    padding: 0 2rem 1rem;
+    margin: 0;
+    border-bottom-left-radius: 0.5rem;
+    background-color: var(--autumn-500);
+    color: var(--autumn-100);
+ }
+
+ .profileActionContainer ul li {
+    width: fit-content;
+    position: relative;
+    padding: 0.2rem 0;
+    color: var(--autumn-100);
+    text-align: left;
+}
+
+.profileActionContainer ul li::after {
+    content: "";
+    position: absolute;
+    left: -0.5rem; 
+    right: -0.5rem;
+    bottom: 0rem; 
+    height: 0.095rem; 
+    background-color: var(--autumn-100);
+    transform: scaleX(0); 
+    transform-origin: bottom right; 
+    transition: transform 0.4s ease-in;
+}
+
+.profileActionContainer ul li:hover {
+    cursor: pointer;
+    color: #fccc95;
+    transition: color 0.2s ease-in;
+}
+
+.profileActionContainer ul li:hover::after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+}
+ 

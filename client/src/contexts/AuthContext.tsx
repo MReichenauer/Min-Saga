@@ -7,6 +7,7 @@ type AuthContextType = {
   signInWithGoogle: () => Promise<void>;
   logout: () => Promise<void>;
   user: User | null;
+  userImg: string;
   loading: boolean;
 };
 
@@ -14,6 +15,7 @@ const AuthContext = createContext<AuthContextType | null>(null);
 
 const AuthContextProvider: React.FC<PropsWithChildren> = ({ children }) => {
   const [user, setUser] = useState<User | null>(null);
+  const [userImg, setUserImg] = useState<string>("");
   const [loading, setLoading] = useState<boolean>(true);
 
   const navigate = useNavigate();
@@ -45,6 +47,13 @@ const AuthContextProvider: React.FC<PropsWithChildren> = ({ children }) => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
       console.log("currentUser", currentUser);
       setUser(currentUser);
+      if (currentUser) {
+        const profileImage = currentUser.photoURL;
+        setUserImg(
+          profileImage ||
+            "https://media.istockphoto.com/id/1131164548/vector/avatar-5.jpg?s=612x612&w=0&k=20&c=CK49ShLJwDxE4kiroCR42kimTuuhvuo2FH5y_6aSgEo="
+        );
+      }
       setLoading(false);
     });
     return () => unsubscribe();
@@ -52,7 +61,7 @@ const AuthContextProvider: React.FC<PropsWithChildren> = ({ children }) => {
 
   console.log("user", user);
   return (
-    <AuthContext.Provider value={{ signInWithGoogle, logout, user, loading }}>
+    <AuthContext.Provider value={{ signInWithGoogle, logout, user, userImg, loading }}>
       {loading ? <p>Loading...</p> : <>{children}</>}
     </AuthContext.Provider>
   );
