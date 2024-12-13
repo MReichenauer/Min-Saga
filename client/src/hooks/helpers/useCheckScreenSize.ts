@@ -6,13 +6,14 @@ const useCheckScreenSize = () => {
   const [height, setHeight] = useState(window.innerHeight);
 
   const isMobile = width <= maxMobileWidth;
-  const widthLessThan768 = width < 768;
-  const heightLessThan475 = height < 475;
+  const widthLessThan768 = width < 769;
+  const heightLessThan475 = height < 476;
+  const renderBigNav = width > 767 && height > 474;
 
   const pageHeightSmScreen = useMemo(() => Math.min(Math.round(height * 0.9), 520), [height]);
   const pageHeightLgScreen = useMemo(() => Math.min(Math.round(height * 0.75), 520), [height]);
 
-  const pageHeight = useMemo(() => {
+  const calculatePageHeight = useMemo(() => {
     if (widthLessThan768 && heightLessThan475) {
       return pageHeightSmScreen;
     } else {
@@ -30,7 +31,7 @@ const useCheckScreenSize = () => {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  return { isMobile, width, height, pageHeight };
+  return { isMobile, width, height, calculatePageHeight, renderBigNav };
 };
 
 export default useCheckScreenSize;

@@ -13,10 +13,10 @@ type BookProps = {
 };
 
 const Book: React.FC<BookProps> = ({ story }) => {
-  const { isMobile, width, pageHeight } = useCheckScreenSize();
+  const { isMobile, width, calculatePageHeight } = useCheckScreenSize();
 
   const ninetyFivePercentOfWidth = Math.round(width * 0.95);
-  const pageWidth = Math.min(ninetyFivePercentOfWidth, 1040);
+  const calculatePageWidth = Math.min(ninetyFivePercentOfWidth, 1040);
   const chapters = story.chapters.map((chapter) => chapter);
   const [currentPage, setCurrentPage] = useState(0);
   const flipPageRef = useRef<FlipPageRefType | null>(null);
@@ -41,8 +41,8 @@ const Book: React.FC<BookProps> = ({ story }) => {
         ref={flipPageRef}
         showSwipeHint={true}
         responsive={false}
-        width={pageWidth}
-        height={pageHeight}
+        width={calculatePageWidth}
+        height={calculatePageHeight}
         startAt={0}
         className={styles.bookComponent}
         orientation={"horizontal"}
