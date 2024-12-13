@@ -18,7 +18,7 @@ const Book: React.FC<BookProps> = ({ story }) => {
   console.log("width", width);
   console.log("math", Math.round(width * 0.8));
   const ninetyFivePercentOfWidth = Math.round(width * 0.95);
-  const ninetyPercentOfHeight = Math.round(height * 0.9);
+  const ninetyPercentOfHeight = Math.round(height * 0.8);
   const pageWidth = Math.min(ninetyFivePercentOfWidth, 1040);
   const pageHeight = Math.min(ninetyPercentOfHeight, 520);
 

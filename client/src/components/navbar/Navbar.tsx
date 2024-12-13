@@ -2,18 +2,20 @@ import { Link, NavLink } from "react-router-dom";
 import styles from "./navbar.module.css";
 import useAuth from "@hooks/auth/useAuth";
 import { useRef, useState } from "react";
-import useHandleClickOutsideNode from "@hooks/helpers/useHandleClickOutsideNode";
+import { useHandleClickOutsideNode } from "@hooks/helpers/useHandleClickOutsideNode";
+import useHandleEscapeKey from "@hooks/helpers/useHandleEscapeKey";
 
 const Navbar = () => {
   const { userImg } = useAuth();
   const [profileIsOpen, setProfileIsOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement | null>(null);
 
-  const handleProfileToggle = () => {
-    setProfileIsOpen(!profileIsOpen);
-  };
+  const { handleMouseDown, handleMouseUp } = useHandleClickOutsideNode(dropdownRef, () => setProfileIsOpen(false));
+  useHandleEscapeKey(() => setProfileIsOpen(false), profileIsOpen);
 
-  useHandleClickOutsideNode(dropdownRef, () => setProfileIsOpen(false));
+  const handleProfileToggle = () => {
+    setProfileIsOpen((prev) => !prev);
+  };
 
   return (
     <div className={styles.container}>
@@ -22,34 +24,48 @@ const Navbar = () => {
           <Link className={styles.title} to="/">
             Min Saga
           </Link>
+
           <ul className={styles.navLinks}>
-            <li tabIndex={0}>
+            <li>
               <NavLink className={({ isActive }) => (isActive ? styles.active : "")} to="/my-stories">
                 Mina Berättelser
               </NavLink>
             </li>
-            <li tabIndex={1}>
+            <li>
               <NavLink className={({ isActive }) => (isActive ? styles.active : "")} to="/stories">
                 Berättelser
               </NavLink>
             </li>
-            <li tabIndex={2}>
+            <li>
               <NavLink className={({ isActive }) => (isActive ? styles.active : "")} to="/help-and-support">
                 Hjälp & kontakt
               </NavLink>
             </li>
           </ul>
 
-          <button className={styles.userButton} onClick={handleProfileToggle}>
+          <button
+            aria-label="profile actions menu"
+            className={styles.userButton}
+            onClick={handleProfileToggle}
+            onMouseDown={handleMouseDown}
+            onMouseUp={handleMouseUp}
+            onTouchStart={handleMouseDown}
+            onTouchEnd={handleMouseUp}
+            tabIndex={0}
+          >
             <img className={styles.userImg} src={userImg} alt="user" />
           </button>
         </div>
       </nav>
 
-      <div ref={dropdownRef} className={`${styles.profileActionContainer} ${profileIsOpen ? styles.open : ""}`}>
+      <div
+        ref={dropdownRef}
+        className={`${styles.profileActionContainer} ${profileIsOpen ? styles.open : ""}`}
+        aria-hidden={!profileIsOpen}
+      >
         <ul>
-          <li>Profil</li>
-          <li>Logga ut</li>
+          <li tabIndex={0}>Profil</li>
+          <li tabIndex={0}>Logga ut</li>
         </ul>
       </div>
     </div>
