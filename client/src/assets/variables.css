@@ -106,10 +106,12 @@
 
    /** Test **/
    --autumn-100: #f3b875;
+   --autumn-100-light: #fccc95;
    --autumn-200: #e88b63;
    --autumn-300: #d06a3c;
    --autumn-400: #9c4414;
    --autumn-500: #6a2a05;
+   --autumn-500-dark: #411702;
 
    --autumn-background-color: var(--autumn-100);
 
@@ -129,19 +131,6 @@
 }
 
 /* Global Styles */
-
-/*** active class from react-router ***/
-.active {
-   background-color: var(--autumn-100);
-   color: var(--autumn-500);
-   transition: 0.4s ease-in;
-}
-
-.active a:hover {
-   background-color: var(--autumn-100);
-   color: var(--autumn-500);
-  
-}
 
 body {
    box-sizing: border-box;
@@ -279,13 +268,13 @@ button.autumnSecondaryButton:disabled {
 }
 
 a {
-   color:var(--autumn-100);
+   color:var(--link-color);
    text-decoration: none;
    transition: color 0.2s ease;
  }
  
  a:hover {
-   color: #fccc95;
+   color:var(--link-color-hover);
  }
 
  .pageContainer {

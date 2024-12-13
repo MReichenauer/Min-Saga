@@ -1,32 +1,19 @@
 import { Link, NavLink } from "react-router-dom";
 import styles from "./navbar.module.css";
 import useAuth from "@hooks/auth/useAuth";
-import { useEffect, useRef, useState } from "react";
+import { useRef, useState } from "react";
+import useHandleClickOutsideNode from "@hooks/helpers/useHandleClickOutsideNode";
 
 const Navbar = () => {
   const { userImg } = useAuth();
   const [profileIsOpen, setProfileIsOpen] = useState(false);
-
-  const dropdownRef = useRef(null);
+  const dropdownRef = useRef<HTMLDivElement | null>(null);
 
   const handleProfileToggle = () => {
     setProfileIsOpen(!profileIsOpen);
   };
 
-  // Close dropdown if clicking outside
-  useEffect(() => {
-    const handleClickOutside = (event) => {
-      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
-        setProfileIsOpen(false);
-      }
-    };
-
-    document.addEventListener("mousedown", handleClickOutside);
-
-    return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
-    };
-  }, []);
+  useHandleClickOutsideNode(dropdownRef, () => setProfileIsOpen(false));
 
   return (
     <div className={styles.container}>
@@ -37,13 +24,19 @@ const Navbar = () => {
           </Link>
           <ul className={styles.navLinks}>
             <li tabIndex={0}>
-              <NavLink to="/my-stories">Mina Berättelser</NavLink>
+              <NavLink className={({ isActive }) => (isActive ? styles.active : "")} to="/my-stories">
+                Mina Berättelser
+              </NavLink>
             </li>
             <li tabIndex={1}>
-              <NavLink to="/stories">Berättelser</NavLink>
+              <NavLink className={({ isActive }) => (isActive ? styles.active : "")} to="/stories">
+                Berättelser
+              </NavLink>
             </li>
             <li tabIndex={2}>
-              <NavLink to="/help-and-support">Hjälp & kontakt</NavLink>
+              <NavLink className={({ isActive }) => (isActive ? styles.active : "")} to="/help-and-support">
+                Hjälp & kontakt
+              </NavLink>
             </li>
           </ul>
 

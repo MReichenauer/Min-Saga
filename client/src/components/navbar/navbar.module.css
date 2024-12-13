@@ -12,8 +12,7 @@
     align-items: center;
     padding: var(--spacing-xxs) 0;
     height: 3.5rem;
-    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.2);
-    
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.2);  
 }
 
 .fullNavbar ul {
@@ -21,8 +20,7 @@
     list-style: none;
     padding: 0;
     margin: 0;
-    gap: var(--spacing-xs);  
-    
+    gap: var(--spacing-xs);    
 }
 
 .navContainer {
@@ -42,19 +40,34 @@
     color: #fccc95;
 }
 
-
-
 .navLinks a {
+    color:var(--autumn-100);
     position: relative;
     font-size: var(--font-size);
     padding: 1.635rem var(--spacing-xs);
    
 }
 
-
 .navLinks a:hover {
+    color: var( --autumn-100-light);
     transition: ease-in 0.2s;
 }
+
+
+.active {
+    background-color: var(--autumn-100);
+    color: var(--autumn-500);
+    transition: 0.4s ease-in;
+}
+
+.navLinks a.active {
+    color: var(--autumn-500);
+}
+
+ .navLinks a.active:hover {
+    color: var(--autumn-500-dark);
+}
+
 
 .navLinks a::after  {
     content: "";
@@ -130,17 +143,20 @@
 
  .profileActionContainer ul {
     list-style: none;
-    padding: 0 2rem 1rem;
+    padding: 1rem 1.5rem;
     margin: 0;
     border-bottom-left-radius: 0.5rem;
     background-color: var(--autumn-500);
     color: var(--autumn-100);
  }
 
+ .profileActionContainer li {
+    margin-bottom: 0.5rem;
+ }
+
  .profileActionContainer ul li {
     width: fit-content;
     position: relative;
-    padding: 0.2rem 0;
     color: var(--autumn-100);
     text-align: left;
 }
