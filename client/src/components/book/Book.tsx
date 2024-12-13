@@ -4,7 +4,7 @@ import FlipPage, { FlipPageRefType } from "react-flip-page";
 import { StoryType } from "@models/StoryTypes";
 import BookPage from "@components/bookPage/BookPage";
 import MobileBookPage from "@components/mobileBookPage/MobileBookPage";
-import useCheckScreenWidth from "@hooks/helpers/useCheckScreenWidth";
+import useCheckScreenSize from "@hooks/helpers/useCheckScreenSize";
 import Svg from "@components/svg/svg";
 import { IconEnum } from "@components/svg/Models";
 
@@ -13,28 +13,20 @@ type BookProps = {
 };
 
 const Book: React.FC<BookProps> = ({ story }) => {
-  const { isMobile, width, height } = useCheckScreenWidth();
+  const { isMobile, width, pageHeight } = useCheckScreenSize();
 
-  console.log("width", width);
-  console.log("math", Math.round(width * 0.8));
   const ninetyFivePercentOfWidth = Math.round(width * 0.95);
-  const ninetyPercentOfHeight = Math.round(height * 0.8);
   const pageWidth = Math.min(ninetyFivePercentOfWidth, 1040);
-  const pageHeight = Math.min(ninetyPercentOfHeight, 520);
-
-  console.log("height", height);
-  console.log("pageWidth", pageWidth);
-
   const chapters = story.chapters.map((chapter) => chapter);
-
   const [currentPage, setCurrentPage] = useState(0);
-  console.log(isMobile);
   const flipPageRef = useRef<FlipPageRefType | null>(null);
+
   const handleNextPage = () => {
     if (flipPageRef.current) {
       flipPageRef.current.gotoNextPage();
     }
   };
+
   const handlePreviousPage = () => {
     if (flipPageRef.current) {
       flipPageRef.current.gotoPreviousPage();
