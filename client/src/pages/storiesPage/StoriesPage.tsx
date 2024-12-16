@@ -14,7 +14,7 @@ const StoriesPage = () => {
   });
 
   return (
-    <div>
+    <div className="pageContainer">
       <h1>StoriesPage</h1>
       <div>
         {data.map((story) => (

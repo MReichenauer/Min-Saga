@@ -9,14 +9,14 @@ import StoriesPage from "@pages/storiesPage/StoriesPage";
 import "./App.css";
 import VariablesPage from "@pages/variablesPage/VariablesPage";
 import ProtectedRoutes from "@components/protectedRoutes/ProtectedRoutes";
-import Navbar from "@components/navbar/Navbar";
 import useAuth from "@hooks/auth/useAuth";
+import Navigation from "@components/navigation/Navigation";
 
 function App() {
   const { user } = useAuth();
   return (
     <div id="appContainer">
-      {user && <Navbar />}
+      {user && <Navigation />}
       <Routes>
         <Route path="/login" element={<LoginPage />} />
         <Route path="/*" element={<NotFoundPage />} />

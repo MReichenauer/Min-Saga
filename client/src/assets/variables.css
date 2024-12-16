@@ -279,7 +279,7 @@ a {
 
  .pageContainer {
    max-width: 1200px;
-   min-height: 100vh;
+   max-height: fit-content;
    margin: 0 auto;
    padding: 0 var(--spacing-sm);
  }

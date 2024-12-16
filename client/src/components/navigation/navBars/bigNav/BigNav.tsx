@@ -1,11 +1,11 @@
 import { Link, NavLink } from "react-router-dom";
-import styles from "./navbar.module.css";
+import styles from "./bigNav.module.css";
 import useAuth from "@hooks/auth/useAuth";
 import { useRef, useState } from "react";
 import { useHandleClickOutsideNode } from "@hooks/helpers/useHandleClickOutsideNode";
 import useHandleEscapeKey from "@hooks/helpers/useHandleEscapeKey";
 
-const Navbar = () => {
+const BigNav = () => {
   const { userImg } = useAuth();
   const [profileIsOpen, setProfileIsOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement | null>(null);
@@ -21,10 +21,12 @@ const Navbar = () => {
     <div className={styles.container}>
       <nav className={styles.fullNavbar}>
         <div className={styles.navContainer}>
-          <Link className={styles.title} to="/">
-            Min Saga
-          </Link>
-
+          <header className={styles.navHeader}>
+            {" "}
+            <Link className={styles.title} to="/">
+              Min Saga
+            </Link>
+          </header>
           <ul className={styles.navLinks}>
             <li>
               <NavLink className={({ isActive }) => (isActive ? styles.active : "")} to="/my-stories">
@@ -72,4 +74,4 @@ const Navbar = () => {
   );
 };
 
-export default Navbar;
+export default BigNav;
