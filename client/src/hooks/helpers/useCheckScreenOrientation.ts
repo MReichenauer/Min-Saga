@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
-import useCheckScreenWidth from "./useCheckScreenWidth";
+import useCheckScreenSize from "./useCheckScreenSize";
 
 const useCheckScreenOrientation = () => {
   const [recommendLandscape, setRecommendLandscape] = useState(false);
-  const { width, height } = useCheckScreenWidth();
+  const { width, height } = useCheckScreenSize();
 
   useEffect(() => {
     const isPortrait = width < height;

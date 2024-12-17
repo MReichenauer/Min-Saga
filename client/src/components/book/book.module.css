@@ -3,8 +3,8 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    max-width: fit-content;
-    min-height: fit-content;
+    width: fit-content;
+    height: fit-content;
   }
 
   .page{
@@ -12,10 +12,7 @@
   }
 
   .bookComponent {
-    width: 95vw; 
     max-width: 1200px;
-    min-height: fit-content;
-    aspect-ratio: 2/0.965;
     padding: 0 var(--spacing-sm);
     background-image: repeating-linear-gradient(to right,var(--secondary-color-light), var(--almost-white)  5px, transparent 1px, transparent);
     background-size: 6px 6px;
@@ -80,11 +77,6 @@
     .isTabletOrDesktop {
         display: none;
      }
-
-    .bookComponent {
-      aspect-ratio: 2/3;
-    }
-
     .bookComponent div {
       height: inherit;
     }
@@ -97,11 +89,6 @@
     .isTabletOrDesktop {
         display: block;
      }
-
-     .bookComponent {
-      height: 75vh;
-      min-height: fit-content;
-    }
  }
 
  @media screen and (max-width: 992px) {
