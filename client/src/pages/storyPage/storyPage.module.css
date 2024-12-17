@@ -6,7 +6,8 @@
 }
 
 .contentContainer h1 {
-  color: var( --main-accent-color)
+  color: var(--autumn-500);
+  font-size: var(--font-size-md);
 }
 
 

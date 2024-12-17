@@ -1,6 +1,5 @@
 .pageContainer {
     display: flex;
-    min-height: fit-content;
     flex-direction: column;
     background-color:color-mix(in srgb, var(--secondary-color-light) 30%, var(--almost-white) 70%);
 }
