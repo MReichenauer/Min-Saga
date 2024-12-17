@@ -24,7 +24,7 @@ function App() {
         {/* Bellow is routes that require a authenticated user to visit */}
         <Route element={<ProtectedRoutes />}>
           <Route path="/" element={<HomePage />} />
-          <Route path="/stories" element={<CreateStoryPage />} />
+          <Route path="/create-story" element={<CreateStoryPage />} />
           <Route path="/stories/:id" element={<StoryPage />} />
           <Route path="/my-stories" element={<MyStoriesPage />} />
           <Route path="/help-and-support" element={<HelpAndSupportPage />} />

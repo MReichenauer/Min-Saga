@@ -1,3 +1,4 @@
+import CreateStory from "@components/forms/createStory/CreateStory";
 import useGetStories from "@hooks/data/useGetStories";
 
 const CreateStoryPage = () => {
@@ -14,6 +15,7 @@ const CreateStoryPage = () => {
   return (
     <div className="pageContainer">
       <h1>CreateStoryPage</h1>
+      <CreateStory />
     </div>
   );
 };

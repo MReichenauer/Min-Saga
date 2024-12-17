@@ -30,12 +30,12 @@ const BigNav = () => {
           <ul className={styles.navLinks}>
             <li>
               <NavLink className={({ isActive }) => (isActive ? styles.active : "")} to="/my-stories">
-                Mina Berättelser
+                Mina berättelser
               </NavLink>
             </li>
             <li>
-              <NavLink className={({ isActive }) => (isActive ? styles.active : "")} to="/create-new-story">
-                Skapa en Berättelse
+              <NavLink className={({ isActive }) => (isActive ? styles.active : "")} to="/create-story">
+                Skapa en berättelse
               </NavLink>
             </li>
             <li>
