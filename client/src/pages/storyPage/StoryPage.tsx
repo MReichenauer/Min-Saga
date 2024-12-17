@@ -15,7 +15,9 @@ const StoryPage = () => {
       <div className={styles.mainContainer}>
         <div className="pageContainer">
           <section className={styles.contentContainer}>
-            <h1>{data.title}</h1>
+            <header>
+              <h1>{data.title}</h1>
+            </header>
             <RecommendLandscapeBanner />
             <Book story={data} />
           </section>

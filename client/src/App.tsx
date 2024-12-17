@@ -5,7 +5,7 @@ import NotFoundPage from "@pages/notFoundPage/NotFoundPage";
 import HelpAndSupportPage from "@pages/helpAndSupportPage/HelpAndSupportPage";
 import StoryPage from "@pages/storyPage/StoryPage";
 import { Route, Routes } from "react-router-dom";
-import StoriesPage from "@pages/storiesPage/StoriesPage";
+import CreateStoryPage from "@pages/createStoryPage/CreateStoryPage";
 import "./App.css";
 import VariablesPage from "@pages/variablesPage/VariablesPage";
 import ProtectedRoutes from "@components/protectedRoutes/ProtectedRoutes";
@@ -24,7 +24,7 @@ function App() {
         {/* Bellow is routes that require a authenticated user to visit */}
         <Route element={<ProtectedRoutes />}>
           <Route path="/" element={<HomePage />} />
-          <Route path="/stories" element={<StoriesPage />} />
+          <Route path="/stories" element={<CreateStoryPage />} />
           <Route path="/stories/:id" element={<StoryPage />} />
           <Route path="/my-stories" element={<MyStoriesPage />} />
           <Route path="/help-and-support" element={<HelpAndSupportPage />} />

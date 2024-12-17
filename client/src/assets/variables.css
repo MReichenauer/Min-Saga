@@ -132,20 +132,11 @@
 
 /* Global Styles */
 
-body {
-   box-sizing: border-box;
+
+
+html {
    min-height: 100vh;
-   min-width: 100vw;
-   margin: 0;
-   padding: 0;
-   font-family: var(--font-text);
-   line-height: var(--line-height-md);
-   color: var(--text-color);
-  /* background-color: var(--autumn-100); */
-   /* background: linear-gradient(45deg, var(--autumn-100), var(--autumn-200), var(--autumn-300), var(--autumn-400), var(--autumn-500)); */
-   /* background: linear-gradient(125deg, #f3b875, #f0b572, #ecb16e, #e9ae6b, #e6ab67, #e3a764, #dfa461, #dca15d, #d99e5a, #d69a57, #d29753, #cf9450);    */
-   background-image: linear-gradient(
-      45deg,
+   background-image:radial-gradient(
       #f3b875 0%,
       #f4ba78 15%,
       #f5bc7b 22%,
@@ -164,6 +155,24 @@ body {
       #f8c37d 85%,
       #f8c27b 100%
     );
+ 
+ 
+    
+}
+
+body {
+   box-sizing: border-box;
+   min-height: 100%;
+   min-width: 100vw;
+   margin: 0;
+   padding: 0;
+   font-family: var(--font-text);
+   line-height: var(--line-height-md);
+   color: var(--text-color);
+  /* background-color: var(--autumn-100); */
+   /* background: linear-gradient(45deg, var(--autumn-100), var(--autumn-200), var(--autumn-300), var(--autumn-400), var(--autumn-500)); */
+   /* background: linear-gradient(125deg, #f3b875, #f0b572, #ecb16e, #e9ae6b, #e6ab67, #e3a764, #dfa461, #dca15d, #d99e5a, #d69a57, #d29753, #cf9450);    */
+   
     
 }
 
@@ -279,7 +288,7 @@ a {
 
  .pageContainer {
    max-width: 1200px;
-   max-height: fit-content;
+   min-height: 100%;
    margin: 0 auto;
    padding: 0 var(--spacing-sm);
  }

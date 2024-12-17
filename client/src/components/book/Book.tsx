@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import styles from "./book.module.css";
 import FlipPage, { FlipPageRefType } from "react-flip-page";
 import { StoryType } from "@models/StoryTypes";
@@ -13,13 +13,22 @@ type BookProps = {
 };
 
 const Book: React.FC<BookProps> = ({ story }) => {
-  const { isMobile, width, calculatePageHeight } = useCheckScreenSize();
-
-  const ninetyFivePercentOfWidth = Math.round(width * 0.95);
-  const calculatePageWidth = Math.min(ninetyFivePercentOfWidth, 1040);
-  const chapters = story.chapters.map((chapter) => chapter);
+  const { isPortraitMobile, calculatePageHeight, calculatePageWidth } = useCheckScreenSize();
+  const [bookWidth, setBookWidth] = useState(0);
+  const [bookHeight, setBookHeight] = useState(0);
   const [currentPage, setCurrentPage] = useState(0);
   const flipPageRef = useRef<FlipPageRefType | null>(null);
+  const chapters = story.chapters.map((chapter) => chapter);
+
+  useEffect(() => {
+    if (isPortraitMobile) {
+      setBookHeight(500);
+      setBookWidth(349);
+    } else {
+      setBookHeight(calculatePageHeight);
+      setBookWidth(calculatePageWidth);
+    }
+  }, [isPortraitMobile, calculatePageHeight, calculatePageWidth]);
 
   const handleNextPage = () => {
     if (flipPageRef.current) {
@@ -41,16 +50,17 @@ const Book: React.FC<BookProps> = ({ story }) => {
         ref={flipPageRef}
         showSwipeHint={true}
         responsive={false}
-        width={calculatePageWidth}
-        height={calculatePageHeight}
+        width={bookWidth}
+        height={bookHeight}
         startAt={0}
         className={styles.bookComponent}
         orientation={"horizontal"}
         animationDuration={500}
+        pageBackground="transparent"
       >
         {chapters.map((chapter, index) => (
           <div key={index} className={styles.page}>
-            {isMobile ? <MobileBookPage chapter={chapter} /> : <BookPage chapter={chapter} />}
+            {isPortraitMobile ? <MobileBookPage chapter={chapter} /> : <BookPage chapter={chapter} />}
           </div>
         ))}
       </FlipPage>

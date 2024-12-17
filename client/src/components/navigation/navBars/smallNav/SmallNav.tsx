@@ -1,5 +1,5 @@
 import { useRef, useState } from "react";
-import styles from "./SmallNav.module.css";
+import styles from "./smallNav.module.css";
 import { Link, NavLink, useNavigate } from "react-router-dom";
 import Svg from "@components/svg/svg";
 import { IconEnum } from "@components/svg/Models";
@@ -54,8 +54,8 @@ const SmallNav = () => {
             </NavLink>
           </li>
           <li>
-            <NavLink to={"/stories"} onClick={() => setNavIsOpen(false)}>
-              Berättelser
+            <NavLink to={"/create-new-story"} onClick={() => setNavIsOpen(false)}>
+              Skapa en Berättelse
             </NavLink>
           </li>
           <li>
