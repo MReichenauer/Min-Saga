@@ -1,20 +1,22 @@
 .inputContainer {
-    border: black 2px solid;
     display: flex;
     flex-direction: column;
-    margin-bottom: var(--spacing-xs);
+    margin: 0;
+    height: 6.5rem;
 }
 
 .label {
     text-align: left;
     font-size: var(--font-size);
-    font-family: var(--font-heading);
+    font-weight: var(--font-weight-md);
+    font-family: var(--font-text);
     color: var(--autumn-500);
     margin-bottom: calc(var(--spacing-xxs) / 2);
 }
 
 .inputField {
-    border: 1px solid var(--autumn-100);
+    outline: none;
+    border: var(--tertiary-color-light) 1px solid;
     border-radius: 0.5rem;
     padding: var(--spacing-xxs);
     font-size: var(--font-size);
@@ -25,7 +27,7 @@
 }
 
 .errorInput{
-    border: 1px solid red;
+    border: 2px solid red;
     box-shadow: 0px 0px 5px 0px rgba(255, 0, 0, 0.3);
 }
 
@@ -36,11 +38,9 @@
 }
 
 .inputField:focus {
-    outline: var(--autumn-200) 1px solid;
+    border: var(--tertiary-color-dark) 2px solid;
     box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.3);
   }
-
-
 
 .error {
     color: red;
@@ -48,4 +48,5 @@
     font-weight: var(--font-weight-sm);
     margin-top: calc(var(--spacing-xxs) / 2);
     min-height: var(--spacing-md);
+    line-height: var(--line-height-xxs);
 }

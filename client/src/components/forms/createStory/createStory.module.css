@@ -1,0 +1,56 @@
+.formContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 94vh;
+}
+
+.fullForm {
+    padding: 1.5rem 1.25rem;
+    width: 100%;
+    justify-content: center;
+    background-color: var(--autumn-100);
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.3);
+    border-radius: 0.5rem;
+    max-width: 29.063rem;
+}
+
+.fullForm h2 {
+    margin-top: 0;
+    color: var(--autumn-500-dark);
+}
+
+.buttonContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    
+}
+
+.buttonContainer button {
+    color: var(--autumn-100-light);
+    
+}
+
+.submitButton {
+    font-size: var(--font-size);
+   background-color: var(--autumn-success-button-color);
+}
+
+.submitButton:hover {
+    background-color: var(--autumn-success-button-color-hover);
+}
+
+.resetButton {
+    font-size: var(--font-size);
+    margin: 0 auto;
+    width: 65%;
+    color: var(--autumn-100-light);
+    background-color: var(--autumn-danger-button-color);
+}
+
+.resetButton:hover {
+    background-color: var(--autumn-danger-button-color-hover);
+}
+

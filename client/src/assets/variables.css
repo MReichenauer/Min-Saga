@@ -24,6 +24,34 @@
 
    /*** Extra Colors ***/
    --almost-white: #F5F5F5;
+   --autumn-100: #f3b875;
+   --autumn-100-light: #fccc95;
+   --autumn-200: #e88b63;
+   --autumn-300: #d06a3c;
+   --autumn-400: #9c4414;
+   --autumn-500: #6a2a05;
+   --autumn-500-dark: #411702;
+
+   --autumn-background-color: var(--autumn-100);
+
+   --autumn-heading-color: var(--autumn-500);
+   --autumn-text-color: var(--autumn-400);
+
+   --autumn-primary-button-color: #b97d37;
+   --autumn-primary-button-color-hover: #9d6930;
+   --autumn-primary-button-color-disabled: #d6b194;
+
+   --autumn-secondary-button-color: #cf9450;
+   --autumn-secondary-button-color-hover: #b37844;
+   --autumn-secondary-button-color-disabled: #e0c6a5;
+
+   --autumn-success-button-color: #805627;
+   --autumn-success-button-color-hover: #8a5f2f;
+   --autumn-success-button-color-disabled: #b7a79a;
+
+   --autumn-danger-button-color: #d44825;
+   --autumn-danger-button-color-hover: #e64e28;
+   --autumn-danger-button-color-disabled: #e07d55;
    
 
    /*** Fonts ***/
@@ -104,27 +132,7 @@
    --desktop-max-width: 992px;
    --large-desktop-min-width: 1200px;
 
-   /** Test **/
-   --autumn-100: #f3b875;
-   --autumn-100-light: #fccc95;
-   --autumn-200: #e88b63;
-   --autumn-300: #d06a3c;
-   --autumn-400: #9c4414;
-   --autumn-500: #6a2a05;
-   --autumn-500-dark: #411702;
 
-   --autumn-background-color: var(--autumn-100);
-
-   --autumn-heading-color: var(--autumn-500);
-   --autumn-text-color: var(--autumn-400);
-
-   --autumn-primary-button-color: #b97d37;
-   --autumn-primary-button-color-hover: #9d6930;
-   --autumn-primary-button-color-disabled: #d6b194;
-
-   --autumn-secondary-button-color: #cf9450;
-   --autumn-secondary-button-color-hover: #b37844;
-   --autumn-secondary-button-color-disabled: #e0c6a5;
 
    
 
@@ -136,7 +144,9 @@
 
 html {
    min-height: 100vh;
-   background-image:radial-gradient(
+ 
+   background-image:linear-gradient(
+      45deg,
       #f3b875 0%,
       #f4ba78 15%,
       #f5bc7b 22%,

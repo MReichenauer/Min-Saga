@@ -14,7 +14,6 @@ const CreateStoryPage = () => {
 
   return (
     <div className="pageContainer">
-      <h1>CreateStoryPage</h1>
       <CreateStory />
     </div>
   );
