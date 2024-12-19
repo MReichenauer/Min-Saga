@@ -1,12 +1,20 @@
+import { StoryType } from "../../models/GlobalTypes";
 import openAiClient from "../client";
 
-const gptPrompt = async (mainCharacter: string, environment: string, targetedAge: number) => {
+const gptPrompt = async (
+  mainCharacterName: string,
+  mainCharacterType: string,
+  environment: string,
+  targetedAge: number
+) => {
   const languageStyle =
     targetedAge <= 5
       ? "Använd ett väldigt enkelt och lekfullt språk, korta meningar och återkommande fraser för att hålla barnet engagerat."
       : targetedAge <= 7
       ? "Använd ett enkelt, men lite mer utvecklat språk, korta meningar med några beskrivande adjektiv."
       : "Använd ett mer komplext språk med längre meningar och beskrivningar som tilltalar äldre barn, men fortfarande barnvänligt.";
+
+  const mainCharacter = `heter ${mainCharacterName} och är en ${mainCharacterType}`;
 
   const characterDescription = `Huvudkaraktären ${mainCharacter} ska vara en karismatisk och modig karaktär som har unika egenskaper. 
     För exempelvis en giraff kan du beskriva den som lång, nyfiken och vänlig, för en prinsessa kan du beskriva den som vacker, vänlig och modig, 
@@ -34,7 +42,7 @@ const gptPrompt = async (mainCharacter: string, environment: string, targetedAge
         - Huvudkaraktären: ${mainCharacter} (t.ex. en liten igelkott med stora öron och rosa nos eller en glad tjej med blå ögon och blont lockigt hår med en röd klänning).
         - Andra karaktärer: (lägg till fler karaktärer, t.ex. en blå fågel med vita vingar, en snäll häxa med en lila klänning eller en svart katt med vita prickar).
 
-        **Returnera svaret i följande format strikt som JSON:**
+        **Returnera endast följande format strikt som JSON. Inga andra kommentarer eller text får inkluderas utanför JSON:**
         {
           "targetedAge": ${targetedAge},
           "title": "Berättelsens titel",
@@ -70,7 +78,16 @@ const gptPrompt = async (mainCharacter: string, environment: string, targetedAge
       },
     ],
   });
-  return completions.choices[0].message.content;
+
+  try {
+    const response = completions.choices[0].message.content;
+    if (!response) return;
+    const jsonResponse: StoryType = JSON.parse(response);
+    return jsonResponse;
+  } catch (error) {
+    console.error("Error parsing JSON from gptPrompt:", error);
+    throw new Error("Error parsing JSON from gptPrompt");
+  }
 };
 
 export { gptPrompt };

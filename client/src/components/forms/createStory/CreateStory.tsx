@@ -1,24 +1,32 @@
 import { SubmitHandler, useForm } from "react-hook-form";
 import styles from "./createStory.module.css";
 import InputField from "../fields/inputField/InputField";
-
-type CreateStoryType = {
-  mainCharacterName: string;
-  mainCharacterType: string;
-  environment: string;
-  targetedAge: number;
-};
+import { CreateStoryType, StoryType } from "@models/StoryTypes";
+import { useState } from "react";
+import { generateStoryGpt } from "@services/serverApi/post/generateStory";
 
 const CreateStory = () => {
   const {
     register,
     handleSubmit,
-    formState: { errors },
+    formState: { errors, isSubmitting },
     reset,
   } = useForm<CreateStoryType>();
-  const onSubmit: SubmitHandler<CreateStoryType> = (data) => {
-    console.log(data);
-    reset();
+  const [story, setStory] = useState<StoryType | null>(null);
+  const [error, setError] = useState<string | null>(null);
+
+  const onSubmit: SubmitHandler<CreateStoryType> = async (data) => {
+    setError(null);
+    console.log("Sending data:", data);
+    try {
+      const response = await generateStoryGpt(data);
+      setStory(response);
+    } catch (error) {
+      console.log("Error generating story:", error);
+      setError("Författaren spillde bläck över boken, prova en gång till.");
+    } finally {
+      reset();
+    }
   };
   return (
     <section className={styles.formContainer}>
@@ -78,14 +86,29 @@ const CreateStory = () => {
             min={1}
           />
           <div className={styles.buttonContainer}>
-            <button className={styles.submitButton} type="submit">
+            <button className={styles.submitButton} type="submit" disabled={isSubmitting}>
               Skapa berättelsen
             </button>
-            <button className={styles.resetButton} type="reset" onClick={() => reset()}>
+            <button className={styles.resetButton} type="reset" onClick={() => reset()} disabled={isSubmitting}>
               Återställ
             </button>
           </div>
         </form>
+        {error && <p className={styles.errorMessage}>{error}</p>}
+        {story && (
+          <div className={styles.storyContainer}>
+            <h3>{story.title}</h3>
+            <p>{story.description}</p>
+            <div>
+              {story.chapters.map((chapter, index) => (
+                <div key={index}>
+                  <h4>{chapter.title}</h4>
+                  <p>{chapter.content}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
       </div>
     </section>
   );
