@@ -6,7 +6,7 @@ import { useHandleClickOutsideNode } from "@hooks/helpers/useHandleClickOutsideN
 import useHandleEscapeKey from "@hooks/helpers/useHandleEscapeKey";
 
 const BigNav = () => {
-  const { userImg } = useAuth();
+  const { userImg, logout } = useAuth();
   const [profileIsOpen, setProfileIsOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement | null>(null);
 
@@ -67,7 +67,9 @@ const BigNav = () => {
       >
         <ul>
           <li tabIndex={0}>Profil</li>
-          <li tabIndex={0}>Logga ut</li>
+          <li tabIndex={0} aria-label="logout" onClick={logout}>
+            Logga ut
+          </li>
         </ul>
       </div>
     </div>

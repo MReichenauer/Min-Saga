@@ -31,11 +31,16 @@
    --autumn-400: #9c4414;
    --autumn-500: #6a2a05;
    --autumn-500-dark: #411702;
+   --autumn-extra-100: #e6ac64;
+   --autumn-extra-200: #ffcc80;
+   --autumn-extra-300: #331a0c;
 
    --autumn-background-color: var(--autumn-100);
 
    --autumn-heading-color: var(--autumn-500);
    --autumn-text-color: var(--autumn-400);
+   --autumn-border-color: #e6b35ca4;
+   --autumn-border-color-low-opacity: #e6b35c28;
 
    --autumn-primary-button-color: #b97d37;
    --autumn-primary-button-color-hover: #9d6930;
@@ -52,7 +57,7 @@
    --autumn-danger-button-color: #d44825;
    --autumn-danger-button-color-hover: #e64e28;
    --autumn-danger-button-color-disabled: #e07d55;
-   
+
 
    /*** Fonts ***/
    --main-font-family: "Montserrat", serif;
@@ -87,6 +92,8 @@
    --background-color-almost-green: #eac696b2;
    --main-accent-color: var(--tertiary-color-dark);
    --secondary-accent-color: var(--tertiary-color);
+
+   
 
    /*** Text Color ***/
    --text-color: #2E2E2E;
@@ -144,8 +151,20 @@
 
 html {
    min-height: 100vh;
- 
-   background-image:linear-gradient(
+   
+
+   background-position: center center;
+   background-repeat: no-repeat;
+   background-attachment: fixed;
+   background-size: cover;
+   /* background-image: url("./images/vecteezy_autumn-composition-with-copy-space-ai-generative_26881562.jpg"); */
+   /* background-image: url("./images/ai-generated-abstract-multi-colored-fairy-tale-trees-against-the-background-of-a-river-and-fields-at-sunset-free-photo.jpg"); */
+   background-image: url("./images/door-stretching-into-fantasy-world.jpg");
+
+
+
+
+   /* background-image:linear-gradient(
       45deg,
       #f3b875 0%,
       #f4ba78 15%,
@@ -164,7 +183,7 @@ html {
       #f8c47f 78%,
       #f8c37d 85%,
       #f8c27b 100%
-    );
+    ); */
  
  
     

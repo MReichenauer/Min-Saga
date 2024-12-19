@@ -7,11 +7,14 @@
 
 .fullNavbar {
     display: flex;
-    background-color: var(--autumn-500);
+    background: rgba(106, 42, 5, 0.89);
+    border-bottom: 1px solid var(--autumn-border-color);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
     align-items: center;
     padding: var(--spacing-xxs) 0;
-    height: 2.8rem;
-    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.2);  
+    height: 2.2rem;
+    box-shadow: 0 0 10px var(--autumn-border-color), 0 0 4px rgba(255, 223, 186, 0.15);  
 }
 
 .fullNavbar ul {
@@ -32,12 +35,13 @@
 
 .title {
     font-size: var(--font-size-lg);
-    color: var(--autumn-100);
+    color:var(--autumn-extra-100);
     flex-grow: 1;
 }
 
 .title:hover{
-    color: #fccc95;
+    color:var(--autumn-extra-200);
+    transition: ease-in 0.1s;
 }
 
 .fullNavbar .navLinks {
@@ -45,30 +49,30 @@
 }
 
 .navLinks a {
-    color:var(--autumn-100);
+    color: var(--autumn-extra-100);
     position: relative;
     font-size: var(--font-size);
-    padding: 1.306rem var(--spacing-xs);
+    padding: 1rem var(--spacing-xs);
 }
 
 .navLinks a:hover {
-    color: var( --autumn-100-light);
+    color:  var(--autumn-extra-200);
     transition: ease-in 0.2s;
 }
 
 
 .active {
-    background-color: var(--autumn-100);
-    color: var(--autumn-500);
+    background-color: var(--autumn-extra-100);
+    color: var(--autumn-extra-300);
     transition: 0.4s ease-in;
 }
 
 .navLinks a.active {
-    color: var(--autumn-500);
+    color: var(--autumn-extra-300);
 }
 
  .navLinks a.active:hover {
-    color: var(--autumn-500-dark);
+    background-color: var(--autumn-extra-200);
 }
 
 
@@ -79,7 +83,7 @@
     bottom: 0.8rem;
     width: 100%;
     height: 0.095rem;
-    background-color:var(--autumn-100);
+    background-color: var(--autumn-extra-200);
     transform: scaleX(0); 
     transform-origin: bottom right;
     transition: transform 0.4s ease-in;
@@ -89,15 +93,18 @@
     transform: scaleX(1);
     transform-origin: bottom left;
  }
+ 
+.navLinks a.active::after {
+    transform: scaleX(0);
+}
 
  .user {
     display: flex;
     align-items: center;
-    color: var(--autumn-100);
  }
 
  .userImg {
-    height: 2.2rem;
+    height: 2.15rem;
     object-fit: contain;
     aspect-ratio: 1;
     border-radius: 50%;
@@ -107,17 +114,21 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 2.4rem;
+    height: fit-content;
     aspect-ratio: 1;
     padding: 0;
     margin: 0;
     border-radius: 50%;
-    background-color: var(--autumn-100);
+    border: solid 1px var(--autumn-extra-100);
+    box-shadow: 0 0 3px #E6B35C, 0 0 2px rgba(255, 223, 186, 0.4);
+   
  }
 
  .userButton:hover {
-    background-color: #fccc95;
-    transition: ease-in 0.2s;
+    border-color: (--autumn-extra-200);
+    box-shadow: 0 0 6px #E6B35C, 0 0 4px rgba(255, 223, 186, 0.8);
+    transition: ease-in 0.1s;
+    
  }
  
  .profileActionContainer {
@@ -149,10 +160,15 @@
     padding: 1rem 1.42rem;
     margin: 0;
     border-bottom-left-radius: 0.5rem;
-    background-color: var(--autumn-500);
-    color: var(--autumn-100);
+    background: rgba(106, 42, 5, 0.89);
+    border: 1px solid var(--autumn-border-color);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    box-shadow: 0 2px 10px var(--autumn-border-color), 0 0 4px rgba(255, 223, 186, 0.15);
+    border-top: none;
+    color: var(--autumn-extra-100);
  }
-
+ 
  .profileActionContainer li {
     margin-bottom: 0.5rem;
  }
@@ -171,7 +187,7 @@
     right: -0.5rem;
     bottom: -0.25rem; 
     height: 0.095rem; 
-    background-color: var(--autumn-100);
+    background-color: var(--autumn-extra-200);
     transform: scaleX(0); 
     transform-origin: bottom right; 
     transition: transform 0.4s ease-in;
@@ -179,7 +195,7 @@
 
 .profileActionContainer ul li:hover {
     cursor: pointer;
-    color: #fccc95;
+    color: var(--autumn-extra-200);
     transition: color 0.2s ease-in;
 }
 
@@ -194,21 +210,27 @@
     }
 
     .fullNavbar {
-        height: 3.5rem;
+        height: 2.8rem;
     }
 
     .navLinks a {
         font-size: var(--font-size-md);
-        padding: var(--spacing-sm) var(--spacing-xs);
+        padding: 1.15rem var(--spacing-xs);
     }
 
+    .fullNavbar ul  {
+        gap: var(--spacing-md);
+    }
+
+    .navLinks a::after  {
+        bottom: 0.6rem;
+     }
+
     .userImg {
-        height: var(--spacing-lg);
+        height: 2.5rem;
      }
     
-     .userButton {
-        height: 3.25rem;
-     }
+     
 
      .navContainer {
         margin: 0 2.5rem;

@@ -10,15 +10,18 @@
     padding: 1.5rem 1.25rem;
     width: 100%;
     justify-content: center;
-    background-color: var(--autumn-100);
-    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.3);
+    background: rgba(106, 42, 5, 0.89);
+    border: 1px solid var(--autumn-border-color);
+    box-shadow: 0 0 10px var(--autumn-border-color), 0 0 4px rgba(255, 223, 186, 0.15);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
     border-radius: 0.5rem;
     max-width: 29.063rem;
 }
 
 .fullForm h2 {
     margin-top: 0;
-    color: var(--autumn-500-dark);
+    color: var(--autumn-100);
 }
 
 .buttonContainer {
@@ -29,20 +32,29 @@
 }
 
 .buttonContainer button {
-    color: var(--autumn-100-light);
-    
+    color: var(--autumn-extra-200);
+    box-shadow: 0 0 10px var(--autumn-border-color), 0 0 4px rgba(255, 223, 186, 0.15);
+    border: 1px solid var(--autumn-border-color-low-opacity);
+    transition: box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.buttonContainer button:hover{
+    border: 1px solid var(--autumn-border-color);
 }
 
 .submitButton {
     font-size: var(--font-size);
-   background-color: var(--autumn-success-button-color);
+    background-color: var(--autumn-success-button-color);
+   
+   
 }
 
 .submitButton:hover {
-    background-color: var(--autumn-success-button-color-hover);
+    background-color: var(--autumn-success-button-color-hover);  
 }
 
 .resetButton {
+  
     font-size: var(--font-size);
     margin: 0 auto;
     width: 65%;
