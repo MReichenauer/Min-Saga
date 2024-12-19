@@ -94,21 +94,7 @@ const CreateStory = () => {
             </button>
           </div>
         </form>
-        {error && <p className={styles.errorMessage}>{error}</p>}
-        {story && (
-          <div className={styles.storyContainer}>
-            <h3>{story.title}</h3>
-            <p>{story.description}</p>
-            <div>
-              {story.chapters.map((chapter, index) => (
-                <div key={index}>
-                  <h4>{chapter.title}</h4>
-                  <p>{chapter.content}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        )}
+        {error && <p className={styles.errorMessage}>{error}</p>} {/*TODO put in generic modal */}
       </div>
     </section>
   );
