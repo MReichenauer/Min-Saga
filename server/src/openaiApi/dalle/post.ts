@@ -10,7 +10,7 @@ const promptDalle = async (request: Request, response: Response) => {
   }
   try {
     const storyWithImages = await createChapterImages(story);
-    response.status(200).send({ storyWithImages });
+    response.status(200).send({ data: storyWithImages });
   } catch (error) {
     console.error("Error generating story images:", error);
     response.status(500).send({ error: "An error occurred while generating the story images" });

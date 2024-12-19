@@ -1,9 +1,9 @@
 import { SubmitHandler, useForm } from "react-hook-form";
 import styles from "./createStory.module.css";
 import InputField from "../fields/inputField/InputField";
-import { CreateStoryType, StoryType } from "@models/StoryTypes";
+import { CreateStoryType } from "@models/StoryTypes";
 import { useState } from "react";
-import { generateStoryGpt } from "@services/serverApi/post/generateStory";
+import { generateStory } from "@services/serverApi/post/generateStory";
 
 const CreateStory = () => {
   const {
@@ -12,15 +12,15 @@ const CreateStory = () => {
     formState: { errors, isSubmitting },
     reset,
   } = useForm<CreateStoryType>();
-  const [story, setStory] = useState<StoryType | null>(null);
+
   const [error, setError] = useState<string | null>(null);
 
   const onSubmit: SubmitHandler<CreateStoryType> = async (data) => {
     setError(null);
     console.log("Sending data:", data);
     try {
-      const response = await generateStoryGpt(data);
-      setStory(response);
+      const response = await generateStory(data);
+      console.log("Initial response from generateStory:", response);
     } catch (error) {
       console.log("Error generating story:", error);
       setError("Författaren spillde bläck över boken, prova en gång till.");
@@ -94,7 +94,7 @@ const CreateStory = () => {
             </button>
           </div>
         </form>
-        {error && <p className={styles.errorMessage}>{error}</p>} {/*TODO put in generic modal */}
+        {error && <p className={styles.errorMessage}>{error}</p>} {/* TODO put in generic modal */}
       </div>
     </section>
   );
