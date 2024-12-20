@@ -3,7 +3,7 @@ import path from "path";
 import fs from "fs";
 const downloadImage = async (imageUrl: string): Promise<string> => {
   try {
-    const tmpDir = path.join(__dirname, "../../tmp");
+    const tmpDir = "/tmp"; // Test for vercel
     const response = await axios.get(imageUrl, { responseType: "arraybuffer" });
     const buffer = Buffer.from(response.data, "binary");
     const tempFilePath = path.join(tmpDir, `temp-${Date.now()}.png`);
