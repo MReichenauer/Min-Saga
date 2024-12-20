@@ -128,24 +128,16 @@
 
 @media screen and (min-height: 520px) and (min-width: 760px)  {
     .textContainer h2 {
-        font-size: var(--font-size-h2);
-        margin-bottom: var(--spacing-xs);
+        font-size: calc(var(--font-size-md) + 0.1rem);
+        margin-bottom: var(--spacing-xxs);
     }
     .textContainer p {
         font-size: var(--font-size-md);
-        line-height: var(--line-height-xs);
+        line-height: var(--line-height-xxs);
     }
 }
 
-@media screen and (min-height: 520px) and (min-width: 900px)  {
-    .textContainer {
-        margin: var(--spacing-sm);
-    }
 
-    .textContainer p {
-        line-height: var(--line-height-sm);
-    }
-}
 
 @media screen and (min-height: 576px) and (min-width: 1024px) {
     .textContainer h2 {

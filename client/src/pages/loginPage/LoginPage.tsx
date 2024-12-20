@@ -21,7 +21,7 @@ const LoginPage = () => {
             </button>
             <button
               aria-label="Sign in with email and password"
-              className="autumnSecondaryButton"
+              className="autumnPrimaryButton"
               onClick={() => console.log("sign in with email")}
               disabled={loading}
             >
@@ -31,10 +31,8 @@ const LoginPage = () => {
           <div className={styles.registerContainer}>
             <p>Saknar du ett konto? </p>
             <p>
-              {" "}
-              Registrera dig{" "}
               <span aria-label="register account link" className={styles.registerLink}>
-                här
+                Registrera dig
               </span>
             </p>
           </div>

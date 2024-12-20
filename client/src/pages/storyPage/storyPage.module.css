@@ -2,12 +2,21 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  
 }
 
 .contentContainer h1 {
-  color: var(--autumn-500);
+  color: var(--autumn-extra-100);
+  backdrop-filter: blur(2px);
+  padding: 0.1rem;
+  margin-bottom: 0.5rem;
+  margin-top: 0.5rem; 
   font-size: var(--font-size-md);
+}
+
+@media screen and (min-width: 768px) {
+  .contentContainer h1 {
+    font-size: var(--font-size-lg);
+  }
 }
 
 
