@@ -10,10 +10,11 @@ const RecommendLandscapeBanner: React.FC = () => {
     if (recommendLandscape) {
       setShowTip(true);
       document.body.classList.add("noScroll");
-    } else {
+    }
+    return () => {
       setShowTip(false);
       document.body.classList.remove("noScroll");
-    }
+    };
   }, [recommendLandscape]);
 
   const handleTipAction = () => {

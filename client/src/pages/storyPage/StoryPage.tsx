@@ -6,10 +6,8 @@ import RecommendLandscapeBanner from "@components/recommendLandscapeBanner/Recom
 
 const StoryPage = () => {
   const params = useParams();
+  const { data } = useGetStory(params.id as string);
 
-  const { data, status } = useGetStory(params.id as string);
-  console.log(status);
-  console.log(data);
   if (data) {
     return (
       <div className={styles.mainContainer}>

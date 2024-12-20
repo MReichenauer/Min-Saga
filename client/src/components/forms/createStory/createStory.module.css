@@ -1,0 +1,63 @@
+.formContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 92vh;
+}
+
+.fullForm {
+    padding: 0.5rem 1.25rem;
+    height: fit-content;
+    width: 100%;
+    justify-content: center;
+    background: rgba(106, 42, 5, 0.89);
+    border: 1px solid var(--autumn-border-color);
+    box-shadow: 0 0 10px var(--autumn-border-color), 0 0 4px rgba(255, 223, 186, 0.15);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border-radius: 0.5rem;
+    max-width: 29.063rem;
+}
+
+.fullForm h2 {
+    margin-top: 0;
+    color: var(--autumn-100);
+}
+
+.loadingText {
+    color: var(--autumn-100);
+}
+
+.buttonContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    padding: 0.5rem;
+}
+
+.buttonContainer button {
+    color: var(--autumn-extra-200);
+    box-shadow: 0 0 10px var(--autumn-border-color), 0 0 4px rgba(255, 223, 186, 0.15);
+    border: 1px solid var(--autumn-border-color-low-opacity);
+    transition: box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.buttonContainer button:hover{
+    border: 1px solid var(--autumn-border-color);
+}
+
+
+
+.resetButton {
+    font-size: var(--font-size);
+    margin: 0 auto;
+    width: 65%;
+    color: var(--autumn-100-light);
+    background-color: var(--autumn-danger-button-color);
+}
+
+.resetButton:hover {
+    background-color: var(--autumn-danger-button-color-hover);
+}
+
