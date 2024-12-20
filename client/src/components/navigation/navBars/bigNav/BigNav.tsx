@@ -6,7 +6,7 @@ import { useHandleClickOutsideNode } from "@hooks/helpers/useHandleClickOutsideN
 import useHandleEscapeKey from "@hooks/helpers/useHandleEscapeKey";
 
 const BigNav = () => {
-  const { userImg } = useAuth();
+  const { userImg, logout } = useAuth();
   const [profileIsOpen, setProfileIsOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement | null>(null);
 
@@ -30,12 +30,12 @@ const BigNav = () => {
           <ul className={styles.navLinks}>
             <li>
               <NavLink className={({ isActive }) => (isActive ? styles.active : "")} to="/my-stories">
-                Mina Berättelser
+                Mina berättelser
               </NavLink>
             </li>
             <li>
-              <NavLink className={({ isActive }) => (isActive ? styles.active : "")} to="/create-new-story">
-                Skapa en Berättelse
+              <NavLink className={({ isActive }) => (isActive ? styles.active : "")} to="/create-story">
+                Skapa en berättelse
               </NavLink>
             </li>
             <li>
@@ -67,7 +67,9 @@ const BigNav = () => {
       >
         <ul>
           <li tabIndex={0}>Profil</li>
-          <li tabIndex={0}>Logga ut</li>
+          <li tabIndex={0} aria-label="logout" onClick={logout}>
+            Logga ut
+          </li>
         </ul>
       </div>
     </div>

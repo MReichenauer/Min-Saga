@@ -45,7 +45,6 @@ const AuthContextProvider: React.FC<PropsWithChildren> = ({ children }) => {
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
-      console.log("currentUser", currentUser);
       setUser(currentUser);
       if (currentUser) {
         const profileImage = currentUser.photoURL;
@@ -59,7 +58,6 @@ const AuthContextProvider: React.FC<PropsWithChildren> = ({ children }) => {
     return () => unsubscribe();
   }, []);
 
-  console.log("user", user);
   return (
     <AuthContext.Provider value={{ signInWithGoogle, logout, user, userImg, loading }}>
       {loading ? <p>Loading...</p> : <>{children}</>}

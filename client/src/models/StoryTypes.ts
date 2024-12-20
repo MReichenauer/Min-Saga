@@ -3,17 +3,23 @@ export type StoryType = {
   targetedAge: number;
   title: string;
   description: string;
-  createdAt: string;
-  createdBy: string;
-  imagePrompt: string;
+  createdAt: string | null;
+  createdBy: string | null;
   chapters: ChapterType[];
   characters: CharacterType[];
+};
+
+export type CreateStoryType = {
+  mainCharacterName: string;
+  mainCharacterType: string;
+  environment: string;
+  targetedAge: number;
 };
 
 export type ChapterType = {
   title: string;
   content: string;
-  characters: CharacterType[];
+  characters: ChapterCharacterType[];
   image: string | null | undefined;
   imagePrompt: string;
 };
@@ -28,4 +34,10 @@ export type CharacterType = {
   type: string;
   description: string;
   personality: string;
+};
+
+export type ChapterCharacterType = Pick<CharacterType, "id" | "name">;
+
+export type StoryResponseType = {
+  story: StoryType;
 };

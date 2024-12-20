@@ -24,7 +24,40 @@
 
    /*** Extra Colors ***/
    --almost-white: #F5F5F5;
-   
+   --autumn-100: #f3b875;
+   --autumn-100-light: #fccc95;
+   --autumn-200: #e88b63;
+   --autumn-300: #d06a3c;
+   --autumn-400: #9c4414;
+   --autumn-500: #6a2a05;
+   --autumn-500-dark: #411702;
+   --autumn-extra-100: #e6ac64;
+   --autumn-extra-200: #ffcc80;
+   --autumn-extra-300: #331a0c;
+
+   --autumn-background-color: var(--autumn-100);
+
+   --autumn-heading-color: var(--autumn-500);
+   --autumn-text-color: var(--autumn-400);
+   --autumn-border-color: #e6b35ca4;
+   --autumn-border-color-low-opacity: #e6b35c28;
+
+   --autumn-primary-button-color: #b9782c;
+   --autumn-primary-button-color-hover: #ca8536;
+   --autumn-primary-button-color-disabled: #d6b194;
+
+   --autumn-secondary-button-color: #c57f2e;
+   --autumn-secondary-button-color-hover: #d38832;
+   --autumn-secondary-button-color-disabled: #e0c6a5;
+
+   --autumn-success-button-color: #805627;
+   --autumn-success-button-color-hover: #8a5f2f;
+   --autumn-success-button-color-disabled: #b7a79a;
+
+   --autumn-danger-button-color: #d44825;
+   --autumn-danger-button-color-hover: #e64e28;
+   --autumn-danger-button-color-disabled: #e07d55;
+
 
    /*** Fonts ***/
    --main-font-family: "Montserrat", serif;
@@ -60,6 +93,8 @@
    --main-accent-color: var(--tertiary-color-dark);
    --secondary-accent-color: var(--tertiary-color);
 
+   
+
    /*** Text Color ***/
    --text-color: #2E2E2E;
    --text-color-light: #5A5A5A;
@@ -67,8 +102,8 @@
    --text-color-almost-white: var(--almost-white);
 
    /*** Link Color ***/
-   --link-color: #3A6DBF;
-   --link-color-hover: #2C5187;
+   --link-color: #637afa;;
+   --link-color-hover: #4661fa;
   
    /**** Button Color ****/
    --main-button-color: var(--tertiary-color-dark);
@@ -104,27 +139,7 @@
    --desktop-max-width: 992px;
    --large-desktop-min-width: 1200px;
 
-   /** Test **/
-   --autumn-100: #f3b875;
-   --autumn-100-light: #fccc95;
-   --autumn-200: #e88b63;
-   --autumn-300: #d06a3c;
-   --autumn-400: #9c4414;
-   --autumn-500: #6a2a05;
-   --autumn-500-dark: #411702;
 
-   --autumn-background-color: var(--autumn-100);
-
-   --autumn-heading-color: var(--autumn-500);
-   --autumn-text-color: var(--autumn-400);
-
-   --autumn-primary-button-color: #b97d37;
-   --autumn-primary-button-color-hover: #9d6930;
-   --autumn-primary-button-color-disabled: #d6b194;
-
-   --autumn-secondary-button-color: #cf9450;
-   --autumn-secondary-button-color-hover: #b37844;
-   --autumn-secondary-button-color-disabled: #e0c6a5;
 
    
 
@@ -136,7 +151,21 @@
 
 html {
    min-height: 100vh;
-   background-image:radial-gradient(
+   
+
+   background-position: center center;
+   background-repeat: no-repeat;
+   background-attachment: fixed;
+   background-size: cover;
+   /* background-image: url("./images/vecteezy_autumn-composition-with-copy-space-ai-generative_26881562.jpg"); */
+   /* background-image: url("./images/ai-generated-abstract-multi-colored-fairy-tale-trees-against-the-background-of-a-river-and-fields-at-sunset-free-photo.jpg"); */
+   background-image: url("./images/door-stretching-into-fantasy-world.jpg");
+
+
+
+
+   /* background-image:linear-gradient(
+      45deg,
       #f3b875 0%,
       #f4ba78 15%,
       #f5bc7b 22%,
@@ -154,7 +183,7 @@ html {
       #f8c47f 78%,
       #f8c37d 85%,
       #f8c27b 100%
-    );
+    ); */
  
  
     
@@ -211,6 +240,7 @@ button {
    border-radius: 0.5rem;
    cursor: pointer;
    font-family: var(--font-text);
+   font-size: var(--font-size);
    padding: 0.65rem 1.25rem;
    border: none;
    transition: background-color 0.3s ease, box-shadow 0.2s ease;
@@ -248,12 +278,16 @@ button.secondaryButton:disabled {
 
 button.autumnPrimaryButton {
    background-color: var(--autumn-primary-button-color);
-   color: var(--text-color-almost-white);
+   color: #f7e0bf;
+   border: 1px solid var(--autumn-border-color);
+   box-shadow: 0 2px 10px var(--autumn-border-color), 0 0 4px rgba(255, 223, 186, 0.15);
+   transition: ease-in-out 0.2s;
 }
 
 button.autumnPrimaryButton:hover {
    background-color: var(--autumn-primary-button-color-hover);
-   box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.1);
+   color: #f5ebdd;
+   box-shadow: 0 2px 10px var(--autumn-border-color), 0 0 8px rgba(255, 223, 186, 0.65);
 }
 
 button.autumnPrimaryButton:disabled {
@@ -263,17 +297,46 @@ button.autumnPrimaryButton:disabled {
 
 button.autumnSecondaryButton {
    background-color: var(--autumn-secondary-button-color);
-   color: var(--text-color-almost-white);
+   color: #f7e0bf;
+   border: 1px solid var(--autumn-border-color);
+   box-shadow: 0 2px 10px var(--autumn-border-color), 0 0 4px rgba(255, 223, 186, 0.15);
 }
 
 button.autumnSecondaryButton:hover {
    background-color: var(--autumn-secondary-button-color-hover);
-   box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.1);
+   color: #f5ebdd;
+   box-shadow: 0 2px 10px var(--autumn-border-color), 0 0 8px rgba(255, 223, 186, 0.65);
 }
 
 button.autumnSecondaryButton:disabled {
    background-color: var(--autumn-secondary-button-color-disabled);
    cursor: not-allowed;
+}
+
+button.autumnSuccessButton {
+   color: var(--autumn-extra-200);
+   background-color: var(--autumn-success-button-color);
+   box-shadow: 0 0 10px var(--autumn-border-color), 0 0 4px rgba(255, 223, 186, 0.15);
+   border: 1px solid var(--autumn-border-color-low-opacity);
+   transition: box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+button.autumnSuccessButton:hover {
+   background-color: var(--autumn-success-button-color-hover);  
+   box-shadow: 0 0 10px var(--autumn-border-color), 0 0 4px rgba(255, 223, 186, 0.65);
+
+}
+
+button.autumnDangerButton {
+   background-color: var(--autumn-danger-button-color);
+   color: #f7e0bf;
+   box-shadow: 0 2px 10px var(--autumn-danger-button-color), 0 0 4px rgba(236, 77, 56, 0.15);
+}
+
+button.autumnDangerButton:hover {
+   background-color: var(--autumn-danger-button-color-hover);
+   color: #f5ebdd;
+   box-shadow: 0 2px 10px var(--autumn-danger-button-color), 0 0 8px rgba(236, 77, 56, 0.65);
 }
 
 a {
