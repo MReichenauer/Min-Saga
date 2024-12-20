@@ -240,6 +240,7 @@ button {
    border-radius: 0.5rem;
    cursor: pointer;
    font-family: var(--font-text);
+   font-size: var(--font-size);
    padding: 0.65rem 1.25rem;
    border: none;
    transition: background-color 0.3s ease, box-shadow 0.2s ease;
@@ -310,6 +311,32 @@ button.autumnSecondaryButton:hover {
 button.autumnSecondaryButton:disabled {
    background-color: var(--autumn-secondary-button-color-disabled);
    cursor: not-allowed;
+}
+
+button.autumnSuccessButton {
+   color: var(--autumn-extra-200);
+   background-color: var(--autumn-success-button-color);
+   box-shadow: 0 0 10px var(--autumn-border-color), 0 0 4px rgba(255, 223, 186, 0.15);
+   border: 1px solid var(--autumn-border-color-low-opacity);
+   transition: box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+button.autumnSuccessButton:hover {
+   background-color: var(--autumn-success-button-color-hover);  
+   box-shadow: 0 0 10px var(--autumn-border-color), 0 0 4px rgba(255, 223, 186, 0.65);
+
+}
+
+button.autumnDangerButton {
+   background-color: var(--autumn-danger-button-color);
+   color: #f7e0bf;
+   box-shadow: 0 2px 10px var(--autumn-danger-button-color), 0 0 4px rgba(236, 77, 56, 0.15);
+}
+
+button.autumnDangerButton:hover {
+   background-color: var(--autumn-danger-button-color-hover);
+   color: #f5ebdd;
+   box-shadow: 0 2px 10px var(--autumn-danger-button-color), 0 0 8px rgba(236, 77, 56, 0.65);
 }
 
 a {

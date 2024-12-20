@@ -2,7 +2,8 @@
     display: flex;
     flex-direction: column;
     margin: 0;
-    height: 6.5rem;
+    margin-bottom: 1rem;
+    height: 5rem;
 }
 
 .label {

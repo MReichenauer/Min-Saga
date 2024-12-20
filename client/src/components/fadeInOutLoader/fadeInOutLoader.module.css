@@ -1,0 +1,30 @@
+
+.loaderContainer {
+    position:fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    backdrop-filter: blur(8px); 
+    background: rgba(0, 0, 0, 0.3);
+    z-index: 99999;
+    display: flex;
+    justify-content: center;
+}
+.loaderContent {
+  font-size: var(--font-size-md);
+  margin-top: 35vh;
+  color: var(--autumn-extra-200);
+  animation: fadeInOut 3s ease-in-out infinite;
+}
+@keyframes fadeInOut {
+    0% {
+      opacity: 0;
+    }
+    50% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+    }
+  }
