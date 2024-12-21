@@ -2,6 +2,7 @@ import { CreateStoryType, StoryType } from "@models/StoryTypes";
 import { post } from "../instance";
 import { ApiResponse } from "../Models.ts/Types";
 import { LoadingEnum } from "@models/LoadingEnum";
+import axios from "axios";
 
 const generateStory = async (
   userUid: string,
@@ -27,8 +28,13 @@ const generateStory = async (
     }
     return uploadResponse.data.story;
   } catch (error) {
-    console.error("Error in generateStory:", error);
-    throw new Error("Error in generateStory");
+    if (axios.isAxiosError(error)) {
+      console.error(`Error in generateStory: ${error.response?.status} - ${error.response?.statusText}`);
+      throw new Error(`Error in generateStory: ${error.response?.status} - ${error.response?.statusText}`);
+    } else {
+      console.error("Unexpected error in generateStory:", error);
+      throw new Error("Unexpected error in generateStory");
+    }
   } finally {
     setLoadingStep(LoadingEnum.NONE);
   }
@@ -40,8 +46,13 @@ const generateStoryGpt = async (request: CreateStoryType): Promise<StoryType> =>
     console.log("generateStoryGpt response.data: ", response.data);
     return response.data;
   } catch (error) {
-    console.error("Error in generateStoryGpt:", error);
-    throw new Error("Error in generateStoryGpt");
+    if (axios.isAxiosError(error)) {
+      console.error(`Error in generateStoryGpt: ${error.response?.status} - ${error.response?.statusText}`);
+      throw new Error(`Error in generateStoryGpt: ${error.response?.status} - ${error.response?.statusText}`);
+    } else {
+      console.error("Unexpected error in generateStoryGpt:", error);
+      throw new Error("Unexpected error in generateStoryGpt");
+    }
   }
 };
 
@@ -51,8 +62,13 @@ const generateImagesToStory = async (request: StoryType): Promise<StoryType> => 
     console.log("generateImagesToStory response.data: ", response.data);
     return response.data;
   } catch (error) {
-    console.error("Error in generateImagesToStory:", error);
-    throw new Error("Error in generateImagesToStory");
+    if (axios.isAxiosError(error)) {
+      console.error(`Error in generateImagesToStory: ${error.response?.status} - ${error.response?.statusText}`);
+      throw new Error(`Error in generateImagesToStory: ${error.response?.status} - ${error.response?.statusText}`);
+    } else {
+      console.error("Unexpected error in generateImagesToStory:", error);
+      throw new Error("Unexpected error in generateImagesToStory");
+    }
   }
 };
 
@@ -68,6 +84,7 @@ const uploadStory = async (userUid: string, story: StoryType): Promise<ApiRespon
       throw new Error("Invalid response format");
     }
     console.log("uploadStory response.data: ", response.data);
+
     return {
       message: response.message,
       data: {
@@ -75,8 +92,13 @@ const uploadStory = async (userUid: string, story: StoryType): Promise<ApiRespon
       },
     };
   } catch (error) {
-    console.error("Error in uploadStory:", error);
-    throw new Error("Error in uploadStory");
+    if (axios.isAxiosError(error)) {
+      console.error(`Error in uploadStory: ${error.response?.status} - ${error.response?.statusText}`);
+      throw new Error(`Error in uploadStory: ${error.response?.status} - ${error.response?.statusText}`);
+    } else {
+      console.error("Unexpected error in uploadStory:", error);
+      throw new Error("Unexpected error in uploadStory");
+    }
   }
 };
 
