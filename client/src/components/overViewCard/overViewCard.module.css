@@ -59,7 +59,7 @@
 }
 
 .overViewCardContent p {
-    margin: 1rem 0 0 0;
+    margin: 0.75rem 0 0 0;
     line-height: var(--line-height-xs);
     color: var(--autumn-100);
     display: -webkit-box;

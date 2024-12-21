@@ -31,15 +31,23 @@ const StoryPage = () => {
   }
 
   if (data && status === "success") {
+    const titleId = `story-title-${data.title.replace(/\s+/g, "-")}`;
+    const descriptionId = `story-description-${data.description.replace(/\s+/g, "-")}`;
+
     return (
       <div>
+        <RecommendLandscapeBanner />
         <div className="pageContainer">
-          <section className={styles.contentContainer}>
+          <section aria-labelledby={titleId} aria-describedby={descriptionId} className={styles.contentContainer}>
             <header>
-              <h1>{data.title}</h1>
+              <h1 id={titleId}>{data.title}</h1>
+              <p id={descriptionId} className={styles.description}>
+                {data.description}
+              </p>
             </header>
-            <RecommendLandscapeBanner />
-            <Book story={data} />
+            <main>
+              <Book story={data} />
+            </main>
           </section>
         </div>
       </div>
