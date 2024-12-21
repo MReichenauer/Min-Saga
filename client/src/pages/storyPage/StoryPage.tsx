@@ -32,7 +32,7 @@ const StoryPage = () => {
 
   if (data && status === "success") {
     return (
-      <div className={styles.mainContainer}>
+      <div>
         <div className="pageContainer">
           <section className={styles.contentContainer}>
             <header>
