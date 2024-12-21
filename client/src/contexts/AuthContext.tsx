@@ -9,12 +9,14 @@ type AuthContextType = {
   user: User | null;
   userImg: string;
   loading: boolean;
+  uid: string;
 };
 
 const AuthContext = createContext<AuthContextType | null>(null);
 
 const AuthContextProvider: React.FC<PropsWithChildren> = ({ children }) => {
   const [user, setUser] = useState<User | null>(null);
+  const [uid, setUid] = useState<string>("");
   const [userImg, setUserImg] = useState<string>("");
   const [loading, setLoading] = useState<boolean>(true);
 
@@ -52,6 +54,7 @@ const AuthContextProvider: React.FC<PropsWithChildren> = ({ children }) => {
           profileImage ||
             "https://media.istockphoto.com/id/1131164548/vector/avatar-5.jpg?s=612x612&w=0&k=20&c=CK49ShLJwDxE4kiroCR42kimTuuhvuo2FH5y_6aSgEo="
         );
+        setUid(currentUser.uid);
       }
       setLoading(false);
     });
@@ -59,7 +62,7 @@ const AuthContextProvider: React.FC<PropsWithChildren> = ({ children }) => {
   }, []);
 
   return (
-    <AuthContext.Provider value={{ signInWithGoogle, logout, user, userImg, loading }}>
+    <AuthContext.Provider value={{ signInWithGoogle, logout, user, userImg, uid, loading }}>
       {loading ? <p>Loading...</p> : <>{children}</>}
     </AuthContext.Provider>
   );

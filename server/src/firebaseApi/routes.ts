@@ -6,7 +6,7 @@ import getStoryById from "./get/getStoryById";
 const firebaseRouter = Router();
 
 firebaseRouter.post("/upload-story", uploadStory);
-firebaseRouter.get("/stories", getAllStories);
-firebaseRouter.get("/stories/:id", getStoryById);
+firebaseRouter.get("/stories/user/:uid", getAllStories);
+firebaseRouter.get("/stories/:id/user/:uid", getStoryById);
 
 export default firebaseRouter;
