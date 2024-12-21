@@ -1,7 +1,7 @@
 import FadeInOutLoader from "@components/fadeInOutLoader/FadeInOutLoader";
 import useAuth from "@hooks/auth/useAuth";
 import useGetStories from "@hooks/data/useGetStories";
-import styles from "./myStoriesPage.module.css";
+import StoryList from "@components/storyList/StoryList";
 
 const MyStoriesPage = () => {
   const { uid } = useAuth();
@@ -18,9 +18,7 @@ const MyStoriesPage = () => {
   if (data && status === "success") {
     return (
       <div>
-        {data.map((story) => (
-          <div key={story.id}>{story.title}</div>
-        ))}
+        <StoryList stories={data} />
       </div>
     );
   }
