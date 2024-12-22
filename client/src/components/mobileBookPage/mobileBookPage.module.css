@@ -23,7 +23,6 @@
     .pageContainer h2 {
         font-size: calc(var(--font-size) *1.13);
         line-height: var(--line-height-md);
-       
     }
 }
 
