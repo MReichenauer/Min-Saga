@@ -1,6 +1,6 @@
 import useCheckScreenOrientation from "@hooks/helpers/useCheckScreenOrientation";
 import { useEffect, useState } from "react";
-import styles from "./recommendLandscapeBanner.module.css";
+import GenericModal from "@components/genericModal/GenericModal";
 const RecommendLandscapeBanner: React.FC = () => {
   const { recommendLandscape } = useCheckScreenOrientation();
   const [showTip, setShowTip] = useState<boolean | null>(null);
@@ -28,12 +28,14 @@ const RecommendLandscapeBanner: React.FC = () => {
   }
 
   return (
-    <div className={styles.container}>
-      <div className={styles.content}>
-        <p>Vi rekommenderar att du vänder enheten till en liggande possition för en bättre upplevelse.</p>
-        <button onClick={handleTipAction}>Tack för tipset!</button>
-      </div>
-    </div>
+    <GenericModal
+      displayModal={showTip}
+      onClose={handleTipAction}
+      primaryButtonAction={handleTipAction}
+      primaryButtonText="Tack för tipset"
+      title="Tips"
+      content={<p>Vi rekommenderar att du vänder din enhet till en liggande possition för en bättre upplevelse.</p>}
+    />
   );
 };
 

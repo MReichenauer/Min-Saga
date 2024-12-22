@@ -8,8 +8,8 @@ const useCheckScreenSize = () => {
   const isPortraitMobile = width <= maxMobileWidth;
   const renderBigNav = width > 767 && height > 474;
 
-  const calculatePageHeight = Math.min(Math.round(height * 0.9), 520);
-  const calculatePageWidth = Math.min(Math.round(width * 0.98), 1040);
+  const calculatePageHeight = Math.min(Math.round(height * 0.9), 580);
+  const calculatePageWidth = Math.min(Math.round(width * 0.98), 400);
 
   useEffect(() => {
     const handleResize = () => {
