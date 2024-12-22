@@ -87,9 +87,9 @@
     }
 
     .overViewCardContent p {
-      margin-top: 0.65rem;
-      -webkit-line-clamp: 5;
-      line-clamp: 5;
+        margin-top: 0.65rem;
+        -webkit-line-clamp: 5;
+        line-clamp: 5;
     }
 
     .overViewCardImageContainer {
