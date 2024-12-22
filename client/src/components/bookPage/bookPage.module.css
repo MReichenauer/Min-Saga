@@ -28,6 +28,7 @@
 .textContainer h2 {
     font-size: var(--font-size);
     line-height: var(--line-height-xs);
+    color: var(--autumn-extra-300);
     margin: 0;
 }
 
@@ -48,7 +49,7 @@
     border-right: 2px solid color-mix(in srgb, var(--secondary-color-light) 25%, var(--almost-white) 75%);
 }
 
-@media screen and (max-height: 425px) {
+@media screen and (max-height: 410px) {
     .textContainer p {
         line-height: var(--line-height-xxs);
     }
@@ -117,23 +118,83 @@
     }
 }
 
-@media screen and (min-height: 520px) and (min-width: 695px) {
+@media screen and (min-height: 436px) and (min-width: 695px)  {
     .textContainer h2 {
-        line-height: var(--line-height-xxs);
+        font-size: var(--font-size-md);
+        margin-bottom: var(--spacing-xxs);
     }
+    .textContainer p {
+        font-size: calc(var(--font-size-md)* 0.85 );
+        line-height: var(--line-height-xs);
+    }
+}
+
+@media screen and (min-height: 436px) and (min-width: 760px)  {
+    .textContainer h2 {
+        font-size: calc(var(--font-size-md) + 0.1rem);
+    }
+    .textContainer p {
+        font-size: calc(var(--font-size-md)* 0.9 );
+    }
+}
+
+@media screen and (min-height: 436px) and (min-width: 791px)  {
+    .textContainer p {
+        line-height: var(--line-height-xs);
+    }
+}
+
+@media screen and (min-height: 500px) and (min-width: 695px) {
+    .textContainer h2 {
+        font-size: calc(var(--font-size-md) + 0.1rem);
+    }
+
     .textContainer p {
         line-height: var(--line-height-sm);
     }
 }
 
+@media screen and (min-height: 500px) and (min-width: 760px) {
+    .textContainer p {
+        line-height: var(--line-height-sm);
+    }
+}
+
+@media screen and (min-height: 500px) and (min-width: 900px) {
+    .textContainer p {
+        font-size: calc(var(--font-size-md)* 0.95 );
+        line-height: var(--line-height-sm);
+    }
+}
+
+@media screen and (min-height: 520px) and (min-width: 695px) {
+    .textContainer h2 {
+        line-height: var(--line-height-xxs);
+    }
+    .textContainer p {
+        font-size: calc(var(--font-size-md)* 0.88 );
+        line-height: var(--line-height-sm);
+    }
+}
+
+
 @media screen and (min-height: 520px) and (min-width: 760px)  {
     .textContainer h2 {
-        font-size: calc(var(--font-size-md) + 0.1rem);
         margin-bottom: var(--spacing-xxs);
     }
     .textContainer p {
         font-size: var(--font-size-md);
-        line-height: var(--line-height-xxs);
+        line-height: calc(var(--line-height-xxs) *0.95 );
+    }
+}
+
+@media screen and (min-height: 520px) and (min-width: 900px)  {
+    .textContainer h2 {
+        margin-bottom: var(--spacing-xxs);
+    }
+    .textContainer p {
+        font-size: var(--font-size-md);
+        line-height: var(--line-height-sm);
     }
 }
 
@@ -141,6 +202,12 @@
 
 @media screen and (min-height: 576px) and (min-width: 1024px) {
     .textContainer h2 {
+        font-size: var(--font-size-h2);
         margin-bottom: var(--spacing-sm);
+    }
+
+    .textContainer p {
+        font-size: var(--font-size-md);
+        line-height: calc(var(--line-height-xxs) *1.2 );
     }
 }
