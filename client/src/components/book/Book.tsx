@@ -22,7 +22,7 @@ const Book: React.FC<BookProps> = ({ story }) => {
 
   useEffect(() => {
     if (isPortraitMobile) {
-      setBookHeight(500);
+      setBookHeight(550);
       setBookWidth(349);
     } else {
       setBookHeight(calculatePageHeight);

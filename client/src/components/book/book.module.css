@@ -1,37 +1,37 @@
 .bookContainer {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    width: fit-content;
-    height: fit-content;
-  }
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: fit-content;
+  height: fit-content;
+}
 
-  .page{
-    height: 100%;
-  }
+.page {
+  height: 100%;
+}
 
-  .bookComponent {
-    max-width: 1200px;
-    padding: 0 var(--spacing-sm);
-    background-image: repeating-linear-gradient(to right,var(--secondary-color-light), var(--almost-white)  5px, transparent 1px);
-    background-size: 6px 6px;
-    border-radius: 0.3rem;
-    border: 6px solid  var(--autumn-extra-100);
-    box-shadow: 0 0 10px var(--autumn-border-color), 0 0 4px rgba(255, 223, 186, 0.15);
-    backdrop-filter: blur(5px);
-  }
+.bookComponent {
+  max-width: 1200px;
+  padding: 0 var(--spacing-sm);
+  background-image: repeating-linear-gradient(to right, var(--secondary-color-light), var(--almost-white) 5px, transparent 1px);
+  background-size: 6px 6px;
+  border-radius: 0.3rem;
+  border: 6px solid var(--autumn-extra-100);
+  box-shadow: 0 0 10px var(--autumn-border-color), 0 0 4px rgba(255, 223, 186, 0.15);
+  backdrop-filter: blur(5px);
+}
 
-  .book {
-    padding: 0 var(--spacing-sm);
-    background-size: 6px 6px;
-    border-radius: 0.3rem;
-    -webkit-box-shadow: 0px -1px 8px 0px rgba(0,0,0,0.25);
-    -moz-box-shadow: 0px -1px 8px 0px rgba(0,0,0,0.25);
-    box-shadow: 1px 5px 5px 3px rgba(0,0,0,0.25);
-  }
+.book {
+  padding: 0 var(--spacing-xs);
+  background-size: 6px 6px;
+  border-radius: 0.3rem;
+  -webkit-box-shadow: 0px -1px 8px 0px rgba(0,0,0,0.25);
+  -moz-box-shadow: 0px -1px 8px 0px rgba(0,0,0,0.25);
+  box-shadow: 1px 5px 5px 3px rgba(0,0,0,0.25);
+}
 
-  .pageNavigation {
+.pageNavigation {
   margin-top: var(--spacing-xs);
   margin-bottom: var(--spacing-md);
   width: 100%;
@@ -44,81 +44,51 @@
   -webkit-backdrop-filter: blur(5px);
   height: 4rem;
   display: flex;
+}
+
+.actionButtonsContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 400px;
+  padding: 0 var(--spacing-md);
+  align-items: center;
+}
+
+.actionButtonsContainer p {
+  margin: 0;
+  color: var(--autumn-extra-200);
+}
+
+.changePageButton {
+  margin: 0;
+  padding: 0;
+  width: 3rem;
+  max-height: 1.5rem;
+}
+
+@media screen and (max-height: 400px) {
+  .bookComponent {
+    padding: 0 calc(var(--spacing-sm) * 0.45);
   }
+}
 
-  .actionButtonsContainer {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    width: 100%;
-    max-width: 400px;
-    padding: 0 var(--spacing-md);
-    align-items: center;
-  }
-
-  .actionButtonsContainer p {
-    margin: 0;
-    color: var(--autumn-extra-200);
-  }
-  
-
-  .changePageButton {
-    margin: 0;
-    padding: 0;
-    width: 3rem;
-    max-height: 1.5rem;
-  }
-
-
-  .isMobile {
-    display: none;
- }
-
- .isTabletOrDesktop {
-    display: none;
- }
-
- @media screen and (max-height: 450px) {
+@media screen and ((min-height: 401px) and (max-height: 450px)) {
   .bookComponent {
     padding: 0 calc(var(--spacing-sm) / 2);
   }
- }
-
- @media screen and (max-width: 632px)  {
-    .isMobile {
-        display: block;
-    }
-    .isTabletOrDesktop {
-        display: none;
-     }
-    .bookComponent div {
-      height: inherit;
-    }
- }
-
- @media screen and (max-width: 768px) {
-    .isMobile  {
-        display: none;
-    }
-    .isTabletOrDesktop {
-        display: block;
-     }
- }
-
- @media screen and (max-width: 992px) {
-    .isMobile  {
-        display: none;
-    }
-    .isTabletOrDesktop {
-        display: block;
-     }
- }
-
- @media screen and (min-width: 1200px) {
-  .isMobile  {
-      display: none;
-  }
-  .isTabletOrDesktop {
-      display: block;
-   }
 }
+
+@media screen and (max-width: 632px) {
+  .bookComponent div {
+    height: inherit;
+  }
+}
+
+@media screen and (max-width: 629px) {
+  .bookComponent p {
+    line-height: var(--line-height-xs);
+  }
+}
+
