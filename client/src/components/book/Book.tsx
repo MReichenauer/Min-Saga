@@ -64,27 +64,27 @@ const Book: React.FC<BookProps> = ({ story }) => {
           </div>
         ))}
       </FlipPage>
-
-      <div className={styles.actionButtonsContainer}>
-        <button
-          className={`secondaryButton ${styles.changePageButton}`}
-          onClick={handlePreviousPage}
-          disabled={currentPage === 0}
-        >
-          <Svg size={24} icon={IconEnum.ARROWLEFT} />
-        </button>
-        <p>
-          {currentPage + 1} / {chapters.length}
-        </p>
-        <button
-          className={`secondaryButton ${styles.changePageButton}`}
-          onClick={handleNextPage}
-          disabled={currentPage === chapters.length - 1}
-        >
-          <Svg size={24} icon={IconEnum.ARROWRIGHT} />
-        </button>
+      <div className={styles.pageNavigation}>
+        <div className={styles.actionButtonsContainer}>
+          <button
+            className={`autumnPrimaryButton ${styles.changePageButton}`}
+            onClick={handlePreviousPage}
+            disabled={currentPage === 0}
+          >
+            <Svg size={24} icon={IconEnum.ARROWLEFT} />
+          </button>
+          <p>
+            {currentPage + 1} / {chapters.length}
+          </p>
+          <button
+            className={`autumnPrimaryButton ${styles.changePageButton}`}
+            onClick={handleNextPage}
+            disabled={currentPage === chapters.length - 1}
+          >
+            <Svg size={24} icon={IconEnum.ARROWRIGHT} />
+          </button>
+        </div>
       </div>
-      <p className="mt-2">Bläddra sida genom att dra de åt sidan eller använd knapparna nedan.</p>
     </div>
   );
 };

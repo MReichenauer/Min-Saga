@@ -1,6 +1,6 @@
 .overViewCard {
-    max-width: 10rem;
-    height: 22rem;
+    height: 20rem;
+    aspect-ratio: 1/2;
     border-radius: 0.5rem;
     overflow: hidden;
     transition: transform 0.2s;
@@ -8,57 +8,109 @@
     box-shadow: 0 0 10px var(--autumn-border-color), 0 0 4px rgba(255, 223, 186, 0.15);
     backdrop-filter: blur(5px);
     -webkit-backdrop-filter: blur(5px);
-    border-radius: 0.5rem;
-  }
-  
-  .overViewCard:hover {
+}
+
+.overViewCard:hover {
     transform: translateY(-2px);
     border: 1px solid var(--autumn-border-color);
-  }
-  
-  .overViewCardImageContainer {
-    height: 8rem;
-    width: 100%;
-  }
+}
 
-  .overViewCardImageContainer p {
+.overViewCardImageContainer {
+    height: 10.1rem;
+    width: 100%;
+    overflow: hidden;
+    border-bottom: 1px solid var(--autumn-border-color);
+}
+
+.overViewCardImageContainer p {
     padding-top: 2rem;
     color: var(--autumn-100);
     font-size: calc(var(--font-size) - 0.1rem);
     line-height: var(--line-height-xs);
     text-align: center;
-  }
+}
 
-  .overViewCardImage {
-   height: 100%;
+.overViewCardImage {
+    height: 100%;
     width: 100%;
-    object-fit: cover;
-  }
-  
-  .overViewCardContent {
+    border-top-left-radius: 0.5rem;
+    border-top-right-radius: 0.5rem;
+    object-fit: contain;
+}
+
+.overViewCardContent {
     padding: var(--spacing-xxs);
-  }
-  
-  .overViewCardContent h3 {
+    height: 100%;
+    max-height: 12rem;
+    overflow: hidden;
+}
+
+.overViewCardContent h3 {
     margin: 0;
     font-size: calc(var(--font-size) + 0.1rem);
     line-height: var(--line-height-xs);
     color: var(--autumn-extra-200);
-  }
-  
-  .overViewCardContent p {
-    margin: var(--spacing-xxs) 0rem 0rem 0rem;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.overViewCardContent p {
+    margin: 0.75rem 0 0 0;
     line-height: var(--line-height-xs);
     color: var(--autumn-100);
-  }
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 4;
+    line-clamp: 4;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
 
-  .link {
+.link {
     cursor: pointer;
     text-decoration: none;
     color: var(--autumn-extra-200);
-  }
-  
-  .link:hover {
+}
+
+.link:hover {
     color: inherit;
     text-decoration: underline;
-  }
+}
+
+@media (min-width: 576px) {
+    .overViewCard {
+        height: 22rem;
+    }
+
+    .overViewCardContent p {
+        margin-top: 0.65rem;
+        -webkit-line-clamp: 5;
+        line-clamp: 5;
+    }
+
+    .overViewCardImageContainer {
+        height: 11.1rem;
+    }
+}
+
+@media (min-width: 768px) {
+    .storiesContainer {
+        padding: 0 var(--spacing-xxs);
+    }
+}
+
+@media (min-width: 992px) {
+    .storiesContainer {
+        padding: 0 var(--spacing-xs);
+    }
+}
+
+@media (min-width: 1200px) {
+    .storiesContainer {
+        padding: 0 var(--spacing-sm);
+    }
+}
