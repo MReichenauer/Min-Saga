@@ -39,13 +39,15 @@ const StoryPage = () => {
         <RecommendLandscapeBanner />
         <div className="pageContainer">
           <section aria-labelledby={titleId} aria-describedby={descriptionId} className={styles.contentContainer}>
-            <header>
-              <h1 id={titleId}>{data.title}</h1>
+            <header className={styles.header}>
+              <h1 className={styles.title} id={titleId}>
+                {data.title}
+              </h1>
               <p id={descriptionId} className={styles.description}>
                 {data.description}
               </p>
             </header>
-            <main>
+            <main className={styles.main}>
               <Book story={data} />
             </main>
           </section>
