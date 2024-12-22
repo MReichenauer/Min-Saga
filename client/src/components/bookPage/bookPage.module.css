@@ -35,6 +35,7 @@
 .textContainer p {
     line-height: var(--line-height-xs);
     margin-top: calc(var(--spacing-xxs) / 2);
+    overflow-y: scroll;
 }
 
 .rightPage {
@@ -49,9 +50,10 @@
     border-right: 2px solid color-mix(in srgb, var(--secondary-color-light) 25%, var(--almost-white) 75%);
 }
 
-@media screen and (max-height: 410px) {
+@media screen and (max-height: 390px) {
     .textContainer p {
-        line-height: var(--line-height-xxs);
+        line-height: 1.12rem;
+        font-size: var(--font-size);
     }
 }
 
@@ -83,7 +85,7 @@
 
 @media screen and (min-width: 695px) {
     .textContainer p {
-        line-height: var(--line-height-sm);
+        line-height: calc(var(--line-height-sm) * 0.92);
     }
 }
 
@@ -131,10 +133,10 @@
 
 @media screen and (min-height: 436px) and (min-width: 760px)  {
     .textContainer h2 {
-        font-size: calc(var(--font-size-md) + 0.1rem);
+        font-size: calc(var(--font-size-md) * 1.04);
     }
     .textContainer p {
-        font-size: calc(var(--font-size-md)* 0.9 );
+        font-size: calc(var(--font-size-md)* 0.88 );
     }
 }
 
@@ -178,22 +180,14 @@
 }
 
 
-@media screen and (min-height: 520px) and (min-width: 760px)  {
-    .textContainer h2 {
-        margin-bottom: var(--spacing-xxs);
-    }
-    .textContainer p {
-        font-size: var(--font-size-md);
-        line-height: calc(var(--line-height-xxs) *0.95 );
-    }
-}
+
 
 @media screen and (min-height: 520px) and (min-width: 900px)  {
     .textContainer h2 {
         margin-bottom: var(--spacing-xxs);
     }
     .textContainer p {
-        font-size: var(--font-size-md);
+        font-size: calc(var(--font-size-md)* 0.95 );
         line-height: var(--line-height-sm);
     }
 }
