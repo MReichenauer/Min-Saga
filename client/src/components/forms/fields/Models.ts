@@ -2,7 +2,7 @@ import { FieldValues, Path } from "react-hook-form";
 
 export type FieldConfigType<T extends FieldValues> = {
   name: Path<T>;
-  type: "text" | "number" | "password";
+  type: "text" | "number" | "password" | "email";
   label: string;
   placeholder: string;
   required?: boolean;
@@ -11,6 +11,7 @@ export type FieldConfigType<T extends FieldValues> = {
   minMessage?: string;
   minLength?: number;
   minLengthMessage?: string;
+  validate?: (value: string, context?: T | undefined) => true | string;
   width?: string;
   height?: string;
 };

@@ -7,8 +7,10 @@ type GenericFormProps<T extends FieldValues> = {
   fields: FieldConfigType<T>[];
   onSubmit: SubmitHandler<T>;
   formTitle: string;
-  submitFormButtonText: string;
-  resetFormButtonText: string;
+  submitFormButtonText?: string;
+  resetFormButtonText?: string;
+  primaryButtonText?: string;
+  primaryButtonAction?: () => void;
 };
 
 const GenericForm = <T extends FieldValues>({
@@ -17,12 +19,15 @@ const GenericForm = <T extends FieldValues>({
   formTitle,
   submitFormButtonText,
   resetFormButtonText,
+  primaryButtonText,
+  primaryButtonAction,
 }: GenericFormProps<T>) => {
   const {
     register,
     handleSubmit,
     formState: { errors, isSubmitting },
     reset,
+    watch,
   } = useForm<T>();
 
   const handleFormSubmit: SubmitHandler<T> = async (data) => {
@@ -55,17 +60,32 @@ const GenericForm = <T extends FieldValues>({
               minMessage={field.minMessage}
               minLength={field.minLength}
               minLengthMessage={field.minLengthMessage}
+              validate={field.validate ? (value) => field.validate!(value, watch()) : undefined}
               width={field.width}
               height={field.height}
             />
           ))}
           <div className={styles.buttonContainer}>
-            <button className="autumnSuccessButton" type="submit" disabled={isSubmitting}>
-              {submitFormButtonText}
-            </button>
-            <button className={styles.resetButton} type="reset" onClick={() => reset()} disabled={isSubmitting}>
-              {resetFormButtonText}
-            </button>
+            {primaryButtonText && primaryButtonAction && (
+              <button className="autumnSuccessButton" type="submit" disabled={isSubmitting}>
+                {submitFormButtonText}
+              </button>
+            )}
+            {resetFormButtonText && (
+              <button className={styles.resetButton} type="reset" onClick={() => reset()} disabled={isSubmitting}>
+                {resetFormButtonText}
+              </button>
+            )}
+            {primaryButtonText && primaryButtonAction && (
+              <button
+                className="autumnPrimaryButton"
+                type="button"
+                onClick={primaryButtonAction}
+                disabled={isSubmitting}
+              >
+                {primaryButtonText}
+              </button>
+            )}
           </div>
         </form>
       </div>
