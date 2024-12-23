@@ -3,7 +3,7 @@ import styles from "./inputField.module.css";
 
 type InputFieldProps<T extends FieldValues> = {
   htmlFor: string;
-  type: "text" | "number";
+  type: "text" | "number" | "password";
   label: string;
   error?: string;
   placeholder: string;

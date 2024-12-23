@@ -1,6 +1,8 @@
-const createStoryFields = [
+import { CreateStoryType } from "@models/StoryTypes";
+import { FieldConfigType } from "../fields/Models";
+
+const createStoryFields: FieldConfigType<CreateStoryType>[] = [
   {
-    htmlFor: "mainCharacterName",
     type: "text",
     label: "Vad ska huvudkaraktären heta ?",
     placeholder: "Sonja",
@@ -11,7 +13,6 @@ const createStoryFields = [
     minLength: 2,
   },
   {
-    htmlFor: "mainCharacterType",
     type: "text",
     label: "Vad ska huvudkaraktären vara ?",
     placeholder: "Prinsessa",
@@ -22,7 +23,6 @@ const createStoryFields = [
     minLength: 2,
   },
   {
-    htmlFor: "environment",
     type: "text",
     label: "Vilken miljö ska sagan utspelas i ?",
     placeholder: "En magisk skog",
@@ -33,7 +33,6 @@ const createStoryFields = [
     minLength: 2,
   },
   {
-    htmlFor: "targetedAge",
     type: "number",
     label: "Barnets ålder ?",
     placeholder: "3",

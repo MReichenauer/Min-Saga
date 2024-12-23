@@ -25,10 +25,6 @@
     color: var(--autumn-100);
 }
 
-.loadingText {
-    color: var(--autumn-100);
-}
-
 .buttonContainer {
     display: flex;
     flex-direction: column;
@@ -47,8 +43,6 @@
     border: 1px solid var(--autumn-border-color);
 }
 
-
-
 .resetButton {
     font-size: var(--font-size);
     margin: 0 auto;
@@ -60,4 +54,3 @@
 .resetButton:hover {
     background-color: var(--autumn-danger-button-color-hover);
 }
-

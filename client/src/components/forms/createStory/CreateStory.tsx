@@ -1,6 +1,4 @@
-import { SubmitHandler, useForm } from "react-hook-form";
-import styles from "./createStory.module.css";
-import InputField from "../fields/inputField/InputField";
+import { SubmitHandler } from "react-hook-form";
 import { CreateStoryType, StoryType } from "@models/StoryTypes";
 import { useState } from "react";
 import { generateStory } from "@services/serverApi/post/generateStory";
@@ -9,15 +7,11 @@ import { useNavigate } from "react-router-dom";
 import { LoadingEnum } from "@models/LoadingEnum";
 import FadeInOutLoader from "@components/fadeInOutLoader/FadeInOutLoader";
 import GenericModal from "@components/genericModal/GenericModal";
+import GenericForm from "../genericForm/GenericForm";
+import createStoryFields from "./createStoryFields";
 
 const CreateStory = () => {
   const { user } = useAuth();
-  const {
-    register,
-    handleSubmit,
-    formState: { errors, isSubmitting },
-    reset,
-  } = useForm<CreateStoryType>();
 
   const [error, setError] = useState<string | null>(null);
   const [displaySuccessModal, setDisplaySuccessModal] = useState<boolean>(false);
@@ -47,11 +41,11 @@ const CreateStory = () => {
       setStory(response);
       setDisplaySuccessModal(true);
     } catch (error) {
-      console.log("Error generating story:", error);
+      console.error("Error generating story:", error);
       setError("Författaren spillde bläck över boken, prova en gång till.");
       setDisplayErrorModal(true);
     } finally {
-      reset();
+      console.log("Finally");
     }
   };
 
@@ -82,73 +76,13 @@ const CreateStory = () => {
         />
       )}
       {loadingStep && <FadeInOutLoader loadingState={loadingStep} />}
-      <section className={styles.formContainer}>
-        <div className={styles.fullForm}>
-          <h2>Skapa en egen saga</h2>
-          <form onSubmit={handleSubmit(onSubmit)}>
-            <InputField
-              htmlFor="mainCharacterName"
-              type="text"
-              label="Vad ska huvudkaraktären heta ?"
-              error={errors.mainCharacterName?.message}
-              placeholder="Sonja"
-              register={register}
-              name="mainCharacterName"
-              width="100%"
-              required={true}
-              requiredMessage="Ange karaktärens namn."
-              minLength={2}
-            />
-            <InputField
-              htmlFor="mainCharacterType"
-              type="text"
-              label="Vad ska huvudkaraktären vara ?"
-              error={errors.mainCharacterType?.message}
-              placeholder="Prinsessa"
-              register={register}
-              name="mainCharacterType"
-              width="100%"
-              required={true}
-              requiredMessage="Ange vad karaktären skall vara."
-              minLength={2}
-            />
-            <InputField
-              htmlFor="environment"
-              type="text"
-              label="Vilken miljö ska sagan utspelas i ?"
-              error={errors.environment?.message}
-              placeholder="En magisk skog"
-              register={register}
-              name="environment"
-              width="100%"
-              required={true}
-              requiredMessage="Du måste ange en miljö."
-              minLength={2}
-            />
-            <InputField
-              htmlFor="targetedAge"
-              type="number"
-              label="Barnets ålder ?"
-              error={errors.targetedAge?.message}
-              placeholder="3"
-              register={register}
-              name="targetedAge"
-              width="100%"
-              required={true}
-              requiredMessage="Du måste ange barnets ålder."
-              min={1}
-            />
-            <div className={styles.buttonContainer}>
-              <button className="autumnSuccessButton" type="submit" disabled={isSubmitting}>
-                Skapa berättelsen
-              </button>
-              <button className={styles.resetButton} type="reset" onClick={() => reset()} disabled={isSubmitting}>
-                Återställ
-              </button>
-            </div>
-          </form>
-        </div>
-      </section>
+      <GenericForm<CreateStoryType>
+        fields={createStoryFields}
+        onSubmit={onSubmit}
+        formTitle="Skapa din saga"
+        submitFormButtonText="Skapa saga"
+        resetFormButtonText="Återställ"
+      />
     </>
   );
 };
