@@ -1,5 +1,5 @@
+import { FieldConfigType } from "@components/forms/fields/Models";
 import { CreateStoryType } from "@models/StoryTypes";
-import { FieldConfigType } from "../fields/Models";
 
 const createStoryFields: FieldConfigType<CreateStoryType>[] = [
   {

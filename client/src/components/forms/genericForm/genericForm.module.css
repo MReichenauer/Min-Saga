@@ -7,6 +7,7 @@
 }
 
 .fullForm {
+    margin-top: var(--spacing-xs);
     padding: 0.5rem 1.25rem;
     height: fit-content;
     width: 100%;
@@ -53,4 +54,10 @@
 
 .resetButton:hover {
     background-color: var(--autumn-danger-button-color-hover);
+}
+
+@media screen and (min-height: 650px) {
+    .fullForm {
+        margin-top: 0;
+    }
 }
