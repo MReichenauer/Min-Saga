@@ -61,7 +61,7 @@ const InputField = <T extends FieldValues>({
               ? { value: /^\d+$/, message: "Ogiltigt nummer" }
               : type === "text"
               ? {
-                  value: /^(?=[A-Za-zÅÄÖåäö]*[A-Za-zÅÄÖåäö])[A-Za-zÅÄÖåäö]+([A-Za-zÅÄÖåäö\s]+[A-Za-zÅÄÖåäö]+)*$/, // Regexen
+                  value: /^(?=[A-Za-zÅÄÖåäö]*[A-Za-zÅÄÖåäö])[A-Za-zÅÄÖåäö]+([A-Za-zÅÄÖåäö\s]+[A-Za-zÅÄÖåäö]+)*$/,
 
                   message: "Endast bokstäver och mellanslag är tillåtna",
                 }

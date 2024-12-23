@@ -85,7 +85,6 @@ const CreateStory = () => {
       <section className={styles.formContainer}>
         <div className={styles.fullForm}>
           <h2>Skapa en egen saga</h2>
-          {loadingStep && <p className={styles.loadingText}>{loadingStep}</p>}
           <form onSubmit={handleSubmit(onSubmit)}>
             <InputField
               htmlFor="mainCharacterName"

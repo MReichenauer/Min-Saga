@@ -11,6 +11,7 @@ import VariablesPage from "@pages/variablesPage/VariablesPage";
 import ProtectedRoutes from "@components/protectedRoutes/ProtectedRoutes";
 import useAuth from "@hooks/auth/useAuth";
 import Navigation from "@components/navigation/Navigation";
+import RegisterAccountPage from "@pages/registerAccountPage/RegisterAccountPage";
 
 function App() {
   const { user } = useAuth();
@@ -18,6 +19,7 @@ function App() {
     <div id="appContainer">
       {user && <Navigation />}
       <Routes>
+        <Route path="/register-account" element={<RegisterAccountPage />} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/*" element={<NotFoundPage />} />
         <Route path="/variables" element={<VariablesPage />} />

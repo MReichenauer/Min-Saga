@@ -1,5 +1,7 @@
 import useAuth from "@hooks/auth/useAuth";
 import styles from "./loginPage.module.css";
+import { Link } from "react-router-dom";
+
 const LoginPage = () => {
   const { signInWithGoogle, loading } = useAuth();
 
@@ -22,7 +24,7 @@ const LoginPage = () => {
             <button
               aria-label="Sign in with email and password"
               className="autumnPrimaryButton"
-              onClick={() => console.log("sign in with email")}
+              onClick={() => console.log("Sign in with email and password")}
               disabled={loading}
             >
               Email och lösenord
@@ -31,9 +33,7 @@ const LoginPage = () => {
           <div className={styles.registerContainer}>
             <p>Saknar du ett konto? </p>
             <p>
-              <span aria-label="register account link" className={styles.registerLink}>
-                Registrera dig
-              </span>
+              <Link to={"/register-account"}>Registrera dig här</Link>
             </p>
           </div>
         </section>
