@@ -1,0 +1,31 @@
+.container {
+    min-height: 100vh;
+    min-width: 100vw;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+   
+}
+.contentContainer {
+    width: 100%;
+    height: 85vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.container h1{
+    color:var(--autumn-extra-100);
+    width: 100%;
+    margin: 0;
+    text-align: center;
+    padding: var(--spacing-xxs);
+    background: rgba(106, 42, 5, 0.89);
+    border-bottom: 1px solid var(--autumn-border-color);
+    box-shadow: 0 0 10px var(--autumn-border-color), 0 0 4px rgba(255, 223, 186, 0.15);
+}
+
+
+
+

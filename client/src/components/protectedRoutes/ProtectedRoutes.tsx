@@ -9,7 +9,7 @@ const ProtectedRoutes = () => {
     return <div>Loading...</div>;
   }
 
-  return user ? <Outlet /> : <Navigate to="/login" state={{ from: location }} />;
+  return user && user.emailVerified ? <Outlet /> : <Navigate to="/login" state={{ from: location }} />;
 };
 
 export default ProtectedRoutes;

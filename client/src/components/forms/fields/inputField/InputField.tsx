@@ -3,7 +3,7 @@ import styles from "./inputField.module.css";
 
 type InputFieldProps<T extends FieldValues> = {
   htmlFor: string;
-  type: "text" | "number";
+  type: "text" | "number" | "password" | "email";
   label: string;
   error?: string;
   placeholder: string;
@@ -17,6 +17,7 @@ type InputFieldProps<T extends FieldValues> = {
   minMessage?: string;
   minLength?: number;
   minLengthMessage?: string;
+  validate?: (value: string, context?: T) => true | string;
 };
 
 const InputField = <T extends FieldValues>({
@@ -35,6 +36,7 @@ const InputField = <T extends FieldValues>({
   minMessage,
   minLength,
   minLengthMessage,
+  validate,
 }: InputFieldProps<T>) => {
   return (
     <div className={styles.inputContainer} style={{ width: width, height: height }}>
@@ -51,21 +53,28 @@ const InputField = <T extends FieldValues>({
           minLength:
             type === "text" && minLength
               ? { value: minLength, message: minLengthMessage || `Måste innehålla minst ${minLength} bokstäver` }
+              : type === "password" && minLength
+              ? { value: minLength, message: minLengthMessage || `Måste innehålla minst ${minLength} tecken` }
               : undefined,
           min:
             type === "number" && min
               ? { value: min, message: minMessage || `Talet får inte vara mindre änn ${min}` }
               : undefined,
           pattern:
-            type === "number"
+            type === "email"
+              ? {
+                  value: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/i,
+                  message: "Ogiltig e-postadress",
+                }
+              : type === "number"
               ? { value: /^\d+$/, message: "Ogiltigt nummer" }
               : type === "text"
               ? {
-                  value: /^(?=[A-Za-zÅÄÖåäö]*[A-Za-zÅÄÖåäö])[A-Za-zÅÄÖåäö]+([A-Za-zÅÄÖåäö\s]+[A-Za-zÅÄÖåäö]+)*$/, // Regexen
-
+                  value: /^(?=[A-Za-zÅÄÖåäö]*[A-Za-zÅÄÖåäö])[A-Za-zÅÄÖåäö]+([A-Za-zÅÄÖåäö\s]+[A-Za-zÅÄÖåäö]+)*$/,
                   message: "Endast bokstäver och mellanslag är tillåtna",
                 }
               : undefined,
+          validate: validate,
         })}
       />
       <span className={styles.error}>{error || ""}</span>

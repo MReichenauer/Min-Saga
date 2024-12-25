@@ -6,7 +6,7 @@ import GenericModal from "@components/genericModal/GenericModal";
 import { Link } from "react-router-dom";
 
 type StoryListProps = {
-  stories: StoryType[];
+  stories: StoryType[] | [];
 };
 
 const StoryList: React.FC<StoryListProps> = ({ stories }) => {
