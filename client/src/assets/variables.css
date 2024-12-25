@@ -177,7 +177,7 @@ body {
 }
 
 
-div, section, article {
+div, section, article, ul, li {
    box-sizing: border-box;
 }
 
@@ -324,10 +324,7 @@ a {
  }
 
  .darkPage {
-   position:fixed;
-   top: 0;
-   bottom: 0;
-   left: 0;
+  height: fit-content;
    min-width: 100vw;
    min-height: 100vh;
    width: 100%;
@@ -339,7 +336,7 @@ a {
    max-width: 1200px;
    min-height: 100%;
    margin: 0 auto;
-   padding: 0 var(--spacing-sm);
+   padding: 0 var(--spacing-xxs);
  }
 
  .mt-1 {

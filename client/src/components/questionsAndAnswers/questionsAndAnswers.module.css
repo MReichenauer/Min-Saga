@@ -14,7 +14,6 @@
     margin-bottom: 1.25rem;
     width: 100%;
     max-width: 45rem;
-    margin-left: -1.8rem;
 }
 
 .faqContainer ul {
@@ -36,7 +35,7 @@
 
 .answer {
     color: var(--autumn-extra-100);
-    padding-top: 0.4rem;
+    padding-top: var(--spacing-xxs);
 }
 
 .questionItem {
