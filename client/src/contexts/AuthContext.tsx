@@ -42,7 +42,8 @@ const AuthContextProvider: React.FC<PropsWithChildren> = ({ children }) => {
       setUser(res.user);
       navigate(location.state?.from || "/");
     } catch (error) {
-      console.error("Error signing in with Email:", error);
+      console.error("Error creating account:", error);
+      throw error;
     } finally {
       setLoading(false);
     }

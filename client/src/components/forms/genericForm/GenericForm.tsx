@@ -25,7 +25,7 @@ const GenericForm = <T extends FieldValues>({
   const {
     register,
     handleSubmit,
-    formState: { errors, isSubmitting },
+    formState: { errors, isSubmitting, isSubmitSuccessful },
     reset,
     watch,
   } = useForm<T>();
@@ -33,9 +33,17 @@ const GenericForm = <T extends FieldValues>({
   const handleFormSubmit: SubmitHandler<T> = async (data) => {
     try {
       await onSubmit(data);
-      reset();
+      if (isSubmitSuccessful) {
+        reset();
+      }
     } catch (error) {
-      console.error("Error submitting form:", error);
+      if (error instanceof Error) {
+        console.error("Error in form submit:", error);
+        throw new Error("Error in form submit");
+      } else {
+        console.error("Unexpected error in form submit:", error);
+        throw new Error("Unexpected error in form submit");
+      }
     }
   };
 

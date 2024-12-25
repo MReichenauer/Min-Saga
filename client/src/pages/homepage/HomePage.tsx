@@ -3,7 +3,7 @@ import useAuth from "@hooks/auth/useAuth";
 const HomePage = () => {
   const { user } = useAuth();
 
-  console.log("VARIFY", user?.emailVerified);
+  console.log("user", user);
 
   return (
     <div>

@@ -66,7 +66,6 @@ const BigNav = () => {
         aria-hidden={!profileIsOpen}
       >
         <ul>
-          <li tabIndex={0}>Profil</li>
           <li tabIndex={0} aria-label="logout" onClick={logout}>
             Logga ut
           </li>

@@ -17,11 +17,6 @@ const SmallNav = () => {
     setNavIsOpen(!navIsOpen);
   };
 
-  const handleProfile = () => {
-    navigate("/profile");
-    setNavIsOpen(false);
-  };
-
   const handleLogout = () => {
     logout();
     navigate("/login");
@@ -74,15 +69,9 @@ const SmallNav = () => {
           >
             Logga ut
           </button>
-          <button
-            aria-label="Profile"
-            onClick={handleProfile}
-            className={styles.profileButton}
-            onMouseDown={handleMouseDown}
-            onMouseUp={handleMouseUp}
-          >
+          <div aria-label="Profile" className={styles.profileImgContainer}>
             <img src={userImg} alt={`image of ${user?.displayName}`} />
-          </button>
+          </div>
         </div>
       </div>
     </nav>

@@ -5,9 +5,10 @@ import GenericModal from "@components/genericModal/GenericModal";
 import { useEffect, useState } from "react";
 
 const LoginPage = () => {
-  const { signInWithGoogle, loading, user } = useAuth();
+  const { signInWithGoogle, loading, user, logout } = useAuth();
   const [confirmEmailModal, setConfirmEmailModal] = useState<boolean>(false);
 
+  // Check if user is logged in and email is not verified. If that is the case show modal.
   useEffect(() => {
     if (user && !user.emailVerified) {
       setConfirmEmailModal(true);
@@ -20,9 +21,11 @@ const LoginPage = () => {
         onClose={() => setConfirmEmailModal(false)}
         primaryButtonAction={() => setConfirmEmailModal(false)}
         primaryButtonText="Förstått"
+        dangerButtonAction={() => logout()}
+        dangerButtonText="Logga ut"
         displayModal={confirmEmailModal}
         title="Bekräfta ditt konto"
-        content={`För att fortsätta behöver du bekräfta ditt konto. Kolla din inkorg för din e-post ${user?.email}.`}
+        content={`För att fortsätta behöver du bekräfta ditt konto. Kolla din inkorg för din e-post ${user?.email}. Ladda sedan om sidan.`}
       />
 
       <div className={styles.container}>
