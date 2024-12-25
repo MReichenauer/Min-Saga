@@ -10,7 +10,7 @@ import {
 } from "firebase/auth";
 import { createContext, PropsWithChildren, useEffect, useState } from "react";
 import { auth, googleProvider } from "@services/firebase";
-import { useLocation, useNavigate } from "react-router-dom";
+import useNavigateBack from "@hooks/helpers/useNavigateBack";
 
 type AuthContextType = {
   signInWithGoogle: () => Promise<void>;
@@ -31,16 +31,14 @@ const AuthContextProvider: React.FC<PropsWithChildren> = ({ children }) => {
   const [uid, setUid] = useState<string>("");
   const [userImg, setUserImg] = useState<string>("");
   const [loading, setLoading] = useState<boolean>(true);
-
-  const navigate = useNavigate();
-  const location = useLocation();
+  const navigateBack = useNavigateBack();
 
   const registerWithEmail = async (email: string, password: string) => {
     try {
       const res = await createUserWithEmailAndPassword(auth, email, password);
       await sendEmailVerification(res.user);
       setUser(res.user);
-      navigate(location.state?.from || "/");
+      navigateBack();
     } catch (error) {
       console.error("Error creating account:", error);
       throw error;
@@ -53,7 +51,7 @@ const AuthContextProvider: React.FC<PropsWithChildren> = ({ children }) => {
     try {
       const res = await signInWithEmailAndPassword(auth, email, password);
       setUser(res.user);
-      navigate(location.state?.from || "/");
+      navigateBack();
     } catch (error) {
       console.error("Error signing in with Email:", error);
     } finally {
@@ -76,7 +74,7 @@ const AuthContextProvider: React.FC<PropsWithChildren> = ({ children }) => {
     try {
       const res = await signInWithPopup(auth, googleProvider);
       setUser(res.user);
-      navigate(location.state?.from || "/");
+      navigateBack();
     } catch (error) {
       console.error("Error signing in with Google:", error);
     } finally {
