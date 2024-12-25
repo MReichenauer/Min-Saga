@@ -6,7 +6,7 @@ import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
   sendPasswordResetEmail,
-  sendEmailVerification, // Add this import
+  sendEmailVerification,
 } from "firebase/auth";
 import { createContext, PropsWithChildren, useEffect, useState } from "react";
 import { auth, googleProvider } from "@services/firebase";

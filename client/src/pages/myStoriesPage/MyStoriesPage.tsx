@@ -5,6 +5,7 @@ import StoryList from "@components/storyList/StoryList";
 import GenericModal from "@components/genericModal/GenericModal";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import useReloadPage from "@hooks/helpers/useReloadPage";
 
 const MyStoriesPage = () => {
   const { uid } = useAuth();
@@ -12,10 +13,7 @@ const MyStoriesPage = () => {
   const [showNoStoriesModal, setShowNoStoriesModal] = useState<boolean>(false);
   const [showErrorModal, setShowErrorModal] = useState<boolean>(false);
   const navigate = useNavigate();
-
-  const handleReloadPage = () => {
-    window.location.reload();
-  };
+  const reloadPage = useReloadPage();
 
   useEffect(() => {
     if (status === "error" && error.message === "No stories found") {
@@ -44,7 +42,7 @@ const MyStoriesPage = () => {
       />
       <GenericModal
         closeButton={false}
-        successButtonAction={handleReloadPage}
+        successButtonAction={reloadPage}
         successButtonText="Ladda om sidan"
         primaryButtonAction={() => navigate(-1)}
         primaryButtonText="Gå tillbaka"

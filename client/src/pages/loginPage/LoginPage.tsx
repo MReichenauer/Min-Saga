@@ -3,10 +3,12 @@ import styles from "./loginPage.module.css";
 import { Link } from "react-router-dom";
 import GenericModal from "@components/genericModal/GenericModal";
 import { useEffect, useState } from "react";
+import useReloadPage from "@hooks/helpers/useReloadPage";
 
 const LoginPage = () => {
   const { signInWithGoogle, loading, user, logout } = useAuth();
   const [confirmEmailModal, setConfirmEmailModal] = useState<boolean>(false);
+  const reloadPage = useReloadPage();
 
   // Check if user is logged in and email is not verified. If that is the case show modal.
   useEffect(() => {
@@ -19,8 +21,8 @@ const LoginPage = () => {
     <>
       <GenericModal
         onClose={() => setConfirmEmailModal(false)}
-        primaryButtonAction={() => setConfirmEmailModal(false)}
-        primaryButtonText="Förstått"
+        primaryButtonAction={reloadPage}
+        primaryButtonText="Ladda om sidan"
         dangerButtonAction={() => logout()}
         dangerButtonText="Logga ut"
         displayModal={confirmEmailModal}
