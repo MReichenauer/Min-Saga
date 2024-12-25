@@ -1,0 +1,6 @@
+.contentContainer {
+    margin-top: 10vh;
+    min-height: fit-content;
+    padding: var(--spacing-xxs) var(--spacing-xs);
+    border-radius: 0.5rem;
+}

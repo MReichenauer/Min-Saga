@@ -323,6 +323,18 @@ a {
    color:var(--link-color-hover);
  }
 
+ .darkPage {
+   position:fixed;
+   top: 0;
+   bottom: 0;
+   left: 0;
+   min-width: 100vw;
+   min-height: 100vh;
+   width: 100%;
+   backdrop-filter: blur(8px); 
+   background: rgba(0, 0, 0, 0.4);
+}
+
  .pageContainer {
    max-width: 1200px;
    min-height: 100%;
