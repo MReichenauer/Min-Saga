@@ -1,9 +1,15 @@
 import { useState } from "react";
 import styles from "./questionsAndAnswers.module.css";
-import questionsAndAnswersList from "./questionsAndAnswersList";
 import { IconEnum } from "@components/svg/Models";
 import Svg from "@components/svg/svg";
-const QuestionsAndAnswers = () => {
+import { QuestionsAndAnswersListType } from "./Models";
+
+type QuestionsAndAnswersProps = {
+  title: string;
+  questionList: QuestionsAndAnswersListType[];
+};
+
+const QuestionsAndAnswers: React.FC<QuestionsAndAnswersProps> = ({ title, questionList }) => {
   const [openQuestionIndex, setOpenQuestionIndex] = useState<number | null>(null);
 
   const toggleQuestion = (index: number) => {
@@ -12,9 +18,9 @@ const QuestionsAndAnswers = () => {
 
   return (
     <section className={styles.faqContainer} aria-labelledby="faq-heading">
-      <h2 id="faq-heading">Vanliga frågor</h2>
+      <h2 id="faq-heading">{title}</h2>
       <ul>
-        {questionsAndAnswersList.map((faq, index) => (
+        {questionList.map((faq, index) => (
           <li key={index} className={`${styles.questionItem} ${openQuestionIndex === index ? styles.active : ""}`}>
             <div className={styles.questionAndToggle}>
               <p className={styles.question}>{faq.question}</p>

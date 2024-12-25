@@ -1,6 +1,6 @@
 import { QuestionsAndAnswersListType } from "./Models";
 
-const questionsAndAnswersList: QuestionsAndAnswersListType[] = [
+const commonQuestions: QuestionsAndAnswersListType[] = [
   {
     question: "Kan jag välja hur många kapitel en saga ska ha?",
     answer: "Nej, det blir alltid 5 kapitel.",
@@ -15,4 +15,4 @@ const questionsAndAnswersList: QuestionsAndAnswersListType[] = [
   },
 ];
 
-export default questionsAndAnswersList;
+export default commonQuestions;
