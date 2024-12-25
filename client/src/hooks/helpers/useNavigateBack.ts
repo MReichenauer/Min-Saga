@@ -5,7 +5,7 @@ const useNavigateBack = () => {
   const navigate = useNavigate();
 
   const navigateBack = () => {
-    if (location.key === "default") {
+    if (location.key === "default" || location.state?.from === "/login") {
       navigate("/");
     } else {
       navigate(-1);

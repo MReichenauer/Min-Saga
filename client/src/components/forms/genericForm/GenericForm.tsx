@@ -74,7 +74,7 @@ const GenericForm = <T extends FieldValues>({
             />
           ))}
           <div className={styles.buttonContainer}>
-            {primaryButtonText && primaryButtonAction && (
+            {submitFormButtonText && (
               <button className="autumnSuccessButton" type="submit" disabled={isSubmitting}>
                 {submitFormButtonText}
               </button>
