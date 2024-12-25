@@ -1,4 +1,4 @@
-import { QuestionsAndAnswersListType } from "./Models";
+import { QuestionsAndAnswersListType } from "../Models";
 
 const commonQuestions: QuestionsAndAnswersListType[] = [
   {
