@@ -8,7 +8,7 @@ const registerAccountFields = (): FieldConfigType<RegisterUserType>[] => [
     type: "email",
     placeholder: "exempel@exempel.com",
     required: true,
-    requiredMessage: "Du måste ange din epostadress",
+    requiredMessage: "Du måste ange din e-post",
   },
   {
     name: "password",
@@ -26,7 +26,7 @@ const registerAccountFields = (): FieldConfigType<RegisterUserType>[] => [
     type: "password",
     placeholder: "Bekräfta ditt lösenord",
     required: true,
-    requiredMessage: "Du måste bekräfta lösenord",
+    requiredMessage: "Du måste bekräfta ditt lösenord",
     minLength: 6,
     minLengthMessage: "Du måste ange minst 6 tecken",
     validate: (value: string, context?: RegisterUserType) => value === context?.password || "Lösenorden matchar inte",

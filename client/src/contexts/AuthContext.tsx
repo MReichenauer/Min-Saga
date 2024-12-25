@@ -11,6 +11,7 @@ import {
 import { createContext, PropsWithChildren, useEffect, useState } from "react";
 import { auth, googleProvider } from "@services/firebase";
 import useNavigateBack from "@hooks/helpers/useNavigateBack";
+import FadeInOutLoader from "@components/fadeInOutLoader/FadeInOutLoader";
 
 type AuthContextType = {
   signInWithGoogle: () => Promise<void>;
@@ -54,6 +55,7 @@ const AuthContextProvider: React.FC<PropsWithChildren> = ({ children }) => {
       navigateBack();
     } catch (error) {
       console.error("Error signing in with Email:", error);
+      throw error;
     } finally {
       setLoading(false);
     }
@@ -122,7 +124,13 @@ const AuthContextProvider: React.FC<PropsWithChildren> = ({ children }) => {
         loading,
       }}
     >
-      {loading ? <p>Loading...</p> : <>{children}</>}
+      {loading ? (
+        <>
+          <FadeInOutLoader loadingState="Laddar..." />{" "}
+        </>
+      ) : (
+        <>{children}</>
+      )}
     </AuthContext.Provider>
   );
 };

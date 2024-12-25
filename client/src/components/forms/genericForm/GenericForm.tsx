@@ -6,11 +6,12 @@ import { FieldConfigType } from "../fields/Models";
 type GenericFormProps<T extends FieldValues> = {
   fields: FieldConfigType<T>[];
   onSubmit: SubmitHandler<T>;
-  formTitle: string;
+  formTitle?: string;
   submitFormButtonText?: string;
   resetFormButtonText?: string;
   primaryButtonText?: string;
   primaryButtonAction?: () => void;
+  footer?: React.ReactNode;
 };
 
 const GenericForm = <T extends FieldValues>({
@@ -21,6 +22,7 @@ const GenericForm = <T extends FieldValues>({
   resetFormButtonText,
   primaryButtonText,
   primaryButtonAction,
+  footer,
 }: GenericFormProps<T>) => {
   const {
     register,
@@ -50,7 +52,7 @@ const GenericForm = <T extends FieldValues>({
   return (
     <section className={styles.formContainer}>
       <div className={styles.fullForm}>
-        <h2>{formTitle}</h2>
+        {formTitle && <h2>{formTitle}</h2>}
         <form onSubmit={handleSubmit(handleFormSubmit)}>
           {fields.map((field) => (
             <InputField
@@ -73,6 +75,7 @@ const GenericForm = <T extends FieldValues>({
               height={field.height}
             />
           ))}
+
           <div className={styles.buttonContainer}>
             {submitFormButtonText && (
               <button className="autumnSuccessButton" type="submit" disabled={isSubmitting}>
@@ -96,6 +99,7 @@ const GenericForm = <T extends FieldValues>({
             )}
           </div>
         </form>
+        {footer && footer}
       </div>
     </section>
   );

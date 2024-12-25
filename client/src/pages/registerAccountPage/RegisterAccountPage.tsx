@@ -44,15 +44,18 @@ const RegisterAccountPage = () => {
         title="Fel vid registrering"
         content={errorModalMessage}
       />
-      <div className={styles.pageContainer}>
-        <GenericForm<RegisterUserType>
-          fields={registerAccountFields()}
-          onSubmit={onSubmit}
-          formTitle="Skap nytt konto"
-          submitFormButtonText="Skapa konto"
-          primaryButtonText="Tillbaka till inloggning"
-          primaryButtonAction={() => navigate("/login")}
-        />
+      <div className={styles.container}>
+        <h1>Min Saga</h1>
+        <section className={styles.contentContainer}>
+          <GenericForm<RegisterUserType>
+            fields={registerAccountFields()}
+            onSubmit={onSubmit}
+            formTitle="Skap nytt konto"
+            submitFormButtonText="Skapa konto"
+            primaryButtonText="Tillbaka till inloggning"
+            primaryButtonAction={() => navigate("/login")}
+          />
+        </section>
       </div>
     </>
   );

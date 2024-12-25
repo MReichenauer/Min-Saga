@@ -9,17 +9,19 @@
 }
 
 .signInEmailAndPassContainer {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    overflow: hidden;
-    height: 90vh;
+    margin-top: -5rem;
 }
 
 .signInEmailAndPassContainer > section > div  {
-    margin-top: -10vh;
+    
     width: 21.25rem;
     padding: var(--spacing-xs) var(--spacing-md);
+}
+
+.signInEmailAndPassFooter {
+    display: flex;
+    justify-content: center;
+    color: var(--autumn-100)
 }
 
 
@@ -98,6 +100,16 @@
     text-decoration: underline;
 }
 
+.resetPassword {
+    cursor: pointer;
+    color: var(--link-color);
+}
+
+.resetPassword:hover {
+    color: var(--link-color-hover);
+    text-decoration: underline;
+}
+
 @media screen and (max-width: 400px) {
     .authenticationContainer {
         max-width: 18.75rem;
@@ -107,5 +119,11 @@
 @media screen and (min-width: 695px) {
     .contentContainer {
         margin-top: 20vh;
+    }
+}
+
+@media  screen and (min-height: 660px) {
+    .signInEmailAndPassContainer {
+        margin-top: -3.5rem;
     }
 }
