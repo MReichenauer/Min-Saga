@@ -6,6 +6,7 @@ import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
   sendPasswordResetEmail,
+  sendEmailVerification, // Add this import
 } from "firebase/auth";
 import { createContext, PropsWithChildren, useEffect, useState } from "react";
 import { auth, googleProvider } from "@services/firebase";
@@ -37,6 +38,7 @@ const AuthContextProvider: React.FC<PropsWithChildren> = ({ children }) => {
   const registerWithEmail = async (email: string, password: string) => {
     try {
       const res = await createUserWithEmailAndPassword(auth, email, password);
+      await sendEmailVerification(res.user);
       setUser(res.user);
       navigate(location.state?.from || "/");
     } catch (error) {
