@@ -1,0 +1,48 @@
+.darkLayer {
+    max-width: 50rem ;
+    backdrop-filter: blur(8px); 
+    height: fit-content;
+    background: rgba(0, 0, 0, 0.4);
+    border-radius: 0.5rem;
+    box-shadow: 0 0 10px var(--autumn-border-color), 0 0 4px rgba(255, 223, 186, 0.15);
+}
+
+.container {
+    border-radius: 0.5rem;
+    background: rgba(106, 42, 5, 0.4);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    padding:0.15rem var(--spacing-xs)  var(--spacing-xs) var(--spacing-xs) ;
+}
+
+.paragraph {
+    margin: var(--spacing-xxs) 0 ;
+    padding: 0; 
+    color: var(--autumn-extra-100);
+}
+
+.header h1, h2, h3, h4 {
+    margin: 0;
+    padding: 0;
+    color: var(--autumn-extra-200);
+}
+
+
+.emphasize {
+    display: flex;
+    margin-top: var(--spacing-xxs);
+    font-size: calc(var(--font-size) * 0.9);
+    line-height: var(--line-height-xxs);
+    color: var(--autumn-200);
+}
+
+@media screen and (min-width: 695px) {
+    .container {
+        padding:0.5rem var(--spacing-xs)  var(--spacing-xs) var(--spacing-xs) ;
+
+    }
+}
+
+
+
+
