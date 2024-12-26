@@ -23,6 +23,7 @@ type AuthContextType = {
   userImg: string;
   loading: boolean;
   uid: string;
+  userEmail: string;
 };
 
 const AuthContext = createContext<AuthContextType | null>(null);
@@ -30,6 +31,7 @@ const AuthContext = createContext<AuthContextType | null>(null);
 const AuthContextProvider: React.FC<PropsWithChildren> = ({ children }) => {
   const [user, setUser] = useState<User | null>(null);
   const [uid, setUid] = useState<string>("");
+  const [userEmail, setUserEmail] = useState<string>("");
   const [userImg, setUserImg] = useState<string>("");
   const [loading, setLoading] = useState<boolean>(true);
   const navigateBack = useNavigateBack();
@@ -104,6 +106,9 @@ const AuthContextProvider: React.FC<PropsWithChildren> = ({ children }) => {
             "https://media.istockphoto.com/id/1131164548/vector/avatar-5.jpg?s=612x612&w=0&k=20&c=CK49ShLJwDxE4kiroCR42kimTuuhvuo2FH5y_6aSgEo=" // add default image
         );
         setUid(currentUser.uid);
+        if (currentUser.email) {
+          setUserEmail(currentUser.email);
+        }
       }
       setLoading(false);
     });
@@ -121,6 +126,7 @@ const AuthContextProvider: React.FC<PropsWithChildren> = ({ children }) => {
         user,
         userImg,
         uid,
+        userEmail,
         loading,
       }}
     >

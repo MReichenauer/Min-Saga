@@ -32,10 +32,14 @@ const GenericForm = <T extends FieldValues>({
     watch,
   } = useForm<T>();
 
+  type ResponseStatus = {
+    status: number;
+  };
+
   const handleFormSubmit: SubmitHandler<T> = async (data) => {
     try {
-      await onSubmit(data);
-      if (isSubmitSuccessful) {
+      const response = (await onSubmit(data)) as ResponseStatus;
+      if (isSubmitSuccessful || response.status === 200) {
         reset();
       }
     } catch (error) {

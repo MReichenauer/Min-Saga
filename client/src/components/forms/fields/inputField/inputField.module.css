@@ -36,7 +36,7 @@
 .inputField::placeholder {
     font-size: var(--font-size);
     color: var(--autumn-500-dark);
-    opacity: 0.6;
+    opacity: 0.45;
 }
 
 .inputField:focus {

@@ -3,10 +3,10 @@ import styles from "./inputField.module.css";
 
 type InputFieldProps<T extends FieldValues> = {
   htmlFor: string;
-  type: "text" | "number" | "password" | "email";
+  type: "text" | "number" | "password" | "email" | "textarea";
   label: string;
   error?: string;
-  placeholder: string;
+  placeholder?: string;
   register: UseFormRegister<T>;
   name: Path<T>;
   width?: string;
@@ -47,7 +47,9 @@ const InputField = <T extends FieldValues>({
         id={htmlFor}
         type={type}
         placeholder={placeholder}
-        className={`${styles.inputField} ${error ? styles.errorInput : ""}`}
+        className={` ${styles.inputField} ${type === "textarea" ? styles.textArea : ""} ${
+          error ? styles.errorInput : ""
+        }`}
         {...register(name, {
           required: required ? requiredMessage || "Du måste fylla i detta fält." : false,
           minLength:
