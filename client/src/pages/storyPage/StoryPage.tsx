@@ -47,10 +47,10 @@ const StoryPage = () => {
                 {data.description}
               </p>
             </header>
-            <main className={styles.main}>
-              <Book story={data} />
-            </main>
           </section>
+          <main className={styles.main}>
+            <Book story={data} />
+          </main>
         </div>
       </div>
     );

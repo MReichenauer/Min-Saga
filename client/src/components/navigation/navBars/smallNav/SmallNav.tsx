@@ -45,12 +45,12 @@ const SmallNav = () => {
         <ul className={styles.navLinks}>
           <li>
             <NavLink to={"/my-stories"} onClick={() => setNavIsOpen(false)}>
-              Mina berättelser
+              Mina sagor
             </NavLink>
           </li>
           <li>
             <NavLink to={"/create-story"} onClick={() => setNavIsOpen(false)}>
-              Skapa en berättelse
+              Skapa en saga
             </NavLink>
           </li>
           <li>

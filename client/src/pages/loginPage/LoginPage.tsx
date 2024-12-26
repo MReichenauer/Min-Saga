@@ -57,6 +57,12 @@ const LoginPage = () => {
     setShowResetPasswordSuccessModal(false);
     setShowResetPasswordForm(false);
   };
+
+  const handleResetPasswordFromWrongPasswordModal = () => {
+    setShowWrongCredentialsModal(false);
+    setShowResetPasswordForm(true);
+  };
+
   const handleResetPassword = async (data: ResetPasswordType) => {
     try {
       await resetPassword(data.email);
@@ -86,7 +92,10 @@ const LoginPage = () => {
           <>
             <p>Där finns inte något registrerat konto med denna e-post och lösenords kombination.</p>{" "}
             <p>
-              Har du glömt ditt lösenord? <span className={styles.resetPassword}>Återställ lösenord</span>
+              Har du glömt ditt lösenord?{" "}
+              <span onClick={handleResetPasswordFromWrongPasswordModal} className={styles.resetPassword}>
+                Återställ lösenord
+              </span>
             </p>
           </>
         }
