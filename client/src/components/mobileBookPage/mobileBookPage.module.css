@@ -4,17 +4,24 @@
     background-color:color-mix(in srgb, var(--secondary-color-light) 30%, var(--almost-white) 70%);
 }
 
+.contentContainer {
+ margin: var(--spacing-xs);
+ 
+}
+
 .pageContainer img {
-    height: 40%;
+    height: 60%;
     object-fit: fill;
 }
 
 .pageContainer p {
     margin: 0.25rem 0.5rem;
+    line-height: var(--line-height-md);
 }
 
 .pageContainer h2 {
-    font-size: var(--font-size);
+    color: var(--autumn-extra-300);
+    font-size: calc(var(--font-size) * 1.1);
     margin: 0.25rem 0 0 0.5rem;
     line-height: var(--line-height-sm);
 }

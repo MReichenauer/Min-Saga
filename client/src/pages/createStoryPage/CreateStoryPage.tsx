@@ -9,6 +9,7 @@ import FadeInOutLoader from "@components/fadeInOutLoader/FadeInOutLoader";
 import GenericModal from "@components/genericModal/GenericModal";
 import GenericForm from "@components/forms/genericForm/GenericForm";
 import createStoryFields from "@components/forms/genericForm/fields/createStoryFields";
+import styles from "./createStoryPage.module.css";
 
 const CreateStoryPage = () => {
   const { user } = useAuth();
@@ -75,13 +76,15 @@ const CreateStoryPage = () => {
         />
       )}
       {loadingStep && <FadeInOutLoader loadingState={loadingStep} />}
-      <GenericForm<CreateStoryType>
-        fields={createStoryFields}
-        onSubmit={onSubmit}
-        formTitle="Skapa din saga"
-        submitFormButtonText="Skapa saga"
-        resetFormButtonText="Återställ"
-      />
+      <div className={styles.formContainer}>
+        <GenericForm<CreateStoryType>
+          fields={createStoryFields}
+          onSubmit={onSubmit}
+          formTitle="Skapa din saga"
+          submitFormButtonText="Skapa saga"
+          resetFormButtonText="Återställ"
+        />
+      </div>
     </div>
   );
 };
