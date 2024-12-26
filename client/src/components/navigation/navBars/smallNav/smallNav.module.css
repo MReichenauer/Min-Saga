@@ -74,7 +74,7 @@
     align-items: center;
 }
 
-.profileButton {
+.profileImgContainer {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -83,15 +83,11 @@
     aspect-ratio: 1/1;
     border-radius: 50%;
     border: none;
-    cursor: pointer;
     background-color: var(--autumn-100);
 }
 
-.profileButton:hover {
-    background-color: var(--autumn-100-light);
-}
 
-.profileButton img {
+.profileImgContainer img {
     height: 2.3rem;
     aspect-ratio: 1;
     border-radius: 50%;

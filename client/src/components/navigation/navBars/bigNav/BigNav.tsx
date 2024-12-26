@@ -30,12 +30,12 @@ const BigNav = () => {
           <ul className={styles.navLinks}>
             <li>
               <NavLink className={({ isActive }) => (isActive ? styles.active : "")} to="/my-stories">
-                Mina berättelser
+                Mina sagor
               </NavLink>
             </li>
             <li>
               <NavLink className={({ isActive }) => (isActive ? styles.active : "")} to="/create-story">
-                Skapa en berättelse
+                Skapa en saga
               </NavLink>
             </li>
             <li>
@@ -66,7 +66,6 @@ const BigNav = () => {
         aria-hidden={!profileIsOpen}
       >
         <ul>
-          <li tabIndex={0}>Profil</li>
           <li tabIndex={0} aria-label="logout" onClick={logout}>
             Logga ut
           </li>

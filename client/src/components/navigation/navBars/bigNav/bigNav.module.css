@@ -139,8 +139,7 @@
     align-items: flex-end;
     list-style: none;
     padding: 0;
-    margin: 0;
-    gap: var(--spacing-xs); 
+    margin: 0; 
     text-align: left;
     z-index: 999;
     opacity: 0;
@@ -157,7 +156,9 @@
 
  .profileActionContainer ul {
     list-style: none;
-    padding: 1rem 1.42rem;
+    align-items: center;
+    justify-content: center;
+    padding: 0.5rem 1.2rem;
     margin: 0;
     border-bottom-left-radius: 0.5rem;
     background: rgba(106, 42, 5, 0.89);
@@ -237,7 +238,6 @@
     }
 
     .profileActionContainer ul {
-        padding: var(--spacing-xs) 2.4rem;
         margin: 0;
         border-bottom-left-radius: var(--spacing-xxs);
         font-size: 1.1rem;

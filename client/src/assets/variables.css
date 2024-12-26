@@ -44,7 +44,7 @@
 
    --autumn-primary-button-color: #b9782c;
    --autumn-primary-button-color-hover: #ca8536;
-   --autumn-primary-button-color-disabled: #d6b194;
+   --autumn-primary-button-color-disabled: #a16c2f;
 
    --autumn-secondary-button-color: #c57f2e;
    --autumn-secondary-button-color-hover: #d38832;
@@ -177,7 +177,7 @@ body {
 }
 
 
-div, section, article {
+div, section, article, ul, li {
    box-sizing: border-box;
 }
 
@@ -323,11 +323,20 @@ a {
    color:var(--link-color-hover);
  }
 
+ .darkPage {
+  height: fit-content;
+   min-width: 100vw;
+   min-height: 100vh;
+   width: 100%;
+   backdrop-filter: blur(8px); 
+   background: rgba(0, 0, 0, 0.4);
+}
+
  .pageContainer {
    max-width: 1200px;
    min-height: 100%;
    margin: 0 auto;
-   padding: 0 var(--spacing-sm);
+   padding: 0 var(--spacing-xxs);
  }
 
  .mt-1 {

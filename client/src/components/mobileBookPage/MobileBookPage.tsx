@@ -14,8 +14,10 @@ const MobileBookPage: React.FC<MobilePageProps> = ({ chapter }) => {
   return (
     <div className={styles.pageContainer}>
       {chapter.image ? <img src={chapter.image} alt="chapter" /> : <h3>Detta kapitel saknar en bild.</h3>}
-      <h2>{chapter.title}</h2>
-      <p className={styles.content}>{chapter.content}</p>
+      <div className={styles.contentContainer}>
+        <h2>{chapter.title}</h2>
+        <p className={styles.content}>{chapter.content}</p>
+      </div>
     </div>
   );
 };

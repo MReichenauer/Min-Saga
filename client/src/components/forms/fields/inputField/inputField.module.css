@@ -29,14 +29,14 @@
 
 
 .errorInput{
-    border: 2px solid red;
+    border: 2px solid rgb(240, 58, 58);
     box-shadow: 0px 0px 5px 0px rgba(255, 0, 0, 0.3);
 }
 
 .inputField::placeholder {
     font-size: var(--font-size);
     color: var(--autumn-500-dark);
-    opacity: 0.6;
+    opacity: 0.45;
 }
 
 .inputField:focus {
@@ -47,7 +47,7 @@
   }
 
 .error {
-    color: red;
+    color: rgb(240, 58, 58);
     font-size: var(--font-size);
     font-weight: var(--font-weight-sm);
     margin-top: calc(var(--spacing-xxs) / 2);

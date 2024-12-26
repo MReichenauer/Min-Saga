@@ -31,36 +31,17 @@ const Book: React.FC<BookProps> = ({ story }) => {
   };
 
   return (
-    <div className={styles.bookContainer}>
-      {isPortraitMobile ? (
-        <FlipPage
-          onPageChange={(index) => setCurrentPage(index)}
-          uncutPages={true}
-          ref={flipPageRef}
-          showSwipeHint={true}
-          responsive={false}
-          width={calculatePageWidth}
-          height={calculatePageHeight}
-          startAt={0}
-          className={styles.bookComponent}
-          orientation={"horizontal"}
-          animationDuration={500}
-          pageBackground="transparent"
-        >
-          {chapters.map((chapter, index) => (
-            <div key={index} className={styles.page}>
-              <MobileBookPage chapter={chapter} />
-            </div>
-          ))}
-        </FlipPage>
-      ) : (
-        <div className={styles.bookComponentContainer}>
+    <>
+      <div className={styles.bookContainer}>
+        {isPortraitMobile ? (
           <FlipPage
             onPageChange={(index) => setCurrentPage(index)}
             uncutPages={true}
             ref={flipPageRef}
             showSwipeHint={true}
-            responsive={true}
+            responsive={false}
+            width={calculatePageWidth}
+            height={calculatePageHeight}
             startAt={0}
             className={styles.bookComponent}
             orientation={"horizontal"}
@@ -69,35 +50,57 @@ const Book: React.FC<BookProps> = ({ story }) => {
           >
             {chapters.map((chapter, index) => (
               <div key={index} className={styles.page}>
-                <BookPage chapter={chapter} />
+                <MobileBookPage chapter={chapter} />
               </div>
             ))}
           </FlipPage>
-        </div>
-      )}
-
-      <div className={styles.pageNavigation}>
-        <div className={styles.actionButtonsContainer}>
-          <button
-            className={`autumnPrimaryButton ${styles.changePageButton}`}
-            onClick={handlePreviousPage}
-            disabled={currentPage === 0}
-          >
-            <Svg size={24} icon={IconEnum.ARROWLEFT} />
-          </button>
-          <p>
-            {currentPage + 1} / {chapters.length}
-          </p>
-          <button
-            className={`autumnPrimaryButton ${styles.changePageButton}`}
-            onClick={handleNextPage}
-            disabled={currentPage === chapters.length - 1}
-          >
-            <Svg size={24} icon={IconEnum.ARROWRIGHT} />
-          </button>
+        ) : (
+          <div className={styles.bookComponentContainer}>
+            <FlipPage
+              onPageChange={(index) => setCurrentPage(index)}
+              uncutPages={true}
+              ref={flipPageRef}
+              showSwipeHint={true}
+              responsive={true}
+              startAt={0}
+              className={styles.bookComponent}
+              orientation={"horizontal"}
+              animationDuration={500}
+              pageBackground="transparent"
+            >
+              {chapters.map((chapter, index) => (
+                <div key={index} className={styles.page}>
+                  <BookPage chapter={chapter} />
+                </div>
+              ))}
+            </FlipPage>
+          </div>
+        )}
+      </div>
+      <div className={styles.pageNavigationContainer}>
+        <div className={styles.pageNavigation}>
+          <div className={styles.actionButtonsContainer}>
+            <button
+              className={`autumnPrimaryButton ${styles.changePageButton}`}
+              onClick={handlePreviousPage}
+              disabled={currentPage === 0}
+            >
+              <Svg size={24} icon={IconEnum.ARROWLEFT} />
+            </button>
+            <p>
+              {currentPage + 1} / {chapters.length}
+            </p>
+            <button
+              className={`autumnPrimaryButton ${styles.changePageButton}`}
+              onClick={handleNextPage}
+              disabled={currentPage === chapters.length - 1}
+            >
+              <Svg size={24} icon={IconEnum.ARROWRIGHT} />
+            </button>
+          </div>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 

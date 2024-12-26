@@ -16,11 +16,8 @@ const useCheckScreenSize = () => {
       setWidth(window.innerWidth);
       setHeight(window.innerHeight);
     };
-    console.log("width", width);
-    console.log("height", height);
     window.addEventListener("resize", handleResize);
     window.addEventListener("orientationchange", handleResize);
-
     return () => {
       window.removeEventListener("resize", handleResize);
       window.removeEventListener("orientationchange", handleResize);

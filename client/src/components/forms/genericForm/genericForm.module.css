@@ -3,29 +3,25 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    min-height: 92vh;
+    min-height: fit-content;
+    width: 100%;
 }
 
 .fullForm {
+    margin-top: var(--spacing-xs);
     padding: 0.5rem 1.25rem;
     height: fit-content;
     width: 100%;
     justify-content: center;
     background: rgba(106, 42, 5, 0.89);
-    border: 1px solid var(--autumn-border-color);
     box-shadow: 0 0 10px var(--autumn-border-color), 0 0 4px rgba(255, 223, 186, 0.15);
     backdrop-filter: blur(5px);
     -webkit-backdrop-filter: blur(5px);
     border-radius: 0.5rem;
-    max-width: 29.063rem;
 }
 
 .fullForm h2 {
     margin-top: 0;
-    color: var(--autumn-100);
-}
-
-.loadingText {
     color: var(--autumn-100);
 }
 
@@ -47,8 +43,6 @@
     border: 1px solid var(--autumn-border-color);
 }
 
-
-
 .resetButton {
     font-size: var(--font-size);
     margin: 0 auto;
@@ -61,3 +55,8 @@
     background-color: var(--autumn-danger-button-color-hover);
 }
 
+@media screen and (min-height: 650px) {
+    .fullForm {
+        margin-top: 0;
+    }
+}
