@@ -64,10 +64,13 @@ const gptPrompt = async (
             },
             ...
           ],
+         "chaptersEng": En exakt översättning av "chapters" till engelska i exakt samma format.
+
           "characters": [
             { "id": 1, "name": "Karaktärens namn", "type": "Typ av karaktär", "description": "Detaljerad beskrivning av karaktären", "personality": "Detaljerad beskrivning av karaktärens personlighet" },
             ...
           ]
+          "charactersEng": En exakt översättning av "characters" till engelska i exakt samma format.
         }
 
         **Extra instruktioner:**

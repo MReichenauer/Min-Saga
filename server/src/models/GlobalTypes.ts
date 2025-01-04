@@ -15,7 +15,9 @@ type StoryType = {
   createdBy: string;
   imagePrompt: string;
   chapters: ChapterType[];
+  chaptersEng: ChapterType[];
   characters: CharacterType[];
+  charactersEng: CharacterType[];
 };
 
 type CharacterType = {
