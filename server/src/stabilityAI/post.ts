@@ -1,0 +1,22 @@
+import { Request, Response } from "express";
+import createChapterImages from "../helpers/dalle/createChapterImages";
+import { StoryType } from "../models/GlobalTypes";
+
+const promptStableImage = async (request: Request, response: Response) => {
+  const story: StoryType = request.body.story;
+
+  if (!story) {
+    response.status(400).send({ error: "story is required" });
+    return;
+  }
+
+  try {
+    const storyWithImages = await createChapterImages(story);
+    response.status(200).send({ data: storyWithImages });
+  } catch (error) {
+    console.error("Error generating story images:", error);
+    response.status(500).send({ error: "An error occurred while generating the story images" });
+  }
+};
+
+export { promptStableImage };
