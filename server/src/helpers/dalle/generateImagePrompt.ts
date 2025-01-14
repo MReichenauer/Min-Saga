@@ -11,8 +11,6 @@ const generateImagePrompt = (chapter: ChapterType, characters: CharacterType[]) 
         .filter(Boolean)
         .join(" ")
     : "";
-  console.log("imageprompt", chapter.imagePrompt);
-  console.log("characterDescription", characterDescriptions);
 
   return `${chapter.imagePrompt} ${characterDescriptions}`;
 };

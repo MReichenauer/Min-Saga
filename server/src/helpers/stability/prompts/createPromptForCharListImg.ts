@@ -1,7 +1,7 @@
-import { StoryType } from "../../models/GlobalTypes";
-import { formattedCharacterList } from "./formattedCharacterList";
+import { StoryType } from "../../../models/GlobalTypes";
+import { formattedCharacterList } from "../formattedCharacterList";
 
-const promptImgOfCharacterList = (story: StoryType) => {
+export const createPromptForCharListImg = (story: StoryType) => {
   const characterList = formattedCharacterList(story.charactersEng);
 
   if (!characterList) {
@@ -13,4 +13,3 @@ const promptImgOfCharacterList = (story: StoryType) => {
     The style of the characters should be appropriate for a children's book. 
     Keep in mind that this image will be used as a reference for creating more images of the characters.`;
 };
-export { promptImgOfCharacterList };

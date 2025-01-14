@@ -4,10 +4,8 @@ import generateImagePrompt from "./generateImagePrompt";
 
 const createChapterImages = async (story: StoryType) => {
   const addImagesToChapters = await Promise.all(
-    story.chaptersEng.map(async (chapter: ChapterType) => {
-      console.log("chapter", chapter);
-      const prompt = generateImagePrompt(chapter, story.charactersEng);
-      console.log("imgPrompt", prompt);
+    story.chapters.map(async (chapter: ChapterType) => {
+      const prompt = generateImagePrompt(chapter, story.characters);
       try {
         const image = await imgPrompt(prompt);
         return { ...chapter, image };

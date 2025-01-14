@@ -3,11 +3,12 @@ import FormData from "form-data";
 
 const stabilityApiToken = process.env.STABILITY_API_TOKEN;
 
-const generateImageOfCharacterList = async (prompt: string) => {
+export const createImgOfChapter = async (prompt: string, seed: string) => {
   const payload = {
     prompt,
     style: "digital-art",
     output_format: "webp",
+    seed,
   };
 
   try {
@@ -25,18 +26,13 @@ const generateImageOfCharacterList = async (prompt: string) => {
     );
 
     if (response.status === 200) {
-      const seed = response.headers["seed"];
       const imageBuffer = Buffer.from(response.data);
       return { imageBuffer, seed };
     } else {
-      throw new Error(
-        `Error generating image of character list: code: ${response.status} message: ${response.statusText}`
-      );
+      throw new Error(`Error generating image of chapter: code: ${response.status} message: ${response.statusText}`);
     }
   } catch (error) {
-    console.error("Error in generateImageOfCharacterList:", error);
+    console.error("Error in createImgOfChapter:", error);
     throw new Error("An error occurred while generating the image");
   }
 };
-
-export default generateImageOfCharacterList;

@@ -3,7 +3,7 @@ import { CharacterType } from "../../models/GlobalTypes";
 const createCharacterDescription = (character: CharacterType) => {
   return `${
     character.name
-  } is a ${character.type.toLowerCase()}, described as ${character.description.toLowerCase()}. ${
+  } är en ${character.type.toLowerCase()} som beskrivs som ${character.description.toLowerCase()}. ${
     character.personality
   }.`;
 };
