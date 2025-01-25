@@ -7,6 +7,7 @@ export const generateAndUploadChapterImgs = async (story: StoryType, seed: strin
   const addImagesToChapters = await Promise.all(
     story.chaptersEng.map(async (chapter: ChapterType) => {
       const prompt = createPromptForChapterImg(chapter, story.charactersEng, seed);
+      console.log("create prompt for chapter img prompt", prompt);
       try {
         const { imageBuffer } = await createImgOfChapter(prompt, seed);
         const fileName = `images/${Date.now()}_${seed}.webp`;

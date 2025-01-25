@@ -6,6 +6,7 @@ import { createPromptForCharListImg } from "./stability/prompts/createPromptForC
 export const createAndUploadRefImg = async (story: StoryType): Promise<{ imgUrl: string; seed: string }> => {
   try {
     const prompt = createPromptForCharListImg(story);
+    console.log("create and upload ref prompt", prompt);
     const { imageBuffer, seed } = await createImgOfCharacterList(prompt);
     const fileName = `images/${Date.now()}_${seed}.webp`;
     const imgUrl = await uploadImgToFirebaseFromMemory(imageBuffer, fileName, "image/webp");

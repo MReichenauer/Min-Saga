@@ -4,6 +4,7 @@ import dotenv from "dotenv";
 import gptRouter from "../src/openaiApi/routes";
 import dalleRouter from "../src/openaiApi/dalle/routes";
 import firebaseRouter from "../src/firebaseApi/routes";
+import { stabilityRouter } from "../src/stabilityAI/routes";
 
 dotenv.config();
 const app = express();
@@ -25,6 +26,7 @@ app.use("/gpt", gptRouter);
 
 // Generate images
 app.use("/dalle", dalleRouter);
+app.use("/stability", stabilityRouter);
 
 // Communicate with firebase
 app.use("/firebase", firebaseRouter);

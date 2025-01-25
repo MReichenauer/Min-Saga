@@ -16,7 +16,7 @@ const promptStableImage = async (request: Request, response: Response) => {
 
   try {
     const storyWithImages = await generateAndUploadChapterImgs(story, seed);
-    response.status(200).send({ data: storyWithImages });
+    response.status(200).send({ refimg: imgUrl, data: storyWithImages });
   } catch (error) {
     console.error("Error generating story images:", error);
     response.status(500).send({ error: "An error occurred while generating the story images" });

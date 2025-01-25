@@ -1,7 +1,7 @@
 import axios from "axios";
 import FormData from "form-data";
 
-const stabilityApiToken = process.env.STABILITY_API_TOKEN;
+const stabilityApiToken = process.env.STABILITY_AI_TOKEN;
 
 export const createImgOfCharacterList = async (prompt: string) => {
   const payload = {
@@ -11,6 +11,7 @@ export const createImgOfCharacterList = async (prompt: string) => {
   };
 
   try {
+    console.log(stabilityApiToken);
     const response = await axios.postForm(
       "https://api.stability.ai/v2beta/stable-image/generate/core",
       axios.toFormData(payload, new FormData()),
@@ -18,7 +19,7 @@ export const createImgOfCharacterList = async (prompt: string) => {
         validateStatus: undefined,
         responseType: "arraybuffer",
         headers: {
-          Authorization: `Bearer ${stabilityApiToken}`,
+          Authorization: stabilityApiToken,
           Accept: "image/*",
         },
       }

@@ -1,7 +1,7 @@
 import axios from "axios";
 import FormData from "form-data";
 
-const stabilityApiToken = process.env.STABILITY_API_TOKEN;
+const stabilityApiToken = process.env.STABILITY_AI_TOKEN;
 
 export const createImgOfChapter = async (prompt: string, seed: string) => {
   const payload = {
@@ -19,7 +19,7 @@ export const createImgOfChapter = async (prompt: string, seed: string) => {
         validateStatus: undefined,
         responseType: "arraybuffer",
         headers: {
-          Authorization: `Bearer ${stabilityApiToken}`,
+          Authorization: stabilityApiToken,
           Accept: "image/*",
         },
       }
