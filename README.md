@@ -18,14 +18,20 @@ Developed in React 18 with React Hook Form to manage form states, Axios for API 
 Developed in Node.js integrated with OpenAI’s (GPT & Dalle models) to generate stories and images, Firebase (Storage & Database) to store the images and story objects.
 
 ### Tech stack
-React, TypeScript, React Hook Form, React Router, Tanstack Query, Firebase (Authentication, Storage, Database), Node.js, Express
+React, TypeScript, React Hook Form, React Router, Tanstack Query, Firebase (Authentication, Storage, Database), Node.js, Express.
+
+### Documentation
+* OpenAI (Using gpt-4o-mini & dall-e-3 models): https://platform.openai.com/docs/api-reference/introduction
+* Firebase Storage: https://firebase.google.com/docs/storage/admin/start
+* Firebase Database: https://firebase.google.com/docs/database/admin/start#node.js
+* Firebase Authentication: https://firebase.google.com/docs/auth/web/start
 
 ## How to run project locally
 1. Clone reprository.
 2. Create a .env in the server folder _follow the structure of .env.example with your own credentials_.
 3. Create a .env in the client folder _follow the structure of .env.example with your own credentials_.
-4. Run `npm i` in the root of the server folder to install the necessary dependencies. 
-5. Run `npm i` in the root of the client folder to install the necessary dependencies. 
-6. Run `npm run devServer` in the root of the server folder to start the server locally.
-7. Run `npm run dev` in the root of the client folder to start the client locally.
+4. Run `npm i` in the **server folder** to install the necessary server dependencies. 
+5. Run `npm i` in the **client folder** to install the necessary client dependencies. 
+6. Run `npm run devServer` in the **client folder** to start the server locally.
+7. Run `npm run dev` in the **server folder** to start the client locally.
  
