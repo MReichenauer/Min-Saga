@@ -1,5 +1,5 @@
 # Min-Saga
-**Note** I will continue to push this project into newer versions, this will include making sure it follows WCAG 2.1 (minimum), configurate the interactions with GPT model and replace Dalle with Stable Diffusion. If you want to contribute in anyway feel free to contact me.
+**Note:** I will continue to push this project into newer versions, this will include making sure it follows WCAG 2.1 (minimum), configurate the interactions with GPT model and replace Dalle with Stable Diffusion. If you want to contribute in anyway feel free to contact me.
 
 ## Project Overview
 Full-stack web application where users can create, save, and read story tales.
