@@ -32,6 +32,6 @@ React, TypeScript, React Hook Form, React Router, Tanstack Query, Firebase (Auth
 3. Create a .env in the client folder _follow the structure of .env.example with your own credentials_.
 4. Run `npm i` in the **server folder** to install the necessary server dependencies. 
 5. Run `npm i` in the **client folder** to install the necessary client dependencies. 
-6. Run `npm run devServer` in the **client folder** to start the server locally.
-7. Run `npm run dev` in the **server folder** to start the client locally.
+6. Run `npm run devServer` in the **server folder** to start the server locally.
+7. Run `npm run dev` in the **client folder** to start the client locally.
  
